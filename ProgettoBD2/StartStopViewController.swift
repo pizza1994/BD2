@@ -14,7 +14,8 @@ class StartStopViewController: UIViewController {
     @IBOutlet weak var exName: UILabel!
     
     var exNameString : String!
-
+    var timerCount : UInt8 = 5
+    var timer : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +34,29 @@ class StartStopViewController: UIViewController {
     @IBAction func startStopToggle(button: UIButton){
         
         if(button.tag == 0){
-            button.setTitle("STOP", for: .normal)
-            button
-                .tag = 1;
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            button.isUserInteractionEnabled = false
+            button.tag = 1
         }
         else{
-            button.tag = 0;
+
+            let RecapSetController = self.storyboard?.instantiateViewController(withIdentifier: "RSController") as! RecapSetViewController
+            self.navigationController?.pushViewController(RecapSetController, animated: true)
+            
         }
+        
+    }
+    
+    func update(){
+        
+        timerCount-=1
+        if(timerCount == 0){
+            startStopButton.setTitle("STOP", for: .normal)
+            timer?.invalidate()
+            startStopButton.isUserInteractionEnabled = true
+
+        }
+        
         
         
     }
