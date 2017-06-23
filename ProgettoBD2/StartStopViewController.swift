@@ -11,10 +11,15 @@ import UIKit
 class StartStopViewController: UIViewController {
 
     @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var exName: UILabel!
     
+    var exNameString : String!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        exName.text = exNameString!
 
         // Do any additional setup after loading the view.
     }
@@ -28,8 +33,9 @@ class StartStopViewController: UIViewController {
     @IBAction func startStopToggle(button: UIButton){
         
         if(button.tag == 0){
-            
-            button.tag = 1;
+            button.setTitle("STOP", for: .normal)
+            button
+                .tag = 1;
         }
         else{
             button.tag = 0;
