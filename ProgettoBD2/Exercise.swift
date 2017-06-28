@@ -1,6 +1,6 @@
 //
 //  Exercise.swift
-//  porva2Estimote
+//  ProgettoBD2
 //
 //  Created by Giovanni Laerte Frongia on 23/06/17.
 //  Copyright © 2017 BardOZ. All rights reserved.
@@ -15,8 +15,14 @@ class Exercise{
     var nSets : UInt8!
     var date : Date!
     var sets = [[Double]]()
+    var weights = [Double]()
     var temperature : UnitTemperature!
     
+    init (exerciseName : String, temperature : UnitTemperature, date : NSDate, weight : Double, set : Array<Double>){
+        self.exerciseName = exerciseName
+        self.temperature = temperature
+        self.date = date
+        addSet(setToAdd: set, weightToAdd: weight)
     
     init(exName : String!, set : Array<Double>!, temperature : UnitTemperature!){
         
@@ -30,7 +36,31 @@ class Exercise{
     func addSet(setToAdd : Array<Double>){
      
         self.sets.append(setToAdd)
+        self.weights.append(weightToAdd)
         self.nSets! += 1
+    }
+    
+    func getTotalCalories() -> Double{
+    
+        if let height = UserDefaults.standard.object(forKey: "height") as? Int{//height in cm
+            
+            let gravity = 9.81
+            let distance : Double = (Double(height)/2 - Double(height)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
+            var force : Double = 0 //Force in kg * m/sec^2  
+            var caloriesBurned : Double = 0
+
+            for i in 0...nSets{
+                
+                force = weights[Int(i)] * gravity
+                caloriesBurned = caloriesBurned + ((force * distance) * 0.000239006) //Joules to kcals
+                
+            }
+            
+            return caloriesBurned
+            
+        }
+        else {return 0}
+        
     }
     
     func getBestRep() -> Double{
