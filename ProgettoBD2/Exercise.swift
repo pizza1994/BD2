@@ -1,6 +1,6 @@
 //
 //  Exercise.swift
-//  porva2Estimote
+//  ProgettoBD2
 //
 //  Created by Giovanni Laerte Frongia on 23/06/17.
 //  Copyright © 2017 BardOZ. All rights reserved.
