@@ -22,7 +22,15 @@ class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "End Training", style: .done, target: self, action: #selector(backAction))
 
+
+    }
+    
+    func backAction(){
+        //print("Back Button Clicked")
+    self.navigationController?.popToRootViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
