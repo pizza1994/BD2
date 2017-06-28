@@ -21,19 +21,11 @@ class Exercise{
     init (exerciseName : String, temperature : UnitTemperature, date : NSDate, weight : Double, set : Array<Double>){
         self.exerciseName = exerciseName
         self.temperature = temperature
-        self.date = date
+        self.date = date as Date!
         addSet(setToAdd: set, weightToAdd: weight)
-    
-    init(exName : String!, set : Array<Double>!, temperature : UnitTemperature!){
-        
-        self.exerciseName = exName
-        nSets = 0
-        addSet(setToAdd: set)
-        self.date = Date()
-        self.temperature = temperature
     }
     
-    func addSet(setToAdd : Array<Double>){
+    func addSet(setToAdd : Array<Double>, weightToAdd : Double){
      
         self.sets.append(setToAdd)
         self.weights.append(weightToAdd)
