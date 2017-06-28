@@ -13,13 +13,14 @@ class StartStopViewController: UIViewController {
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var exName: UILabel!
     
-    var exNameString : String!
+    var exNameString : String?
+    
     var timerCount : UInt8 = 5
     var timer : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        exNameString = UserDefaults.standard.object(forKey: "exName") as? String
         exName.text = exNameString!
 
         // Do any additional setup after loading the view.
@@ -40,8 +41,10 @@ class StartStopViewController: UIViewController {
         }
         else{
 
-            let RecapSetController = self.storyboard?.instantiateViewController(withIdentifier: "RSController") as! RecapSetViewController
-            self.navigationController?.pushViewController(RecapSetController, animated: true)
+            /*let RecapSetController = self.storyboard?.instantiateViewController(withIdentifier: "RSController") as! RecapSetViewController
+            self.navigationController?.pushViewController(RecapSetController, animated: true)*/
+            let SetInfoController = self.storyboard?.instantiateViewController(withIdentifier: "SIController") as! SetInfoViewController
+            self.navigationController?.pushViewController(SetInfoController, animated: true)
             
         }
         

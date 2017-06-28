@@ -42,7 +42,7 @@ class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let SSController = self.storyboard?.instantiateViewController(withIdentifier: "SSController") as! StartStopViewController
-        SSController.exNameString = exercises[indexPath.row]
+        UserDefaults.standard.set(exercises[indexPath.row], forKey: "exName")
         self.navigationController?.pushViewController(SSController, animated: true)
 
     }

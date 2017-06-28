@@ -18,6 +18,9 @@
 		25BA27AE1EFD13AA0055718D /* ProgettoBD2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27AD1EFD13AA0055718D /* ProgettoBD2Tests.swift */; };
 		25BA27B91EFD13AA0055718D /* ProgettoBD2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27B81EFD13AA0055718D /* ProgettoBD2UITests.swift */; };
 		25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27C61EFD18BA0055718D /* ExsViewController.swift */; };
+		25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F598971F03A72B00CBE127 /* SetInfoViewController.swift */; };
+		25F5989C1F03AAA700CBE127 /* RecapExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */; };
+		25F5989E1F03B4DD00CBE127 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25F5989D1F03B4DD00CBE127 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		25BA27B81EFD13AA0055718D /* ProgettoBD2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgettoBD2UITests.swift; sourceTree = "<group>"; };
 		25BA27BA1EFD13AA0055718D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25BA27C61EFD18BA0055718D /* ExsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExsViewController.swift; sourceTree = "<group>"; };
+		25F598971F03A72B00CBE127 /* SetInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
+		25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapExViewController.swift; sourceTree = "<group>"; };
+		25F5989D1F03B4DD00CBE127 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +111,11 @@
 		25BA27971EFD13AA0055718D /* ProgettoBD2 */ = {
 			isa = PBXGroup;
 			children = (
-				2593EFF21EFD344C00CF7F9A /* Exercise.swift */,
+				25F598991F03A75600CBE127 /* Model */,
 				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
-				2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */,
-				25BA279A1EFD13AA0055718D /* FirstViewController.swift */,
-				25BA27C61EFD18BA0055718D /* ExsViewController.swift */,
-				2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */,
+				25F5989A1F03A76800CBE127 /* Controller */,
 				25BA279C1EFD13AA0055718D /* Main.storyboard */,
+				25F5989D1F03B4DD00CBE127 /* Settings.bundle */,
 				25BA279F1EFD13AA0055718D /* Assets.xcassets */,
 				25BA27A11EFD13AA0055718D /* LaunchScreen.storyboard */,
 				25BA27A41EFD13AA0055718D /* Info.plist */,
@@ -135,6 +139,27 @@
 				25BA27BA1EFD13AA0055718D /* Info.plist */,
 			);
 			path = ProgettoBD2UITests;
+			sourceTree = "<group>";
+		};
+		25F598991F03A75600CBE127 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2593EFF21EFD344C00CF7F9A /* Exercise.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		25F5989A1F03A76800CBE127 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */,
+				25BA279A1EFD13AA0055718D /* FirstViewController.swift */,
+				25BA27C61EFD18BA0055718D /* ExsViewController.swift */,
+				2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */,
+				25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */,
+				25F598971F03A72B00CBE127 /* SetInfoViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F5989E1F03B4DD00CBE127 /* Settings.bundle in Resources */,
 				25BA27A31EFD13AA0055718D /* LaunchScreen.storyboard in Resources */,
 				25BA27A01EFD13AA0055718D /* Assets.xcassets in Resources */,
 				25BA279E1EFD13AA0055718D /* Main.storyboard in Resources */,
@@ -272,10 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */,
 				25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */,
 				25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */,
 				25BA27991EFD13AA0055718D /* AppDelegate.swift in Sources */,
 				2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */,
+				25F5989C1F03AAA700CBE127 /* RecapExViewController.swift in Sources */,
 				2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */,
 				2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */,
 			);

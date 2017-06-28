@@ -1,19 +1,20 @@
 //
-//  RecapSetViewController.swift
+//  SetInfoViewController.swift
 //  ProgettoBD2
 //
-//  Created by Luca Pitzalis on 23/06/17.
+//  Created by Luca Pitzalis on 28/06/17.
 //  Copyright © 2017 Luca Pitzalis. All rights reserved.
 //
 
 import UIKit
 
-class RecapSetViewController: UIViewController {
+class SetInfoViewController: UIViewController {
+
+    @IBOutlet weak var repsField: UITextField!
+    @IBOutlet weak var weightField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
-
 
         // Do any additional setup after loading the view.
     }
@@ -23,12 +24,6 @@ class RecapSetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func newSet(_ sender: Any) {
-        
-        let SSController = self.storyboard?.instantiateViewController(withIdentifier: "SSController") as!StartStopViewController
-        self.navigationController?.pushViewController(SSController, animated: true)
-        
-    }
 
     /*
     // MARK: - Navigation

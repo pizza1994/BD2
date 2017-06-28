@@ -13,10 +13,19 @@ class Exercise{
     
     var exerciseName : String!
     var nSets : UInt8!
-    var date : NSDate!
+    var date : Date!
     var sets = [[Double]]()
     var temperature : UnitTemperature!
     
+    
+    init(exName : String!, set : Array<Double>!, temperature : UnitTemperature!){
+        
+        self.exerciseName = exName
+        nSets = 0
+        addSet(setToAdd: set)
+        self.date = Date()
+        self.temperature = temperature
+    }
     
     func addSet(setToAdd : Array<Double>){
      
