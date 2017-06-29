@@ -1,20 +1,20 @@
 //
-//  RecapExViewController.swift
+//  WelcomeViewController.swift
 //  ProgettoBD2
 //
-//  Created by Luca Pitzalis on 28/06/17.
+//  Created by Luca Pitzalis on 29/06/17.
 //  Copyright © 2017 Luca Pitzalis. All rights reserved.
 //
 
 import UIKit
 
-class RecapExViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var heightField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
-
-    
+        self.hideKeyboardWhenTappedAround()
 
 
         // Do any additional setup after loading the view.
@@ -25,6 +25,11 @@ class RecapExViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func ok(sender : Any){
+        
+        UserDefaults.standard.set(heightField.text!, forKey: "height")
+        
+    }
 
     /*
     // MARK: - Navigation
