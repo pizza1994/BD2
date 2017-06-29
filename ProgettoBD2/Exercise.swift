@@ -12,7 +12,7 @@ import UIKit
 class Exercise{
     
     var exerciseName : String!
-    var nSets : UInt8!
+    var nSets : UInt8! = 0
     var date : Date!
     var sets = [[Double]]()
     var weights = [Double]()

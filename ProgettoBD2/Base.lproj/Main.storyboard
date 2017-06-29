@@ -12,7 +12,7 @@
         <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="ProgettoBD2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -234,7 +234,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="hYY-e3-BLa">
             <objects>
-                <viewController storyboardIdentifier="wController" id="o35-aY-Djj" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wController" id="o35-aY-Djj" customClass="WelcomeViewController" customModule="ProgettoBD2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fFR-TF-vrN"/>
                         <viewControllerLayoutGuide type="bottom" id="zy1-wN-IHy"/>
@@ -391,6 +391,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kgY-ee-RPZ"/>
+        <segue reference="lHK-a7-6PP"/>
     </inferredMetricsTieBreakers>
 </document>

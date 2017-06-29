@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0472E4AA8AB289546A8CAF1B /* libPods-ProgettoBD2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 953F2CF1C97E7D3BEAB8DC63 /* libPods-ProgettoBD2.a */; };
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
@@ -21,6 +22,7 @@
 		25BA27B91EFD13AA0055718D /* ProgettoBD2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27B81EFD13AA0055718D /* ProgettoBD2UITests.swift */; };
 		25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27C61EFD18BA0055718D /* ExsViewController.swift */; };
 		25C64A651F0521CF00BEC84F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E1535A1F04F68100B28E63 /* WelcomeViewController.swift */; };
+		25C64A671F05583900BEC84F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C64A661F05583900BEC84F /* DB.swift */; };
 		25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F598971F03A72B00CBE127 /* SetInfoViewController.swift */; };
 		25F5989C1F03AAA700CBE127 /* RecapExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */; };
 		25F5989E1F03B4DD00CBE127 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25F5989D1F03B4DD00CBE127 /* Settings.bundle */; };
@@ -46,6 +48,7 @@
 /* Begin PBXFileReference section */
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
+		2522AAF2A7789949F06D84D8 /* Pods-ProgettoBD2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgettoBD2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProgettoBD2/Pods-ProgettoBD2.debug.xcconfig"; sourceTree = "<group>"; };
 		2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartStopViewController.swift; sourceTree = "<group>"; };
 		2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapSetViewController.swift; sourceTree = "<group>"; };
 		2593EFF21EFD344C00CF7F9A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -63,11 +66,14 @@
 		25BA27B81EFD13AA0055718D /* ProgettoBD2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgettoBD2UITests.swift; sourceTree = "<group>"; };
 		25BA27BA1EFD13AA0055718D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25BA27C61EFD18BA0055718D /* ExsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExsViewController.swift; sourceTree = "<group>"; };
+		25C64A661F05583900BEC84F /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProgettoBD2-Bridging-Header.h"; sourceTree = "<group>"; };
 		25E1535A1F04F68100B28E63 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		25F598971F03A72B00CBE127 /* SetInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
 		25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapExViewController.swift; sourceTree = "<group>"; };
 		25F5989D1F03B4DD00CBE127 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		953F2CF1C97E7D3BEAB8DC63 /* libPods-ProgettoBD2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProgettoBD2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DED93A6F23667A3AA612150B /* Pods-ProgettoBD2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgettoBD2.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProgettoBD2/Pods-ProgettoBD2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
+				0472E4AA8AB289546A8CAF1B /* libPods-ProgettoBD2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A994C36C62459BDD4FEAE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2522AAF2A7789949F06D84D8 /* Pods-ProgettoBD2.debug.xcconfig */,
+				DED93A6F23667A3AA612150B /* Pods-ProgettoBD2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		25BA278C1EFD13AA0055718D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +119,8 @@
 				25BA27AC1EFD13AA0055718D /* ProgettoBD2Tests */,
 				25BA27B71EFD13AA0055718D /* ProgettoBD2UITests */,
 				25BA27961EFD13AA0055718D /* Products */,
+				04A994C36C62459BDD4FEAE0 /* Pods */,
+				DCCCAB2CE30BA67FFBACA883 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +139,7 @@
 			children = (
 				1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */,
 				25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */,
+				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
 				25F598991F03A75600CBE127 /* Model */,
 				25F5989A1F03A76800CBE127 /* Controller */,
 				25BA279C1EFD13AA0055718D /* Main.storyboard */,
@@ -155,7 +174,7 @@
 			children = (
 				2593EFF21EFD344C00CF7F9A /* Exercise.swift */,
 				1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */,
-				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
+				25C64A661F05583900BEC84F /* DB.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -174,6 +193,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		DCCCAB2CE30BA67FFBACA883 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				953F2CF1C97E7D3BEAB8DC63 /* libPods-ProgettoBD2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,9 +208,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25BA27BD1EFD13AA0055718D /* Build configuration list for PBXNativeTarget "ProgettoBD2" */;
 			buildPhases = (
+				8B0C143D6771F8AE5EF23F67 /* [CP] Check Pods Manifest.lock */,
 				25BA27911EFD13AA0055718D /* Sources */,
 				25BA27921EFD13AA0055718D /* Frameworks */,
 				25BA27931EFD13AA0055718D /* Resources */,
+				13671EA5D1701F6458AAAAB6 /* [CP] Embed Pods Frameworks */,
+				5F1F4517B613F872F50906C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,12 +336,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13671EA5D1701F6458AAAAB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgettoBD2/Pods-ProgettoBD2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F1F4517B613F872F50906C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProgettoBD2/Pods-ProgettoBD2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B0C143D6771F8AE5EF23F67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25BA27911EFD13AA0055718D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				25C64A651F0521CF00BEC84F /* WelcomeViewController.swift in Sources */,
+				25C64A671F05583900BEC84F /* DB.swift in Sources */,
 				25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */,
 				25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */,
 				25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */,
@@ -468,6 +547,7 @@
 		};
 		25BA27BE1EFD13AA0055718D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2522AAF2A7789949F06D84D8 /* Pods-ProgettoBD2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -491,6 +571,7 @@
 		};
 		25BA27BF1EFD13AA0055718D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED93A6F23667A3AA612150B /* Pods-ProgettoBD2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
