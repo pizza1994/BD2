@@ -19,6 +19,7 @@
 		25BA27B91EFD13AA0055718D /* ProgettoBD2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27B81EFD13AA0055718D /* ProgettoBD2UITests.swift */; };
 		25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27C61EFD18BA0055718D /* ExsViewController.swift */; };
 		25E153561F04085D00B28E63 /* ObjCMongoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E153541F04085D00B28E63 /* ObjCMongoDB.framework */; };
+		25E1535B1F04F68100B28E63 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E1535A1F04F68100B28E63 /* WelcomeViewController.swift */; };
 		25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F598971F03A72B00CBE127 /* SetInfoViewController.swift */; };
 		25F5989C1F03AAA700CBE127 /* RecapExViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */; };
 		25F5989E1F03B4DD00CBE127 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25F5989D1F03B4DD00CBE127 /* Settings.bundle */; };
@@ -61,6 +62,7 @@
 		25BA27C61EFD18BA0055718D /* ExsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExsViewController.swift; sourceTree = "<group>"; };
 		25E153541F04085D00B28E63 /* ObjCMongoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjCMongoDB.framework; sourceTree = "<group>"; };
 		25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProgettoBD2-Bridging-Header.h"; sourceTree = "<group>"; };
+		25E1535A1F04F68100B28E63 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		25F598971F03A72B00CBE127 /* SetInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetInfoViewController.swift; sourceTree = "<group>"; };
 		25F5989B1F03AAA700CBE127 /* RecapExViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapExViewController.swift; sourceTree = "<group>"; };
 		25F5989D1F03B4DD00CBE127 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */,
+				25E1535A1F04F68100B28E63 /* WelcomeViewController.swift */,
 				25BA279A1EFD13AA0055718D /* FirstViewController.swift */,
 				25BA27C61EFD18BA0055718D /* ExsViewController.swift */,
 				2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */,
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E1535B1F04F68100B28E63 /* WelcomeViewController.swift in Sources */,
 				25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */,
 				25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */,
 				25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */,
