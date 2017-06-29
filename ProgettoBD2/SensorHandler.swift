@@ -23,6 +23,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         self.temperature = -255
         self.weight = 0
         
+        
     }
     
     func startListening(){
