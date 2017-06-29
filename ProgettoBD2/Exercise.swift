@@ -123,7 +123,5 @@ class Exercise{
         return avgAccel
     }
 
-    
-    
 }
 
