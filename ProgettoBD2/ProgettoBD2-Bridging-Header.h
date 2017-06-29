@@ -3,3 +3,4 @@
 //
 
 #import <ObjCMongoDB/ObjCMongoDB.h>
+#import <EstimoteSDK/EstimoteSDK.h>
