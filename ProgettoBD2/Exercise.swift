@@ -49,7 +49,7 @@ class Exercise{
                 
             }
             
-            return caloriesBurned
+            return caloriesBurned*4 //Muscles are only 25% efficient
             
         }
         else {return 0}
