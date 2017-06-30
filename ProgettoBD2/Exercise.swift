@@ -41,7 +41,7 @@ class Exercise{
             var force : Double = 0 //Force in kg * m/sec^2  
             var caloriesBurned : Double = 0
 
-            for i in 0...nSets{
+            for i in 0...nSets-1{
                 
                 force = weights[Int(i)] * gravity
                 caloriesBurned = caloriesBurned + ((force * distance) * 0.000239006) //Joules to kcals
@@ -80,7 +80,7 @@ class Exercise{
         var bestSet : UInt8 = 0
         var bestAvg : Double = 0
         
-        for i in 0...nSets{
+        for i in 0...nSets-1{
             
             if (self.sets[Int(i)].reduce(0,+)/Double(self.sets[Int(i)].count)  > bestAvg){ //If this set's average acceleration is better than the current best
                 bestAvg = self.sets[Int(i)].reduce(0,+)/Double(self.sets[Int(i)].count) //Replace the current best
@@ -97,7 +97,7 @@ class Exercise{
         var worstSet : UInt8 = 0
         var worstAvg : Double = Double.greatestFiniteMagnitude
         
-        for i in 0...nSets{
+        for i in 0...nSets-1{
             
             if (self.sets[Int(i)].reduce(0,+)/Double(self.sets[Int(i)].count)  < worstAvg){ //If this set's average acceleration is worse than the current worst
                 worstAvg = self.sets[Int(i)].reduce(0,+)/Double(self.sets[Int(i)].count) //Replace the current worst
@@ -114,7 +114,7 @@ class Exercise{
         var avgAccels = [Double]()
         var avgAccel : Double = 0
         
-        for i in 0...nSets{
+        for i in 0...nSets-1{
             avgAccels.append(self.sets[Int(i)].reduce(0,+)/Double(self.sets[Int(i)].count) )
         }
         
