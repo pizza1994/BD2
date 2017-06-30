@@ -96,11 +96,11 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         
         for i in 0...diffAccArr.count-1{
         
-            if (accData[diffAccArr[i].pos] < accData[diffAccArr[i].pos+1]){
-                repData.append(accData[diffAccArr[i].pos+1])
+            if (abs(accData[diffAccArr[i].pos]) < abs(accData[diffAccArr[i].pos+1])){
+                repData.append(abs(accData[diffAccArr[i].pos+1]))
             }
             else{
-                repData.append(accData[diffAccArr[i].pos])
+                repData.append(abs(accData[diffAccArr[i].pos]))
             }
         
         }
