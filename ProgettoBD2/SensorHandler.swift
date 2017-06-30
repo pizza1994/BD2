@@ -11,6 +11,7 @@ import UIKit
 
 class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     
+    static let shared = SensorHandler()
     var accData : [Double]
     var exercise : Exercise?
     let deviceManager = ESTDeviceManager()
@@ -18,12 +19,10 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     var temperature : Double
     var weight : Double
     
-    override init (){
+    private override init (){
         self.accData = []
         self.temperature = -255
         self.weight = 0
-        
-        
     }
     
     func startListening(){
