@@ -34,8 +34,9 @@ class Exercise{
     
     func getTotalCalories() -> Double{
     
-        if let height = UserDefaults.standard.object(forKey: "height") as? Int{//height in cm
+        if let userHeight = UserDefaults.standard.object(forKey: "height") as? String{//height in cm
             
+            let height = Int(userHeight)
             let gravity = 9.81
             let distance : Double = (Double(height)/2 - Double(height)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
             var force : Double = 0 //Force in kg * m/sec^2  
