@@ -30,6 +30,7 @@ class RecapSetViewController: UIViewController {
         avgForceLabel.text = String(exercise.getAvgAcc())
         burnedCaloriesLabel.text = String(exercise.getTotalCalories())
         
+        
 
         // Do any additional setup after loading the view.
     }
