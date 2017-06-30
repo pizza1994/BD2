@@ -63,7 +63,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     }
     
     func stopListeningTemperature(tempNotification : ESTTelemetryNotificationTemperature){
-        while (temperature == -255){}
+        //while (temperature == -255){}
         deviceManager.unregister(forTelemetryNotification: tempNotification)
     }
     

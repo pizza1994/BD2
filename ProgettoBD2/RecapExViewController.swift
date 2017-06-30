@@ -25,6 +25,9 @@ class RecapExViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func saveExercise(_ sender: Any) {
+        DB.saveToDb(ex: SensorHandler.shared.exercise!)
+    }
 
     /*
     // MARK: - Navigation

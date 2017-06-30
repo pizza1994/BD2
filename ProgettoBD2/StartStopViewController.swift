@@ -43,6 +43,7 @@ class StartStopViewController: UIViewController {
 
             /*let RecapSetController = self.storyboard?.instantiateViewController(withIdentifier: "RSController") as! RecapSetViewController
             self.navigationController?.pushViewController(RecapSetController, animated: true)*/
+            SensorHandler.shared.stopListening()
             let SetInfoController = self.storyboard?.instantiateViewController(withIdentifier: "SIController") as! SetInfoViewController
             self.navigationController?.pushViewController(SetInfoController, animated: true)
             
@@ -57,6 +58,7 @@ class StartStopViewController: UIViewController {
             startStopButton.setTitle("STOP", for: .normal)
             timer?.invalidate()
             startStopButton.isUserInteractionEnabled = true
+            SensorHandler.shared.startListening()
 
         }
         

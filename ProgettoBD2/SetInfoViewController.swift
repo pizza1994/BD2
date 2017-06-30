@@ -24,6 +24,14 @@ class SetInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func createExercise(_ sender: Any) {
+        if (SensorHandler.shared.exercise == nil){
+            let _ : Exercise =  SensorHandler.shared.createExercise(exerciseName: (UserDefaults.standard.object(forKey: "exName") as? String)!, weight: Double(weightField.text!)!, nReps: Int(repsField.text!)!)
+        }
+        else{
+            SensorHandler.shared.addNewSet(weight: Double(weightField.text!)!, nReps: Int(repsField.text!)!)
+        }
+    }
 
     /*
     // MARK: - Navigation
