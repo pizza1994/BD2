@@ -9,27 +9,40 @@
 import UIKit
 import Foundation
 
-class DB: NSObject {
+class DB: NSObject
+{
 
-    
-    
-
-    
-    static private func connect() -> MongoDBCollection
+    static private func connect() -> MongoDBCollection?
     {
-        let dbConn : MongoConnection? = try? MongoConnection.init(forServer : "ds143362.mlab.com:43362")
-        
-        try? dbConn?.authenticate("testbd2", username: "Pizza94", password: "password")
-        
-    
-        
-        return dbConn!.collection(withName: "testbd2.exercises")
+        do
+        {
+            let dbConn : MongoConnection? = try? MongoConnection.init(forServer : "ds143362.mlab.com:43362")
+            
+            try dbConn?.authenticate("testbd2", username: "Pizza94", password: "password")
+            
+            let collection : MongoDBCollection = dbConn!.collection(withName: "testbd2.exercises")
+            
+            print("Connected to " + collection.databaseName)
+            return collection
+        }
+        catch
+        {
+            print("Connection or autentication failed");
+        }
+        return nil
     }
     
     static func saveToDb(ex: Exercise)
     {
-        let collection : MongoDBCollection = connect()
-        print("Connected to " + collection.databaseName)
+        let collection : MongoDBCollection? = connect()
+        
+        var exerciseInfo: NSDictionary = "{" + "exercise_name: " + ex.exerciseName + "," + "n_sets:" + String(ex.nSets) + "," + "date:" + String(ex.date) + "," + "sets:" + ex.sets + ","
+            + "weights:" + ex.weights + "," + "temperature:" + ex.temperature + "}"
+        
+        if collection != nil
+        {
+            collection?.insert(exerciseInfo)
+        }
     }
 
 }
