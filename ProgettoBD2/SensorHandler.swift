@@ -114,6 +114,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         accData.removeAll()
         temperature = -255
         weight = 0
+        exercise = nil
         
     }
     
