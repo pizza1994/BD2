@@ -38,7 +38,7 @@ class Exercise{
             
             let height = Int(userHeight)
             let gravity = 9.81
-            let distance : Double = (Double(height)/2 - Double(height)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
+            let distance : Double = (Double(height!)/2 - Double(height!)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
             var force : Double = 0 //Force in kg * m/sec^2  
             var caloriesBurned : Double = 0
 

@@ -24,7 +24,7 @@ class RecapSetViewController: UIViewController {
         let exercise : Exercise = SensorHandler.shared.exercise!
         
         temperatureLabel.text = String(exercise.temperature)
-        repsLabel.text = String(describing: exercise.sets.last?.count)
+        repsLabel.text = String(describing: (exercise.sets.last?.count)!)
         bestLabel.text = String(exercise.getBestRep())
         worstLabel.text = String(exercise.getWorstRep())
         avgForceLabel.text = String(exercise.getAvgAcc())
