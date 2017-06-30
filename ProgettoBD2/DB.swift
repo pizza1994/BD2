@@ -11,8 +11,9 @@ import Foundation
 
 class DB: NSObject
 {
-
-    static private func connect() -> MongoDBCollection?
+    static private var collection: MongoDBCollection?
+    
+    static private func connect()
     {
         do
         {
@@ -20,29 +21,46 @@ class DB: NSObject
             
             try dbConn?.authenticate("testbd2", username: "Pizza94", password: "password")
             
-            let collection : MongoDBCollection = dbConn!.collection(withName: "testbd2.exercises")
+            collection = dbConn!.collection(withName: "testbd2.exercises")
             
-            print("Connected to " + collection.databaseName)
-            return collection
+            print("Connected to " + (collection?.databaseName)!)
         }
         catch
         {
             print("Connection or autentication failed");
         }
-        return nil
     }
     
     static func saveToDb(ex: Exercise)
     {
-        let collection : MongoDBCollection? = connect()
+        connect()
         
-        var exerciseInfo: NSDictionary = "{" + "exercise_name: " + ex.exerciseName + "," + "n_sets:" + String(ex.nSets) + "," + "date:" + String(ex.date) + "," + "sets:" + ex.sets + ","
-            + "weights:" + ex.weights + "," + "temperature:" + ex.temperature + "}"
+        var exerciseInfo: NSDictionary
         
-        if collection != nil
+        exerciseInfo = ["exercise_name": ex.exerciseName, "n_sets": ex.nSets, "date": ex.date, "sets": ex.sets, "weights": ex.weights, "temperature": ex.temperature]
+        
+        do
         {
-            collection?.insert(exerciseInfo)
+            try collection?.insert(exerciseInfo, writeConcern: nil)
         }
+        catch
+        {
+            print("Insert failed")
+        }
+    }
+    
+    static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool) -> BSONDocument
+    {
+        let predicate = MongoKeyedPredicate()
+        
+        predicate?.keyPath("exercise_name", matches: "bench press")
+        var resultDoc: BSONDocument? = try! collection?.findOne(with: predicate)
+        var result: [AnyHashable: Any] = BSONDecoder.decodeDictionary(with: resultDoc)
+        
+        print("Loaded" + resultDoc);
+
+        return resultDoc!
+        
     }
 
 }
