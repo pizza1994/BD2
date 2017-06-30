@@ -34,26 +34,16 @@ class Exercise{
     
     func getTotalCalories() -> Double{
         
-        if let userHeight = UserDefaults.standard.object(forKey: "height") as? String{//height in cm
-            
-            let height = Int(userHeight)
-            let gravity = 9.81
-            let distance : Double = (Double(height!)/2 - Double(height!)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
-            var force : Double = 0 //Force in kg * m/sec^2
-            var caloriesBurned : Double = 0
-            
-            for i in 0...nSets-1{
-                
-                force = weights[Int(i)] * gravity
-                caloriesBurned = (caloriesBurned + ((force * distance) * 0.000239006)) * Double(sets[Int(i)].count) //Joules to kcals
-                
-            }
-            
-            return caloriesBurned*8 //Muscles are only 25% efficient
-            
-        }
-        else {return 0}
+        var caloriesBurned:  Double
         
+        caloriesBurned = 0
+        
+        for i in 0...nSets-1{
+                
+            caloriesBurned += getCaloriesInSet(nSet: Int(i))
+        }
+            
+        return caloriesBurned
     }
     
     func getCaloriesInSet(nSet: Int) -> Double{
