@@ -15,8 +15,9 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     var accData : [Double]
     var exercise : Exercise?
     let deviceManager = ESTDeviceManager()
-    var accNotification : ESTTelemetryNotificationMotion?
     var temperature : Double
+    var accNotification : ESTTelemetryNotificationMotion?
+    var tempNotification : ESTTelemetryNotificationTemperature?
     var weight : Double
     
     private override init (){
@@ -30,17 +31,19 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         
         
         if (temperature == -255){
-            
-            let tempNotification = ESTTelemetryNotificationTemperature { (tempInfo) in
+        
+            tempNotification = ESTTelemetryNotificationTemperature { (tempInfo) in
                 if (tempInfo.shortIdentifier == "eca7f68368e84571"){
                     self.temperature = Double(tempInfo.temperatureInCelsius)
                 }
             }
 
-            deviceManager.register(forTelemetryNotification: tempNotification)
+
+            deviceManager.register(forTelemetryNotification: tempNotification!)
             
         }
 
+        
         
         accNotification = ESTTelemetryNotificationMotion { (moveInfo) in
             if (moveInfo.shortIdentifier == "eca7f68368e84571"){
@@ -57,7 +60,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     
     func stopListening(){
         deviceManager.unregister(forTelemetryNotification: accNotification!)
-        deviceManager.unregister(forTelemetryNotification: tempNotification)
+        deviceManager.unregister(forTelemetryNotification: tempNotification!)
     }
     
     func createExercise(exerciseName: String, weight : Double, nReps : Int) -> Exercise{
