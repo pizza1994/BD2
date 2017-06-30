@@ -94,7 +94,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         diffAccArr.removeLast(diffAccArr.count - nReps)
         diffAccArr = diffAccArr.sorted(by: {$0.pos < $1.pos})
         
-        for i in 0...diffAccArr.count{
+        for i in 0...diffAccArr.count-1{
         
             if (accData[diffAccArr[i].pos] < accData[diffAccArr[i].pos+1]){
                 repData.append(accData[diffAccArr[i].pos+1])
