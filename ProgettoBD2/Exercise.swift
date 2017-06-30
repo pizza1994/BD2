@@ -33,23 +33,45 @@ class Exercise{
     }
     
     func getTotalCalories() -> Double{
-    
+        
         if let userHeight = UserDefaults.standard.object(forKey: "height") as? String{//height in cm
             
             let height = Int(userHeight)
             let gravity = 9.81
             let distance : Double = (Double(height!)/2 - Double(height!)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
-            var force : Double = 0 //Force in kg * m/sec^2  
+            var force : Double = 0 //Force in kg * m/sec^2
             var caloriesBurned : Double = 0
-
+            
             for i in 0...nSets-1{
                 
                 force = weights[Int(i)] * gravity
-                caloriesBurned = caloriesBurned + ((force * distance) * 0.000239006) //Joules to kcals
+                caloriesBurned = (caloriesBurned + ((force * distance) * 0.000239006)) * Double(sets[Int(i)].count) //Joules to kcals
                 
             }
             
-            return caloriesBurned*4 //Muscles are only 25% efficient
+            return caloriesBurned*8 //Muscles are only 25% efficient
+            
+        }
+        else {return 0}
+        
+    }
+    
+    func getCaloriesInSet(nSet: Int) -> Double{
+        
+        if let userHeight = UserDefaults.standard.object(forKey: "height") as? String{//height in cm
+            
+            let height = Int(userHeight)
+            let gravity = 9.81
+            let distance : Double = (Double(height!)/2 - Double(height!)/8) * 0.01 //Da Vinci's proportions: armspan == height, shoulder-width == height/4. This is the armlength = distance the weight travelled. In meters.
+            var force : Double = 0 //Force in kg * m/sec^2
+            var caloriesBurned : Double = 0
+            
+            
+            force = weights[nSet] * gravity
+            caloriesBurned = (caloriesBurned + ((force * distance) * 0.000239006)) * Double(sets[nSet].count) //Joules to kcals
+            
+            
+            return caloriesBurned*8 //Muscles are only 25% efficient
             
         }
         else {return 0}
@@ -66,6 +88,10 @@ class Exercise{
         return bestReps.max()!
     }
     
+    func getBestRepInSet(nSet: Int) -> Double{
+        return sets[nSet].max()!
+    }
+    
     func getWorstRep() -> Double{
         
         var worstReps = [Double]()
@@ -74,6 +100,10 @@ class Exercise{
         }
         
         return worstReps.min()!
+    }
+    
+    func getWorstRepInSet(nSet : Int) -> Double{
+        return sets[nSet].min()!
     }
     
     func getBestSet() -> UInt8{
@@ -111,7 +141,7 @@ class Exercise{
     }
     
     func getAvgAcc() -> Double{
-    
+        
         var avgAccels = [Double]()
         var avgAccel : Double = 0
         
@@ -122,6 +152,10 @@ class Exercise{
         avgAccel = avgAccels.reduce(0,+)/Double(avgAccels.count)
         
         return avgAccel
+    }
+    
+    func getAvgAccInSet(nSet: Int) -> Double{
+        return sets[nSet].reduce(0,+)/Double(sets[nSet].count)
     }
 
 }
