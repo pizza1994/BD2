@@ -25,10 +25,10 @@ class RecapSetViewController: UIViewController {
         
         temperatureLabel.text = String(exercise.temperature)
         repsLabel.text = String(describing: (exercise.sets.last?.count)!)
-        bestLabel.text = String(exercise.getBestRep())
-        worstLabel.text = String(exercise.getWorstRep())
-        avgForceLabel.text = String(exercise.getAvgAcc())
-        burnedCaloriesLabel.text = String(exercise.getTotalCalories())
+        bestLabel.text = String(exercise.getBestRepInSet(nSet: (Int(exercise.nSets) - 1)))
+        worstLabel.text = String(exercise.getWorstRepInSet(nSet: (Int(exercise.nSets) - 1)))
+        avgForceLabel.text = String(exercise.getAvgAccInSet(nSet: (Int(exercise.nSets) - 1)))
+        burnedCaloriesLabel.text = String(exercise.getCaloriesInSet(nSet: (Int(exercise.nSets) - 1)))
         
         
 

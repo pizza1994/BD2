@@ -9,11 +9,26 @@
 import UIKit
 
 class RecapExViewController: UIViewController {
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var setsLabel: UILabel!
+    @IBOutlet weak var bestLabel: UILabel!
+    @IBOutlet weak var burnedCaloriesLabel: UILabel!
+    @IBOutlet weak var avgForceLabel: UILabel!
+    @IBOutlet weak var worstLabel: UILabel!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-
+        
+        let exercise : Exercise = SensorHandler.shared.exercise!
+        
+        temperatureLabel.text = String(exercise.temperature)
+        setsLabel.text = String(describing: (exercise.nSets))
+        bestLabel.text = String(exercise.getBestRep())
+        worstLabel.text = String(exercise.getWorstRep())
+        avgForceLabel.text = String(exercise.getAvgAcc())
+        burnedCaloriesLabel.text = String(exercise.getTotalCalories())
     
 
 
