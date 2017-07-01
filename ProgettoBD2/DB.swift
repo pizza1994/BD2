@@ -25,9 +25,6 @@ class DB: NSObject
     
     static func saveToDb(ex: Exercise)
     {
-        
-        
-        
         connect()
         
         var exerciseInfo: [String : AnyObject]
@@ -36,7 +33,7 @@ class DB: NSObject
        
 
         do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises2", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
             
             perform(request)
             
@@ -61,9 +58,22 @@ class DB: NSObject
     }
     
     
-    static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
+    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
+    static func loadFromDb()
     {
-     
+        connect()
+        do {
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [], bodyData: nil)
+            
+            print(request)
+            perform(request)
+            
+            /*https://api.mongolab.com/api/1/databases/testbd2/collections/exercises?apiKey=jGHlKVFu8-6dTTG_m6CTbmFdkqP4XaNG
+             */
+            
+        } catch let error {
+            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        }
     }
     
 

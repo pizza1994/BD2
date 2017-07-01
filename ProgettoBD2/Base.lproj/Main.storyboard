@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Dv-BX-8Nd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Dv-BX-8Nd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-345" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics View Controller-->
         <scene sceneID="9r2-wc-QWx">
             <objects>
-                <viewController id="U0J-JH-Kto" sceneMemberID="viewController">
+                <viewController id="U0J-JH-Kto" customClass="StatisticsViewController" customModule="ProgettoBD2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tDq-gj-JLj"/>
                         <viewControllerLayoutGuide type="bottom" id="cWT-Ci-0qS"/>
@@ -528,6 +528,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kgY-ee-RPZ"/>
+        <segue reference="lHK-a7-6PP"/>
     </inferredMetricsTieBreakers>
 </document>
