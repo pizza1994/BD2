@@ -13,8 +13,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        DB.saveToDb(ex: Exercise(exerciseName: "Panca", temperature: 15, date: Date.distantPast as NSDate, weight: 45, set: Array<Double>()))
-        
+        DB.saveToDb(ex: Exercise(exerciseName: "panca", temperature: 15, date: Date.distantFuture as NSDate, weight: 20, set: Array<Double>()))
     }
 
     override func didReceiveMemoryWarning() {

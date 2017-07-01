@@ -23,6 +23,7 @@ class StartStopViewController: UIViewController {
         exNameString = UserDefaults.standard.object(forKey: "exName") as? String
         exName.text = exNameString!
 
+
         // Do any additional setup after loading the view.
     }
 
