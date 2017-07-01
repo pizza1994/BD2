@@ -62,8 +62,9 @@ class DB: NSObject
     static func loadFromDb()
     {
         connect()
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"exercise_name\": \"bench press\"}")
         do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [], bodyData: nil)
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
             
             print(request)
             perform(request)
