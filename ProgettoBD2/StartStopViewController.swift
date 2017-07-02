@@ -15,14 +15,15 @@ class StartStopViewController: UIViewController {
     
     var exNameString : String?
     
-    var timerCount : UInt8 = 5
+    var timerCount : UInt8 = 4
     var timer : Timer?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exNameString = UserDefaults.standard.object(forKey: "exName") as? String
         exName.text = exNameString!
-
+        view.backgroundColor = UIColor.darkGray
 
         // Do any additional setup after loading the view.
     }
@@ -36,6 +37,7 @@ class StartStopViewController: UIViewController {
     @IBAction func startStopToggle(button: UIButton){
         
         if(button.tag == 0){
+            addCircleView()
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
             button.isUserInteractionEnabled = false
             button.tag = 1
@@ -49,6 +51,8 @@ class StartStopViewController: UIViewController {
             self.navigationController?.pushViewController(SetInfoController, animated: true)
             
         }
+        
+        self.view.bringSubview(toFront: startStopButton);
         
     }
     
@@ -65,6 +69,25 @@ class StartStopViewController: UIViewController {
         
         
         
+    }
+    
+    func addCircleView() {
+        let circleWidth = CGFloat(250)
+        let circleHeight = circleWidth
+        
+        // Create a new CircleView
+        let circleView = CircleTimer(frame: CGRectMake(startStopButton.frame.minX, startStopButton.frame.minY, circleWidth, circleHeight))
+        
+        view.addSubview(circleView)
+    
+        
+        
+        // Animate the drawing of the circle over the course of 1 second
+        circleView.animateCircle(duration: TimeInterval(timerCount))
+    }
+    
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
 

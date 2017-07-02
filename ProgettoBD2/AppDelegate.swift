@@ -32,9 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(UserDefaults.standard.object(forKey: "firstTime") == nil){
             let welcomeController : WelcomeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "wController") as! WelcomeViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = welcomeController
-            UserDefaults.standard.set("notFirst", forKey: "firstTime")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = welcomeController
         }
         return true
     }

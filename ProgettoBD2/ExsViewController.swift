@@ -14,6 +14,7 @@ class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     let cellReuseIdentifier = "cell"
     @IBOutlet var tableView: UITableView!
+    
 
 
     override func viewDidLoad() {
@@ -22,7 +23,10 @@ class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.darkGray
+        navigationController?.navigationBar.isHidden = false
         
+
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "End Training", style: .done, target: self, action: #selector(backAction))
 
 
@@ -44,7 +48,10 @@ class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // set the text from the data model
         cell.textLabel?.text = self.exercises[indexPath.row]
-        
+        cell.textLabel?.font = UIFont(name: "Avenir-Heavy", size: 17)
+        cell.textLabel?.textColor = UIColor.white
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.backgroundColor = UIColor.clear
         return cell
     }
     

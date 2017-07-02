@@ -15,6 +15,10 @@ class StatisticsViewController: UIViewController {
         // Do any additional setup after loading the view.
         DB.loadFromDb()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

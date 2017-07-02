@@ -27,6 +27,7 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func ok(sender : Any){
         
+        UserDefaults.standard.set("notFirst", forKey: "firstTime")
         UserDefaults.standard.set(heightField.text!, forKey: "height")
         
     }
