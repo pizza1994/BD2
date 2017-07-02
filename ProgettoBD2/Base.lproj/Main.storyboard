@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5lI-U3-3vj">
@@ -72,7 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cWT-Ci-0qS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c51-Oi-2o9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-Qf-lcg">
@@ -508,7 +508,9 @@
         <scene sceneID="oxB-7B-9dN">
             <objects>
                 <navigationController id="9Dv-BX-8Nd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" id="TlF-Qq-mNL">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="667"/>
+                    <navigationBar key="navigationBar" alpha="0.40000000000000002" contentMode="scaleToFill" id="TlF-Qq-mNL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.30544084821428569" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
