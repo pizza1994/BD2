@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
-		255DBAD01F0A629700B1DCEF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBACF1F0A629700B1DCEF /* Charts.framework */; };
-		255DBADA1F0A66C200B1DCEF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBACF1F0A629700B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; };
+		255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
 		2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */; };
 		2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFF21EFD344C00CF7F9A /* Exercise.swift */; };
@@ -78,7 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				255DBADA1F0A66C200B1DCEF /* Charts.framework in Embed Frameworks */,
+				255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +88,7 @@
 /* Begin PBXFileReference section */
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
-		255DBACF1F0A629700B1DCEF /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
+		255DBADC1F0A6BB100B1DCEF /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartStopViewController.swift; sourceTree = "<group>"; };
 		2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapSetViewController.swift; sourceTree = "<group>"; };
 		2593EFF21EFD344C00CF7F9A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				255DBAD01F0A629700B1DCEF /* Charts.framework in Frameworks */,
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
+				255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,7 @@
 		25BA27971EFD13AA0055718D /* ProgettoBD2 */ = {
 			isa = PBXGroup;
 			children = (
-				255DBACF1F0A629700B1DCEF /* Charts.framework */,
+				255DBADC1F0A6BB100B1DCEF /* Charts.framework */,
 				1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */,
 				25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */,
 				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
@@ -619,6 +619,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProgettoBD2",
 					"$(PROJECT_DIR)",
+					"$(TARGET_BUILD_DIR)",
 				);
 				INFOPLIST_FILE = ProgettoBD2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -645,7 +646,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProgettoBD2",
 					"$(PROJECT_DIR)",
+					"$(TARGET_BUILD_DIR)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = ProgettoBD2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;

@@ -1545,7 +1545,7 @@ SWIFT_CLASS("_TtC6Charts8NSUIView")
 @protocol IChartMarker;
 
 SWIFT_CLASS("_TtC6Charts13ChartViewBase")
-@interface ChartViewBase : NSUIView <ChartAnimatorDelegate, ChartDataProvider>
+@interface ChartViewBase : NSUIView <ChartDataProvider, ChartAnimatorDelegate>
 ///
 /// returns:
 /// The object representing all x-labels, this method can be used to
@@ -3055,7 +3055,7 @@ SWIFT_CLASS("_TtC6Charts21CombinedChartRenderer")
 
 /// This chart class allows the combination of lines, bars, scatter and candle data all displayed in one chart area.
 SWIFT_CLASS("_TtC6Charts17CombinedChartView")
-@interface CombinedChartView : BarLineChartViewBase <CombinedChartDataProvider, BarChartDataProvider, BubbleChartDataProvider, CandleChartDataProvider, LineChartDataProvider, ScatterChartDataProvider>
+@interface CombinedChartView : BarLineChartViewBase <CombinedChartDataProvider>
 /// the fill-formatter used for determining the position of the fill-line
 @property (nonatomic, strong) id <IChartFillFormatter> _Null_unspecified _fillFormatter;
 - (void)initialize;

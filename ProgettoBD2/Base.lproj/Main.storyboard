@@ -84,10 +84,10 @@
                                 <rect key="frame" x="0.0" y="4" width="405" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UO0-za-Nwu">
-                                <rect key="frame" x="16" y="353" width="343" height="272"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwU-C6-l4G" customClass="BarChartView">
+                                <rect key="frame" x="28" y="406" width="331" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,7 +95,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="barChartView" destination="UO0-za-Nwu" id="bx6-Qe-0Sz"/>
+                        <outlet property="prova" destination="CwU-C6-l4G" id="sX5-uy-V0a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-IU-lwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
