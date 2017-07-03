@@ -18,10 +18,10 @@ class Exercise{
     var weights = [Double]()
     var temperature : Double!
     
-    init (exerciseName : String, temperature : Double, date : NSDate, weight : Double, set : Array<Double>){
+    init (exerciseName : String, temperature : Double, date : Date, weight : Double, set : Array<Double>){
         self.exerciseName = exerciseName
         self.temperature = temperature
-        self.date = date as Date!
+        self.date = date
         addSet(setToAdd: set, weightToAdd: weight)
     }
     
