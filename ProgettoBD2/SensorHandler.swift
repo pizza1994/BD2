@@ -65,7 +65,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
     
     func createExercise(exerciseName: String, weight : Double, nReps : Int) -> Exercise{
         
-        exercise = Exercise(exerciseName: exerciseName, temperature: temperature, date: NSDate.init(timeIntervalSinceReferenceDate: Date.timeIntervalSinceReferenceDate), weight: weight, set: repData(nReps: nReps))
+        exercise = Exercise(exerciseName: exerciseName, temperature: temperature, date: Date.init(timeIntervalSince1970: NSTimeIntervalSince1970 as TimeInterval), weight: weight, set: repData(nReps: nReps))
         
         accData.removeAll()
         

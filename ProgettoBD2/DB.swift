@@ -23,25 +23,6 @@ class DB: NSObject
         
     }
     
-    static func saveToDb(ex: Exercise)
-    {
-        connect()
-        
-        var exerciseInfo: [String : AnyObject]
-        
-        exerciseInfo = ["exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject]
-       
-
-        do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
-            
-            perform(request)
-            
-        } catch let error {
-            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
-        }
-    }
-    
     private static func perform(_ request: URLRequest) {
         let _ = client.perform(request) {
             result in
@@ -57,26 +38,62 @@ class DB: NSObject
         }
     }
     
-    
-    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
-    static func loadFromDb()
+    static func saveToDb(ex: Exercise)
     {
         connect()
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"exercise_name\": \"bench press\"}")
+        
+        var exerciseInfo: [String : AnyObject]
+        
+        exerciseInfo = ["exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject,"date": Int(ex.date.timeIntervalSince1970) as AnyObject]
         do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
             
-            print(request)
             perform(request)
-            
-            /*https://api.mongolab.com/api/1/databases/testbd2/collections/exercises?apiKey=jGHlKVFu8-6dTTG_m6CTbmFdkqP4XaNG
-             */
             
         } catch let error {
             print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
         }
     }
     
-
+    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
+    static func loadFromDb(nDays : Int)
+    {
+        connect()
+        
+        let today : Date = Date()
+        let firstDay : Int = Int((Calendar.current.date(byAdding: .day, value: -nDays, to: today)?.timeIntervalSince1970)!)
+        let lastDay: Int = Int(Date().timeIntervalSince1970)
+        
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\": {$lt: " + String(lastDay) + "}}")
+        do {
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
+            
+            print(request)
+            perform(request)
+            
+        } catch let error {
+            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        }
+    }
+    
+    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
+    static func loadFromDb(from : Date, nDays : Int)
+    {
+        connect()
+        
+        let firstDay: Int = Int(from.timeIntervalSince1970)
+        let lastDay : Int = Int(86400*nDays) + firstDay
+        
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\":  {$lt: " + String(lastDay) + "}}")
+        do {
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
+            
+            print(request)
+            perform(request)
+            
+        } catch let error {
+            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        }
+    }
 
 }
