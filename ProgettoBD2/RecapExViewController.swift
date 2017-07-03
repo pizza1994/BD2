@@ -20,15 +20,18 @@ class RecapExViewController: UIViewController {
         
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        navigationItem.title = UserDefaults.standard.object(forKey: "exName") as? String
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:  UIColor(red: CGFloat(242.0/255.0), green: CGFloat(229.0/255.0), blue:CGFloat(50.0/255.0), alpha: 1.0)]
+        
         
         let exercise : Exercise = SensorHandler.shared.exercise!
         
-        temperatureLabel.text = String(exercise.temperature)
+        temperatureLabel.text = String(exercise.temperature) + " °C"
         setsLabel.text = String(describing: (exercise.nSets)!)
-        bestLabel.text = String(exercise.getBestRep())
-        worstLabel.text = String(exercise.getWorstRep())
-        avgForceLabel.text = String(exercise.getAvgAcc())
-        burnedCaloriesLabel.text = String(exercise.getTotalCalories())
+        bestLabel.text = String(format: "%.2f", exercise.getBestRep()*100/2) + "%"
+        worstLabel.text = String(format: "%.2f", exercise.getWorstRep()*100/2) + "%"
+        avgForceLabel.text = String(format: "%.2f", exercise.getAvgAcc()*100/2) + "%"
+        burnedCaloriesLabel.text = String(format: "%.2f", exercise.getTotalCalories()) + " Kcal"
     
 
 

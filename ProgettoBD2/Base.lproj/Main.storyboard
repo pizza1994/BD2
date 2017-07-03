@@ -72,25 +72,35 @@
                         <viewControllerLayoutGuide type="bottom" id="cWT-Ci-0qS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c51-Oi-2o9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvV-Qf-lcg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imj-e6-0NF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.44999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="First" translatesAutoresizingMaskIntoConstraints="NO" id="HW8-ao-dLS">
-                                <rect key="frame" x="-15" y="4" width="405" height="659"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.44999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="First" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-iQ-cnZ">
+                                <rect key="frame" x="0.0" y="4" width="405" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UO0-za-Nwu">
+                                <rect key="frame" x="16" y="353" width="343" height="272"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="barChartView" destination="UO0-za-Nwu" id="bx6-Qe-0Sz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-IU-lwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="580"/>
+            <point key="canvasLocation" x="744.79999999999995" y="579.76011994002999"/>
         </scene>
         <!--Start Stop View Controller-->
         <scene sceneID="vEG-AK-lni">
@@ -101,7 +111,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aMg-zx-6xj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4K0-8Z-zz2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ubn-kW-sJj">
@@ -120,13 +130,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prova" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omb-YT-KmY">
-                                <rect key="frame" x="16" y="104" width="343" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="21"/>
-                                <color key="textColor" red="0.94901960784313721" green="0.89803921568627454" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJH-tG-1Ph">
                                 <rect key="frame" x="62" y="299" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -138,11 +141,17 @@
                                     <action selector="startStopToggleWithButton:" destination="Q0r-JT-Pdw" eventType="touchUpInside" id="PZH-cs-8Bm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" editable="NO" text="Remember to position the Esimote Sensor correctly." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeL-lT-yR2">
+                                <rect key="frame" x="32" y="104" width="343" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="exName" destination="omb-YT-KmY" id="zZo-W8-uCY"/>
                         <outlet property="startStopButton" destination="lJH-tG-1Ph" id="enA-I1-lgO"/>
                     </connections>
                 </viewController>
@@ -533,7 +542,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ogz-dN-Nvo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uF2-85-PjA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQ0-af-U5I">
@@ -614,7 +623,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createExercise:" destination="I28-ac-y65" eventType="touchUpInside" id="OtW-dy-yJc"/>
-                                    <segue destination="u1K-P5-Aen" kind="show" id="SFG-7m-1Jk"/>
+                                    <segue destination="u1K-P5-Aen" kind="show" id="Ya0-UR-RpA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -635,6 +644,6 @@
         <image name="Welcome" width="122" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f5q-3C-qzG"/>
+        <segue reference="lHK-a7-6PP"/>
     </inferredMetricsTieBreakers>
 </document>

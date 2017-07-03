@@ -11,7 +11,7 @@ import UIKit
 class StartStopViewController: UIViewController {
 
     @IBOutlet weak var startStopButton: UIButton!
-    @IBOutlet weak var exName: UILabel!
+    //@IBOutlet weak var exName: UILabel!
     
     var exNameString : String?
     
@@ -22,7 +22,8 @@ class StartStopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exNameString = UserDefaults.standard.object(forKey: "exName") as? String
-        exName.text = exNameString!
+        navigationItem.title = exNameString
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:  UIColor(red: CGFloat(242.0/255.0), green: CGFloat(229.0/255.0), blue:CGFloat(50.0/255.0), alpha: 1.0)]
         view.backgroundColor = UIColor.darkGray
 
         // Do any additional setup after loading the view.

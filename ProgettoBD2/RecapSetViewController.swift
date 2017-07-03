@@ -21,14 +21,17 @@ class RecapSetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        navigationItem.title = UserDefaults.standard.object(forKey: "exName") as? String
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:  UIColor(red: CGFloat(242.0/255.0), green: CGFloat(229.0/255.0), blue:CGFloat(50.0/255.0), alpha: 1.0)]
+        
         let exercise : Exercise = SensorHandler.shared.exercise!
         
-        temperatureLabel.text = String(exercise.temperature)
+        temperatureLabel.text = String(exercise.temperature) + " °C"
         repsLabel.text = String(describing: (exercise.sets.last?.count)!)
-        bestLabel.text = String(exercise.getBestRepInSet(nSet: (Int(exercise.nSets) - 1)))
-        worstLabel.text = String(exercise.getWorstRepInSet(nSet: (Int(exercise.nSets) - 1)))
-        avgForceLabel.text = String(exercise.getAvgAccInSet(nSet: (Int(exercise.nSets) - 1)))
-        burnedCaloriesLabel.text = String(exercise.getCaloriesInSet(nSet: (Int(exercise.nSets) - 1)))
+        bestLabel.text = String(format: "%.2f", exercise.getBestRepInSet(nSet: (Int(exercise.nSets) - 1))*100/2) + "%"
+        worstLabel.text = String(format: "%.2f", exercise.getWorstRepInSet(nSet: (Int(exercise.nSets) - 1))*100/2) + "%"
+        avgForceLabel.text = String(format: "%.2f", exercise.getAvgAccInSet(nSet: (Int(exercise.nSets) - 1))*100/2) + "%"
+        burnedCaloriesLabel.text = String(format: "%.2f", exercise.getCaloriesInSet(nSet: (Int(exercise.nSets) - 1))) + " Kcal"
         
         
 
