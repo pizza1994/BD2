@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Charts
 
 
 class StatisticsViewController: UIViewController {
     
-    
+    @IBOutlet var prova : BarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

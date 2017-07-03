@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
+		255DBAD01F0A629700B1DCEF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBACF1F0A629700B1DCEF /* Charts.framework */; };
+		255DBADA1F0A66C200B1DCEF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBACF1F0A629700B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
 		2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */; };
 		2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFF21EFD344C00CF7F9A /* Exercise.swift */; };
@@ -69,9 +71,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		25B6EE851F0A5F41006C2210 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				255DBADA1F0A66C200B1DCEF /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
+		255DBACF1F0A629700B1DCEF /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartStopViewController.swift; sourceTree = "<group>"; };
 		2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapSetViewController.swift; sourceTree = "<group>"; };
 		2593EFF21EFD344C00CF7F9A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -127,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255DBAD01F0A629700B1DCEF /* Charts.framework in Frameworks */,
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +203,6 @@
 				25BA27AC1EFD13AA0055718D /* ProgettoBD2Tests */,
 				25BA27B71EFD13AA0055718D /* ProgettoBD2UITests */,
 				25BA27961EFD13AA0055718D /* Products */,
-				DCCCAB2CE30BA67FFBACA883 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +219,7 @@
 		25BA27971EFD13AA0055718D /* ProgettoBD2 */ = {
 			isa = PBXGroup;
 			children = (
+				255DBACF1F0A629700B1DCEF /* Charts.framework */,
 				1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */,
 				25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */,
 				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
@@ -261,13 +279,6 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		DCCCAB2CE30BA67FFBACA883 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +289,7 @@
 				25BA27911EFD13AA0055718D /* Sources */,
 				25BA27921EFD13AA0055718D /* Frameworks */,
 				25BA27931EFD13AA0055718D /* Resources */,
+				25B6EE851F0A5F41006C2210 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -522,6 +534,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -540,7 +554,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -571,7 +585,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -583,6 +599,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -592,10 +609,12 @@
 		25BA27BE1EFD13AA0055718D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = T482N3Q788;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProgettoBD2",
@@ -616,10 +635,12 @@
 		25BA27BF1EFD13AA0055718D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = T482N3Q788;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ProgettoBD2",
