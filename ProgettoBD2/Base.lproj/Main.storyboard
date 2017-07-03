@@ -411,6 +411,7 @@
                                 <connections>
                                     <action selector="newSet:" destination="u1K-P5-Aen" eventType="touchUpInside" id="tzk-XB-Hjv"/>
                                     <action selector="saveExercise:" destination="XTQ-Df-Rf4" eventType="touchUpInside" id="uOh-I6-cAM"/>
+                                    <segue destination="Zwq-u9-dyA" kind="show" id="pQ9-pf-4iZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ke5-v0-N3V">
