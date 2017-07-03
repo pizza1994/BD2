@@ -64,7 +64,7 @@ class DB: NSObject
         let firstDay : Int = Int((Calendar.current.date(byAdding: .day, value: -nDays, to: today)?.timeIntervalSince1970)!)
         let lastDay: Int = Int(Date().timeIntervalSince1970)
         
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, {$lt: " + String(lastDay) + "}}")
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\": {$lt: " + String(lastDay) + "}}")
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
             
@@ -84,7 +84,7 @@ class DB: NSObject
         let firstDay: Int = Int(from.timeIntervalSince1970)
         let lastDay : Int = Int(86400*nDays) + firstDay
         
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, {$lt: " + String(lastDay) + "}}")
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\":  {$lt: " + String(lastDay) + "}}")
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
             
