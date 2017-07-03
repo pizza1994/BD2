@@ -54,22 +54,6 @@
 		4CF604A61F07EFCE000CEC66 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF604A41F07EFCE000CEC66 /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		25BA27AA1EFD13AA0055718D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25BA278D1EFD13AA0055718D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 25BA27941EFD13AA0055718D;
-			remoteInfo = ProgettoBD2;
-		};
-		25BA27B51EFD13AA0055718D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25BA278D1EFD13AA0055718D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 25BA27941EFD13AA0055718D;
-			remoteInfo = ProgettoBD2;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		25B6EE851F0A5F41006C2210 /* Embed Frameworks */ = {
