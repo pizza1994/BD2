@@ -55,36 +55,51 @@ class DB: NSObject
         }
     }
     
-    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
-    static func loadFromDb(nDays : Int)
+    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!)
     {
         connect()
         
-        let today : Date = Date()
-        let firstDay : Int = Int((Calendar.current.date(byAdding: .day, value: -nDays, to: today)?.timeIntervalSince1970)!)
-        let lastDay: Int = Int(Date().timeIntervalSince1970)
+        var i : Int = 0;
+        var params : Array<String> = []
         
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\": {$lt: " + String(lastDay) + "}}")
-        do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
-            
-            print(request)
-            perform(request)
-            
-        } catch let error {
-            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        if (name != nil)
+        {
+            params[i] = "\"exercise_name\": " + name!
+            i=i+1
         }
-    }
-    
-    //static func loadFromDb(dateInterval: DateInterval,fullExercise: Bool)
-    static func loadFromDb(from : Date, nDays : Int)
-    {
-        connect()
         
-        let firstDay: Int = Int(from.timeIntervalSince1970)
-        let lastDay : Int = Int(86400*nDays) + firstDay
+        if (dateInterval[0] != nil) && (dateInterval[1] != nil)
+        {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+            let from : Int = Int(dateFormatter.date(from: dateInterval[0]!)!.timeIntervalSince1970)
+            let to : Int = Int(dateFormatter.date(from: dateInterval[1]!)!.timeIntervalSince1970)
+            params[i] = "\"date\": {$gt: " + String(from) + "}, \"date\":  {$lt: " + String(to) + "}"
+            i=i+1
+        }
         
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{\"date\": {$gt: " + String(firstDay) + "}, \"date\":  {$lt: " + String(lastDay) + "}}")
+        if (tempInterval[0] != nil) && (tempInterval[1] != nil)
+        {
+            params[i] = "\"temperature\": {$gt: " + String(tempInterval[0]!) + "}, \"date\":  {$lt: " + tempInterval[1]! + "}"
+            i=i+1
+        }
+        
+        if (setInterval[0] != nil) && (setInterval[1] != nil)
+        {
+            params[i] = "\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}"
+            i=i+1
+        }
+        
+        if (repInterval[0] != nil) && (setInterval[1] != nil)
+        {
+            params[i] = "\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}"
+            i=i+1
+        }
+        
+        let value = params.joined(separator: ",")
+        
+        let param = URLRequest.QueryStringParameter(key: "q", value: value)
+
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
             
