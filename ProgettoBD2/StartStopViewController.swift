@@ -25,6 +25,8 @@ class StartStopViewController: UIViewController {
         navigationItem.title = exNameString
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:  UIColor(red: CGFloat(242.0/255.0), green: CGFloat(229.0/255.0), blue:CGFloat(50.0/255.0), alpha: 1.0)]
         view.backgroundColor = UIColor.darkGray
+        
+        
 
         // Do any additional setup after loading the view.
     }

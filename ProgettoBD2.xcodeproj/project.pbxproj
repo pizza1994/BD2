@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
+		254FB0371F0B6F82003AB7C9 /* StatSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254FB0361F0B6F82003AB7C9 /* StatSettings.xib */; };
+		254FB0391F0B6FEB003AB7C9 /* StatsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB0381F0B6FEB003AB7C9 /* StatsSettingsView.swift */; };
 		255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; };
 		255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
@@ -54,6 +56,22 @@
 		4CF604A61F07EFCE000CEC66 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF604A41F07EFCE000CEC66 /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		254FB0341F0A6F54003AB7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25BA278D1EFD13AA0055718D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25BA27941EFD13AA0055718D;
+			remoteInfo = ProgettoBD2;
+		};
+		254FB0351F0A6F54003AB7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25BA278D1EFD13AA0055718D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25BA27941EFD13AA0055718D;
+			remoteInfo = ProgettoBD2;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		25B6EE851F0A5F41006C2210 /* Embed Frameworks */ = {
@@ -72,6 +90,8 @@
 /* Begin PBXFileReference section */
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
+		254FB0361F0B6F82003AB7C9 /* StatSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatSettings.xib; sourceTree = "<group>"; };
+		254FB0381F0B6FEB003AB7C9 /* StatsSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsSettingsView.swift; sourceTree = "<group>"; };
 		255DBADC1F0A6BB100B1DCEF /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartStopViewController.swift; sourceTree = "<group>"; };
 		2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapSetViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +232,8 @@
 				25F598991F03A75600CBE127 /* Model */,
 				25F5989A1F03A76800CBE127 /* Controller */,
 				25BA279C1EFD13AA0055718D /* Main.storyboard */,
+				254FB0361F0B6F82003AB7C9 /* StatSettings.xib */,
+				254FB0381F0B6FEB003AB7C9 /* StatsSettingsView.swift */,
 				25F5989D1F03B4DD00CBE127 /* Settings.bundle */,
 				25BA279F1EFD13AA0055718D /* Assets.xcassets */,
 				25BA27A11EFD13AA0055718D /* LaunchScreen.storyboard */,
@@ -379,6 +401,7 @@
 				25F5989E1F03B4DD00CBE127 /* Settings.bundle in Resources */,
 				25BA27A31EFD13AA0055718D /* LaunchScreen.storyboard in Resources */,
 				25BA27A01EFD13AA0055718D /* Assets.xcassets in Resources */,
+				254FB0371F0B6F82003AB7C9 /* StatSettings.xib in Resources */,
 				25BA279E1EFD13AA0055718D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +444,7 @@
 				259956971F06C8D000BC7767 /* Configuration.swift in Sources */,
 				259956A81F06C8D000BC7767 /* URLBuilder.swift in Sources */,
 				25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */,
+				254FB0391F0B6FEB003AB7C9 /* StatsSettingsView.swift in Sources */,
 				259956A01F06C8D000BC7767 /* MongoLabClient.swift in Sources */,
 				2599569B1F06C8D000BC7767 /* DocumentService.swift in Sources */,
 				25BA27991EFD13AA0055718D /* AppDelegate.swift in Sources */,
@@ -465,12 +489,12 @@
 		25BA27AB1EFD13AA0055718D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25BA27941EFD13AA0055718D /* ProgettoBD2 */;
-			targetProxy = 25BA27AA1EFD13AA0055718D /* PBXContainerItemProxy */;
+			targetProxy = 254FB0341F0A6F54003AB7C9 /* PBXContainerItemProxy */;
 		};
 		25BA27B61EFD13AA0055718D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25BA27941EFD13AA0055718D /* ProgettoBD2 */;
-			targetProxy = 25BA27B51EFD13AA0055718D /* PBXContainerItemProxy */;
+			targetProxy = 254FB0351F0A6F54003AB7C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -538,7 +562,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -607,7 +631,7 @@
 				);
 				INFOPLIST_FILE = ProgettoBD2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = PLE.ProgettoBD2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

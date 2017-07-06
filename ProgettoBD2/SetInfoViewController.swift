@@ -16,6 +16,9 @@ class SetInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        repsField.keyboardType = UIKeyboardType.numberPad
+        weightField.keyboardType = UIKeyboardType.numberPad
+
         // Do any additional setup after loading the view.
     }
 

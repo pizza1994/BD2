@@ -84,8 +84,8 @@
                                 <rect key="frame" x="0.0" y="4" width="405" height="659"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwU-C6-l4G" customClass="BarChartView">
-                                <rect key="frame" x="28" y="406" width="331" height="203"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfT-ni-V09" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="54" width="375" height="613"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -95,7 +95,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="prova" destination="CwU-C6-l4G" id="sX5-uy-V0a"/>
+                        <outlet property="barChartView" destination="pfT-ni-V09" id="Rdi-W2-4ps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-IU-lwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
