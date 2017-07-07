@@ -16,7 +16,7 @@ class DB: NSObject
     static private var collectionsService: CollectionsService?
     static private var documentsService: DocumentsService?
     static private var documentService: DocumentService?
-    static private var response : Data?
+    static public var returnType: Int?
     
     static private func connect()
     {
@@ -31,13 +31,17 @@ class DB: NSObject
             
             switch result {
             case let .success(response):
-                print("Success \(response)")
-                self.response = response as? Data
+                print("Success in request \(response)")
+                if (DB.returnType != nil)
+                {
+                    DB.fetchResult(response: response as! Array<NSDictionary>)
+                }
                 
             case let .failure(error):
-                print("Error \(error)")
+                print("Error in request \(error)")
             }
         }
+        
     }
     
     static func saveToDb(ex: Exercise)
@@ -66,15 +70,15 @@ class DB: NSObject
         if (name != "")
         {
             let names = name!.components(separatedBy: ", ")
-            var or = "{$or: {"
+            var or = "$or:["
             for n in names
             {
-                or = or + ("\"exercise_name\": " + "\"" + n + "\", ")
+                or = or + ("{\"exercise_name\":" + "\"" + n + "\"},")
             }
             
             or = or.substring(to: or.index(before: or.endIndex))
             
-            or = or + "}"
+            or = or + "]"
             params.append(or);
         }
         
@@ -84,77 +88,91 @@ class DB: NSObject
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let from : Int = Int(dateFormatter.date(from: dateInterval[0]!)!.timeIntervalSince1970)
             let to : Int = Int(dateFormatter.date(from: dateInterval[1]!)!.timeIntervalSince1970)
-            params.append("\"date\": {$gt: " + String(from) + "}, \"date\":  {$lt: " + String(to) + "}")
+            params.append("\"date\":{$gt:" + String(from) + "}, \"date\":  {$lt:" + String(to) + "}")
             
         }
         
         if (tempInterval[0]! != "") && (tempInterval[1]! != "")
         {
-            params.append("\"temperature\": {$gt: " + String(tempInterval[0]!) + "}, \"temperature\":  {$lt: " + tempInterval[1]! + "}")
+            params.append("\"temperature\":{$gt:" + String(tempInterval[0]!) + "},\"temperature\":{$lt:" + tempInterval[1]! + "}")
             
         }
         
         if (setInterval[0]! != "") && (setInterval[1]! != "")
         {
-            params.append("\"n_sets\": {$gt: " + setInterval[0]! + "}, \"n_sets\":  {$lt: " + setInterval[1]! + "}")
+            params.append("\"n_sets\":{$gt:" + setInterval[0]! + "}, \"n_sets\":{$lt:" + setInterval[1]! + "}")
             
         }
         
-        var value = params.joined(separator: ",")
-        
-        value = "{" + value + "}"
+        let selection = params.joined(separator: ",")
+        var projection = ""
         
         switch returnType
         {
             case 0:
-                value = value + "{\"exercise_name\": 1, \"sets\": 1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
+                projection = "{\"exercise_name\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
             case 1:
-                value = value + "{\"exercise_name\": 1, \"sets\": 1, \"temperature\": 1}"
+                projection = "{\"exercise_name\":1,\"sets\":1,\"temperature\":1}"
             default:
-                value = value + "{\"exercise_name\": 1, \"calories\": 1}"
+                projection = "{\"exercise_name\":1,\"calories\":1}"
         }
-        
-        let param = URLRequest.QueryStringParameter(key: "q", value: "{" + value + "}")
+
+        let param1 = URLRequest.QueryStringParameter(key: "q", value: "{" + selection + "}")
+        let param2 = URLRequest.QueryStringParameter(key: "f", value:projection)
 
         do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param1, param2], bodyData: nil)
             
+            self.returnType = returnType
             print(request)
             perform(request)
             
-            let list = try? JSONSerialization.jsonObject(with: self.response!, options: []) as! NSDictionary
+        } catch let error {
+            print("Error in load \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        }
+    }
+    
+    static func fetchResult(response: Array<NSDictionary>)
+    {
+        /*let list = try? JSONSerialization.jsonObject(with: response, options: []) as! NSDictionary*/
             
-
-            if (returnType == 0)
+            
+        if (self.returnType == 0 || self.returnType == 1)
+        {
+            /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
+            var ex_average : Double = 0
+            var n : Double = 0
+                
+            for element in response
             {
-                
-                /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id: {"exercise_name": "nome1", "sets": rfjkdfb}]*/
-                var ex_average : Int = 0
-                var n : Int = 0
-                
-                for (_, value) in list! {
-                    let exercise : NSDictionary = value as! NSDictionary
-                    let ex_name : String = (exercise.value(forKey: "exercise_name") as? String)!
-                    let sets : NSDictionary = exercise.value(forKey: "sets") as! NSDictionary
+                let ex_name : String = element.value(forKey: "exercise_name") as! String
+                let sets : Array<Array<Double>> = element.value(forKey: "sets") as! Array<Array<Double>>
                     
-                    for (_, setObject) in sets
+                for set in sets
+                {
+                    for rep in set
                     {
-                        let set : NSDictionary = setObject as! NSDictionary
-                        for (_, rep) in set
-                        {
-                            ex_average = ex_average + (rep as! Int)
-                            n = n + 1
-                        }
+                        ex_average = ex_average + (rep)
+                        n = n + 1
                     }
-                    ex_average = ex_average / n
-                    print(ex_name + " " + String(ex_average))
-                    
+                }
+                ex_average = ex_average / n
+                print("name: " + ex_name + " , force: " + String(ex_average))
+                if (self.returnType == 1)
+                {
+                    let temperature : String = element.value(forKey: "temperature") as! String
+                    print(", temperature: " + temperature)
                 }
             }
-            
-            
-        } catch let error {
-            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        }
+        else
+        {
+            for element in response
+            {
+                let ex_name : String = element.value(forKey: "exercise_name") as! String
+                let calories : String = element.value(forKey: "calories") as! String
+                print("name: " + ex_name + ", calories: " + calories)
+            }
         }
     }
 

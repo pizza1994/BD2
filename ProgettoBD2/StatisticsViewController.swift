@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 
-class StatisticsViewController: UIViewController, IAxisValueFormatter {
+class StatisticsViewController: UIViewController,IAxisValueFormatter {
     
     var queryView: StatsSettingsView? = nil
     @IBOutlet weak var barChartView: BarChartView!
@@ -84,9 +84,14 @@ class StatisticsViewController: UIViewController, IAxisValueFormatter {
         let toSets : String? = queryView?.toSetsTextField.text
         let reps : String? = queryView?.repsTextField.text
         let toReps : String? = queryView?.toRepsTextField.text
-        let selection: Int? = queryView?.selection
+        var selection: Int? = queryView?.selection
         
-        print(date)
+        print(date!)
+        
+        if (selection == nil)
+        {
+            selection = 0
+        }
         
         DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
         
