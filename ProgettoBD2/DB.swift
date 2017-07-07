@@ -58,47 +58,50 @@ class DB: NSObject
     static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!)
     {
         connect()
+          
+                        
+        var params : Array<String> = Array<String>()
         
-        var i : Int = 0;
-        var params : Array<String> = []
-        
-        if (name != nil)
+        if (name != "")
         {
-            params[i] = "\"exercise_name\": " + name!
-            i=i+1
+            let names = name!.components(separatedBy: ", ")
+            for n in names{
+                params.append("\"exercise_name\": " + "\"" + n + "\"")
+            }
+            
         }
         
-        if (dateInterval[0] != nil) && (dateInterval[1] != nil)
+        if (dateInterval[0]! != "") && (dateInterval[1]! != "")
         {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             let from : Int = Int(dateFormatter.date(from: dateInterval[0]!)!.timeIntervalSince1970)
             let to : Int = Int(dateFormatter.date(from: dateInterval[1]!)!.timeIntervalSince1970)
-            params[i] = "\"date\": {$gt: " + String(from) + "}, \"date\":  {$lt: " + String(to) + "}"
-            i=i+1
+            params.append("\"date\": {$gt: " + String(from) + "}, \"date\":  {$lt: " + String(to) + "}")
+            
         }
         
-        if (tempInterval[0] != nil) && (tempInterval[1] != nil)
+        if (tempInterval[0]! != "") && (tempInterval[1]! != "")
         {
-            params[i] = "\"temperature\": {$gt: " + String(tempInterval[0]!) + "}, \"date\":  {$lt: " + tempInterval[1]! + "}"
-            i=i+1
+            params.append("\"temperature\": {$gt: " + String(tempInterval[0]!) + "}, \"date\":  {$lt: " + tempInterval[1]! + "}")
+            
         }
         
-        if (setInterval[0] != nil) && (setInterval[1] != nil)
+        if (setInterval[0]! != "") && (setInterval[1]! != "")
         {
-            params[i] = "\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}"
-            i=i+1
+            params.append("\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}")
+            
         }
         
-        if (repInterval[0] != nil) && (setInterval[1] != nil)
+        if (repInterval[0]! != "") && (setInterval[1]! != "")
         {
-            params[i] = "\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}"
-            i=i+1
+            params.append("\"set\": {$gt: " + setInterval[0]! + "}, \"date\":  {$lt: " + setInterval[1]! + "}")
+           
         }
         
         let value = params.joined(separator: ",")
         
-        let param = URLRequest.QueryStringParameter(key: "q", value: value)
+        let param = URLRequest.QueryStringParameter(key: "q", value: "{" + value + "}")
 
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)

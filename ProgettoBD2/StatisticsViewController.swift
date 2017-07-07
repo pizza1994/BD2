@@ -86,7 +86,9 @@ class StatisticsViewController: UIViewController, IAxisValueFormatter {
         let toReps : String? = queryView?.toRepsTextField.text
         let selection: Int? = queryView?.selection
         
-    //let jSSON : [String : AnyObject] = DB.loadFromDb(exNames, date, toDate, temperature, toTemperature, sets, toSets, reps, toReps, selection)
+        print(date)
+        
+        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
         
         
     }
