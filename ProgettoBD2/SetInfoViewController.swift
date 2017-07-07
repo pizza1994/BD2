@@ -10,14 +10,14 @@ import UIKit
 
 class SetInfoViewController: UIViewController {
 
-    @IBOutlet weak var repsField: UITextField!
-    @IBOutlet weak var weightField: UITextField!
+    @IBOutlet weak var repsField: UITextField?
+    @IBOutlet weak var weightField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        repsField.keyboardType = UIKeyboardType.numberPad
-        weightField.keyboardType = UIKeyboardType.numberPad
+        repsField?.keyboardType = UIKeyboardType.numberPad
+        weightField?.keyboardType = UIKeyboardType.numberPad
 
         // Do any additional setup after loading the view.
     }
@@ -28,11 +28,20 @@ class SetInfoViewController: UIViewController {
     }
     
     @IBAction func createExercise(_ sender: Any) {
+        
+        if(weightField?.text == nil){
+            weightField?.text = "0"
+        }
+        if(repsField?.text == nil){
+            weightField?.text = "10"
+            
+        }
+        
         if (SensorHandler.shared.exercise == nil){
-            let _ : Exercise =  SensorHandler.shared.createExercise(exerciseName: (UserDefaults.standard.object(forKey: "exName") as? String)!, weight: Double(weightField.text!)!, nReps: Int(repsField.text!)!)
+            let _ : Exercise =  SensorHandler.shared.createExercise(exerciseName: (UserDefaults.standard.object(forKey: "exName") as? String)!, weight: Double(weightField!.text!)!, nReps: Int(repsField!.text!)!)
         }
         else{
-            SensorHandler.shared.addNewSet(weight: Double(weightField.text!)!, nReps: Int(repsField.text!)!)
+            SensorHandler.shared.addNewSet(weight: Double((weightField?.text!)!)!, nReps: Int((repsField?.text!)!)!)
         }
     }
 

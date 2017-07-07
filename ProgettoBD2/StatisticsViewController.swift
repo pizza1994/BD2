@@ -40,6 +40,12 @@ class StatisticsViewController: UIViewController, IAxisValueFormatter {
         
     }
     
+    @IBAction func showChart(_ sender: Any) {
+        navigationItem.rightBarButtonItem?.title = "Query"
+        queryView?.isHidden = true
+        loadDataFromDB()
+    }
+    
     func openQView(){
         
         if(queryView == nil){
@@ -51,12 +57,16 @@ class StatisticsViewController: UIViewController, IAxisValueFormatter {
             queryView?.toSetsTextField.keyboardType = UIKeyboardType.numberPad
             queryView?.repsTextField.keyboardType = UIKeyboardType.numberPad
             queryView?.toRepsTextField.keyboardType = UIKeyboardType.numberPad
+            queryView?.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: UIControlState.normal)
+            queryView?.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: UIControlState.selected)
+
             self.view.addSubview(queryView!)
             self.view.bringSubview(toFront: queryView!)
         }
         else{
             queryView?.isHidden = false
         }
+        navigationItem.rightBarButtonItem?.title = ""
     
         
     }
@@ -64,6 +74,20 @@ class StatisticsViewController: UIViewController, IAxisValueFormatter {
 
     
     func loadDataFromDB(){
+        
+        let exNames : String? = queryView?.nameTextField.text
+        let date : String? = queryView?.dataTextField.text
+        let toDate : String? = queryView?.toDataTextField.text
+        let temperature : String? = queryView?.temperatureTextField.text
+        let toTemperature : String? = queryView?.toTemperatureTextField.text
+        let sets : String? = queryView?.setsTextField.text
+        let toSets : String? = queryView?.toSetsTextField.text
+        let reps : String? = queryView?.repsTextField.text
+        let toReps : String? = queryView?.toRepsTextField.text
+        let selection: Int? = queryView?.selection
+        
+    //let jSSON : [String : AnyObject] = DB.loadFromDb(exNames, date, toDate, temperature, toTemperature, sets, toSets, reps, toReps, selection)
+        
         
     }
     

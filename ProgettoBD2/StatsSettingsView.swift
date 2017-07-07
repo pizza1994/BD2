@@ -21,6 +21,7 @@ class StatsSettingsView: UIView {
     @IBOutlet weak var repsTextField : UITextField!
     @IBOutlet weak var toRepsTextField : UITextField!
     @IBOutlet weak var segmentControl : UISegmentedControl!
+    var selection :Int?
     
     
     
@@ -36,12 +37,12 @@ class StatsSettingsView: UIView {
 
     }
     
-
+/*
     @IBAction func show(_ sender: Any) {
         self.isHidden = true
         
     }
-    
+  */  
     func initializeTextFieldInputView() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -59,6 +60,21 @@ class StatsSettingsView: UIView {
         formatter.dateFormat = "yyyy-MM-dd"
         dataTextField.text = formatter.string(from: datePicker.date)
     }
+    
+    @IBAction func indexChanged(sender : UISegmentedControl) {
+        // This all works fine and it prints out the value of 3 on any click
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            selection = 0
+        case 1:
+            selection = 1
+        case 2:
+            selection = 2
+        default:
+            break;
+        }  //Switch
+    } // indexChanged for the Segmented Control
     
 
     
