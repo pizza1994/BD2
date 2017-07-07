@@ -16,6 +16,7 @@ class DB: NSObject
     static private var collectionsService: CollectionsService?
     static private var documentsService: DocumentsService?
     static private var documentService: DocumentService?
+    static private var response : Data?
     
     static private func connect()
     {
@@ -23,7 +24,7 @@ class DB: NSObject
         
     }
     
-    private static func perform(_ request: URLRequest) -> Data
+    private static func perform(_ request: URLRequest)
     {
         let _ = client.perform(request) {
             result in
@@ -31,11 +32,10 @@ class DB: NSObject
             switch result {
             case let .success(response):
                 print("Success \(response)")
-                
+                self.response = response as? Data
                 
             case let .failure(error):
                 print("Error \(error)")
-                
             }
         }
     }
@@ -120,34 +120,36 @@ class DB: NSObject
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param], bodyData: nil)
             
             print(request)
-            var response : Data = perform(request)
+            perform(request)
             
-            let json = try? JSONSerialization.jsonObject(with: response, options: []) as! NSDictionary
+            let list = try? JSONSerialization.jsonObject(with: self.response!, options: []) as! NSDictionary
             
 
             if (returnType == 0)
             {
                 
                 /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id: {"exercise_name": "nome1", "sets": rfjkdfb}]*/
-                var keyValues : NSDictionary
-                var average : Int = 0
+                var ex_average : Int = 0
                 var n : Int = 0
-                var setValues : Array<Double>
                 
-                for element in json!
-                {
-       
-                        if (element.key == "sets"){
-                            setValues.append(element.value as! Double)
+                for (_, value) in list! {
+                    let exercise : NSDictionary = value as! NSDictionary
+                    let ex_name : String = (exercise.value(forKey: "exercise_name") as? String)!
+                    let sets : NSDictionary = exercise.value(forKey: "sets") as! NSDictionary
+                    
+                    for (_, setObject) in sets
+                    {
+                        let set : NSDictionary = setObject as! NSDictionary
+                        for (_, rep) in set
+                        {
+                            ex_average = ex_average + (rep as! Int)
+                            n = n + 1
                         }
-                        
-                        tot = tot + rep
-                        n = n + 1
+                    }
+                    ex_average = ex_average / n
+                    print(ex_name + " " + String(ex_average))
                     
                 }
-                average = average / n
-                keyValues.
-                
             }
             
             
