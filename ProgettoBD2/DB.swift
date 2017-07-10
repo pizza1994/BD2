@@ -90,7 +90,7 @@ class DB: NSObject
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let from : Int = Int(dateFormatter.date(from: dateInterval[0]!)!.timeIntervalSince1970)
             let to : Int = Int(dateFormatter.date(from: dateInterval[1]!)!.timeIntervalSince1970)
-            params.append("\"date\":{$gt:" + String(from) + "}, \"date\":  {$lt:" + String(to) + "}")
+            params.append("\"date\":{$gt:" + String(from) + ",$lt:" + String(to) + "}")
             
         }
         
@@ -116,7 +116,7 @@ class DB: NSObject
             case 1:
                 projection = "{\"exercise_name\":1,\"sets\":1,\"temperature\":1}"
             case 2:
-                projection = "{\"exercise_name\":1,\"calories\":1}"
+                projection = "{\"date\":1,\"calories\":1}"
             default:
                 break
         }
@@ -174,15 +174,35 @@ class DB: NSObject
         }
         else
         {
+            
             for element in response
             {
-                let ex_name : String = element.value(forKey: "exercise_name") as! String
-                let calories : Double = element.value(forKey: "calories") as! Double
-                qResult.append([ex_name, calories])
-                print("name: " + ex_name + ", calories: \(calories)")
+                let dateResponse : Int = element.value(forKey: "date") as! Int
+                let caloriesResponse : Double = element.value(forKey: "calories") as! Double
+                var flagFound : Bool = false
+                
+                if (qResult.count == 0)
+                {
+                    qResult.append((dateResponse, caloriesResponse))
+                }
+                else
+                {
+                    for i in 0...qResult.count-1
+                    {
+                    
+                        let (dateItem, caloriesItem) : (Int, Double) = qResult[i] as! (Int, Double)
+                    
+                        if (dateItem == dateResponse)
+                        {
+                            flagFound = true
+                            qResult[i] = (dateItem, caloriesItem+caloriesResponse)
+                            break
+                        }
+                    }
+                    
+                    if (!flagFound){ qResult.append((dateResponse, caloriesResponse))}
+                }
             }
         }
-        
     }
-
 }

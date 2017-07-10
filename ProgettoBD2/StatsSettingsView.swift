@@ -71,11 +71,11 @@ class StatsSettingsView: UIView {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            selection = 0
+            selection = 0 //avgForce
         case 1:
-            selection = 1
+            selection = 1 //force over temp
         case 2:
-            selection = 2
+            selection = 2 //calories
         default:
             selection = 0
             break;

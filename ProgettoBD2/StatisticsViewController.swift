@@ -13,14 +13,13 @@ import Charts
 class StatisticsViewController: UIViewController,IAxisValueFormatter {
     
     var queryView: StatsSettingsView? = nil
-    @IBOutlet weak var barChartView: BarChartView!
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+    @IBOutlet weak var defaultChart: LineChartView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        setDefaultChart()
         
         let queryButton = UIBarButtonItem()
         queryButton.title = "Query"
@@ -32,12 +31,8 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
 
         
         //DB.loadFromDb(nDays: 30)
-        barChartView.noDataText = "You need to provide data for the chart."
-        
+        defaultChart.noDataText = "You need to provide data for the chart."
 
-        
-        setChart(dataPoints: months, values: unitsSold)
-        
     }
     
     @IBAction func showChart(_ sender: Any) {
@@ -73,7 +68,7 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
     
 
     
-    func loadDataFromDB(){
+    func loadDataFromDB() -> Array<Any>{
         
         let exNames : String? = queryView?.nameTextField.text
         let date : String? = queryView?.dataTextField.text
@@ -92,22 +87,26 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
             selection = 0
         }
         
-        let qResults : Array<Any> = DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
-        
-        
+        return DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
     }
     
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return months[Int(value) % months.count]
-    }
+       func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+        }
     
+    
+    /*
     func setChart(dataPoints: [String], values: [Double]) {
-        barChartView.noDataText = "You need to provide data for the chart."
+        defaultChart.noDataText = "You need to provide data for the chart."
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
-        barChartView.xAxis.valueFormatter = xAxis.valueFormatter
-        barChartView.xAxis.labelTextColor = UIColor.white
+        defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+        defaultChart.xAxis.labelTextColor = UIColor.white
 
         
         let yValues = unitsSold.enumerated().map { index, element -> BarChartDataEntry in
@@ -118,18 +117,60 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         
         let chartData = BarChartData(dataSet: chartDataSet)
         
-        barChartView.data = chartData
+        defaultChart.data = chartData
         
 
         
         
-        barChartView.xAxis.labelPosition = .bottom
+        defaultChart.xAxis.labelPosition = .bottom
         chartDataSet.colors = [UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)]
 
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        barChartView.data = chartData
+        defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        defaultChart.data = chartData
         
     }
+    */
+    
+    func setDefaultChart(){
+    
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todayDate = Date();
+        let today : String = dateFormatter.string(from: todayDate)
+        let monthAgo : String = dateFormatter.string(from: todayDate.addingTimeInterval(-2592000))
+        
+        let qResult : Array<(Int, Double)> = DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], repInterval: ["", ""], returnType: 2) as! Array<(Int, Double)>
+    
+        defaultChart.noDataText = "You need to provide data for the chart."
+        
+        let xAxis = XAxis()
+        xAxis.valueFormatter = self
+        defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+        defaultChart.xAxis.labelTextColor = UIColor.white
+        
+        let yValues = qResult.map() { date, calories -> ChartDataEntry in
+            return ChartDataEntry(x: Double(date), y: calories)
+        }
+        
+        let chartDataSet = LineChartDataSet(values: yValues, label: "If you want a label; you can also pass nil")
+        
+        let chartData = LineChartData(dataSet: chartDataSet)
+        
+        defaultChart.data = chartData
+        
+        
+        
+        
+        defaultChart.xAxis.labelPosition = .bottom
+        chartDataSet.colors = [UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)]
+        
+        defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        defaultChart.data = chartData
+
+    
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         
@@ -140,6 +181,7 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         // Dispose of any resources that can be recreated.
     }
 
+    
     
     /*
     // MARK: - Navigation
