@@ -31,6 +31,9 @@
                         <segment title="Force/Temp"/>
                         <segment title="Calories"/>
                     </segments>
+                    <connections>
+                        <action selector="indexChangedWithSender:" destination="iN0-l3-epB" eventType="valueChanged" id="RGZ-qP-XND"/>
+                    </connections>
                 </segmentedControl>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-ly-Plx">
                     <rect key="frame" x="251" y="181" width="97" height="30"/>

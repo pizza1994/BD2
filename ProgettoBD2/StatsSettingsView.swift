@@ -58,7 +58,12 @@ class StatsSettingsView: UIView {
     func dateChanged(_ datePicker: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        dataTextField.text = formatter.string(from: datePicker.date)
+        if (dataTextField.isEditing){
+            dataTextField.text = formatter.string(from: datePicker.date)
+        }
+        else{
+            toDataTextField.text = formatter.string(from: datePicker.date)
+        }
     }
     
     @IBAction func indexChanged(sender : UISegmentedControl) {
@@ -72,8 +77,10 @@ class StatsSettingsView: UIView {
         case 2:
             selection = 2
         default:
+            selection = 0
             break;
         }  //Switch
+        print("selezione: \(selection)")
     } // indexChanged for the Segmented Control
     
 

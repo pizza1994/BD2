@@ -86,14 +86,13 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         let toReps : String? = queryView?.toRepsTextField.text
         var selection: Int? = queryView?.selection
         
-        print(date!)
         
         if (selection == nil)
         {
             selection = 0
         }
         
-        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
+        let qResults : Array<Any> = DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
         
         
     }

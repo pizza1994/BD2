@@ -16,7 +16,9 @@ class DB: NSObject
     static private var collectionsService: CollectionsService?
     static private var documentsService: DocumentsService?
     static private var documentService: DocumentService?
-    static public var returnType: Int?
+    static private var returnType: Int?
+    static private var qResult : Array<Any> = Array<Any>()
+    
     
     static private func connect()
     {
@@ -50,7 +52,7 @@ class DB: NSObject
         
         var exerciseInfo: [String : AnyObject]
         
-        exerciseInfo = ["exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject, "date": Int(ex.date.timeIntervalSince1970) as AnyObject]
+        exerciseInfo = ["exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject, "date": Int(ex.date.timeIntervalSince1970) as AnyObject, "calories": ex.getTotalCalories() as AnyObject]
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
             
@@ -61,7 +63,7 @@ class DB: NSObject
         }
     }
     
-    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!)
+    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!) -> Array<Any>
     {
         connect()
                         
@@ -113,8 +115,10 @@ class DB: NSObject
                 projection = "{\"exercise_name\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
             case 1:
                 projection = "{\"exercise_name\":1,\"sets\":1,\"temperature\":1}"
-            default:
+            case 2:
                 projection = "{\"exercise_name\":1,\"calories\":1}"
+            default:
+                break
         }
 
         let param1 = URLRequest.QueryStringParameter(key: "q", value: "{" + selection + "}")
@@ -130,13 +134,14 @@ class DB: NSObject
         } catch let error {
             print("Error in load \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
         }
+        
+        return qResult
     }
     
-    static func fetchResult(response: Array<NSDictionary>)
+    static private func fetchResult(response: Array<NSDictionary>)
     {
         /*let list = try? JSONSerialization.jsonObject(with: response, options: []) as! NSDictionary*/
-            
-            
+        
         if (self.returnType == 0 || self.returnType == 1)
         {
             /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
@@ -157,11 +162,13 @@ class DB: NSObject
                     }
                 }
                 ex_average = ex_average / n
+                qResult.append([ex_name, ex_average])
                 print("name: " + ex_name + " , force: " + String(ex_average))
                 if (self.returnType == 1)
                 {
-                    let temperature : String = element.value(forKey: "temperature") as! String
-                    print(", temperature: " + temperature)
+                    let temperature : Double = element.value(forKey: "temperature") as! Double
+                    print(", temperature: \(temperature)")
+                    qResult.insert([ex_name, ex_average, temperature], at: qResult.count-1)
                 }
             }
         }
@@ -170,10 +177,12 @@ class DB: NSObject
             for element in response
             {
                 let ex_name : String = element.value(forKey: "exercise_name") as! String
-                let calories : String = element.value(forKey: "calories") as! String
-                print("name: " + ex_name + ", calories: " + calories)
+                let calories : Double = element.value(forKey: "calories") as! Double
+                qResult.append([ex_name, calories])
+                print("name: " + ex_name + ", calories: \(calories)")
             }
         }
+        
     }
 
 }

@@ -17,12 +17,14 @@ class Exercise{
     var sets = [[Double]]()
     var weights = [Double]()
     var temperature : Double!
+    var calories = [Double]()
     
     init (exerciseName : String, temperature : Double, date : Date, weight : Double, set : Array<Double>){
         self.exerciseName = exerciseName
         self.temperature = temperature
         self.date = date
         addSet(setToAdd: set, weightToAdd: weight)
+        calories.append(getCaloriesInSet(nSet: sets.count-1))
     }
     
     func addSet(setToAdd : Array<Double>, weightToAdd : Double){
@@ -34,13 +36,12 @@ class Exercise{
     
     func getTotalCalories() -> Double{
         
-        var caloriesBurned:  Double
+        var caloriesBurned:  Double = 0
         
-        caloriesBurned = 0
         
-        for i in 0...nSets-1{
+        for caloriesInSet in calories{
                 
-            caloriesBurned += getCaloriesInSet(nSet: Int(i))
+            caloriesBurned += caloriesInSet
         }
             
         return caloriesBurned
