@@ -69,7 +69,7 @@ class DB: NSObject
         connect()
                         
         var params : Array<String> = Array<String>()
-        var username : String = (UserDefaults.standard.object(forKey: "username") as? String)!
+        let username : String = (UserDefaults.standard.object(forKey: "username") as? String)!
         
         params.append("\"username\":" + username)
         
