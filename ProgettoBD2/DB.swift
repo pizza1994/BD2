@@ -51,8 +51,9 @@ class DB: NSObject
         connect()
         
         var exerciseInfo: [String : AnyObject]
+        let username : AnyObject = UserDefaults.standard.object(forKey: "username") as AnyObject
         
-        exerciseInfo = ["exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject, "date": Int(ex.date.timeIntervalSince1970) as AnyObject, "calories": ex.getTotalCalories() as AnyObject]
+        exerciseInfo = ["username": username, "exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject, "date": Int(ex.date.timeIntervalSince1970) as AnyObject, "calories": ex.getTotalCalories() as AnyObject]
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
             
@@ -68,6 +69,9 @@ class DB: NSObject
         connect()
                         
         var params : Array<String> = Array<String>()
+        var username : String = (UserDefaults.standard.object(forKey: "username") as? String)!
+        
+        params.append("\"username\":" + username)
         
         if (name != "")
         {

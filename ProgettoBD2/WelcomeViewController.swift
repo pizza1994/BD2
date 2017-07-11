@@ -10,6 +10,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var heightField: UITextField!
     
     override func viewDidLoad() {
@@ -29,7 +30,7 @@ class WelcomeViewController: UIViewController {
         
         UserDefaults.standard.set("notFirst", forKey: "firstTime")
         UserDefaults.standard.set(heightField.text!, forKey: "height")
-        
+        UserDefaults.standard.set(emailField.text!, forKey: "username")
     }
 
     /*
