@@ -17,7 +17,7 @@ class DB: NSObject
     static private var documentsService: DocumentsService?
     static private var documentService: DocumentService?
     static private var returnType: Int?
-    static private var qResult : Array<Any> = Array<Any>()
+    static public var qResult : Array<Any> = Array<Any>()
     
     
     static private func connect()
@@ -26,7 +26,7 @@ class DB: NSObject
         
     }
     
-    private static func perform(_ request: URLRequest)
+    private static func perform(_ request: URLRequest, complete:@escaping ((_ isOK:Bool)->()))
     {
         let _ = client.perform(request) {
             result in
@@ -37,6 +37,7 @@ class DB: NSObject
                 if (DB.returnType != nil)
                 {
                     DB.fetchResult(response: response as! Array<NSDictionary>)
+                    complete(true)
                 }
                 
             case let .failure(error):
@@ -56,16 +57,19 @@ class DB: NSObject
         do {
             let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
             
-            perform(request)
+            perform(request){_ in 
+
+            }
             
         } catch let error {
             print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
         }
     }
     
-    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!) -> Array<Any>
+    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!, handleComplete:@escaping ((_ isOK:Bool)->()))
     {
         connect()
+        qResult = Array<Any>()
                         
         var params : Array<String> = Array<String>()
         
@@ -129,13 +133,19 @@ class DB: NSObject
             
             self.returnType = returnType
             print(request)
-            perform(request)
+            perform(request){
+                ok in
+                DispatchQueue.main.async() {
+                    handleComplete(true)
+
+                }
+            }
+
             
         } catch let error {
             print("Error in load \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
         }
         
-        return qResult
     }
     
     static private func fetchResult(response: Array<NSDictionary>)

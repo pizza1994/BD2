@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 
-class StatisticsViewController: UIViewController,IAxisValueFormatter {
+class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueFormatter {
     
     var queryView: StatsSettingsView? = nil
     @IBOutlet weak var defaultChart: LineChartView!
@@ -19,7 +19,6 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        setDefaultChart()
         
         let queryButton = UIBarButtonItem()
         queryButton.title = "Query"
@@ -32,6 +31,9 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         
         //DB.loadFromDb(nDays: 30)
         defaultChart.noDataText = "You need to provide data for the chart."
+        defaultChart.delegate = self
+        setDefaultChart()
+
 
     }
     
@@ -68,7 +70,7 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
     
 
     
-    func loadDataFromDB() -> Array<Any>{
+    func loadDataFromDB(){
         
         let exNames : String? = queryView?.nameTextField.text
         let date : String? = queryView?.dataTextField.text
@@ -87,16 +89,14 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
             selection = 0
         }
         
-        return DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection)
+        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection){
+            ok in DispatchQueue.main.async() {
+
+                }
+            
+            }
     }
-    
-       func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
-        }
+
     
     
     /*
@@ -131,6 +131,21 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
     }
     */
     
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd"
+        var dates : [String] = [String]()
+        let todayDate = Date();
+        let day = 86400
+        for i in 0...29{
+            dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(day*i))))
+        }
+        
+        
+        return dates[Int(value) % 30]
+    }
+
+    
     func setDefaultChart(){
     
         let dateFormatter = DateFormatter()
@@ -139,33 +154,53 @@ class StatisticsViewController: UIViewController,IAxisValueFormatter {
         let today : String = dateFormatter.string(from: todayDate)
         let monthAgo : String = dateFormatter.string(from: todayDate.addingTimeInterval(-2592000))
         
-        let qResult : Array<(Int, Double)> = DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], repInterval: ["", ""], returnType: 2) as! Array<(Int, Double)>
-    
-        defaultChart.noDataText = "You need to provide data for the chart."
-        
-        let xAxis = XAxis()
-        xAxis.valueFormatter = self
-        defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-        defaultChart.xAxis.labelTextColor = UIColor.white
-        
-        let yValues = qResult.map() { date, calories -> ChartDataEntry in
-            return ChartDataEntry(x: Double(date), y: calories)
+        DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], repInterval: ["", ""], returnType: 2){
+            ok in DispatchQueue.main.async() {
+                let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+                self.defaultChart.noDataText = "You need to provide data for the chart."
+                let calories : [Double] = qResult.map{tuple in
+                    tuple.1}
+                
+                let xAxis = XAxis()
+                xAxis.valueFormatter = self
+                self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+                self.defaultChart.xAxis.labelTextColor = UIColor.white
+                
+                
+                var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+                for i in 0...qResult.count-1 {
+                    yVals1.append(ChartDataEntry(x: Double(i), y: calories[i]))
+                }
+                
+                let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
+                set1.axisDependency = .left // Line will correlate with left axis values
+                set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
+                set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
+                set1.lineWidth = 2.0
+                set1.circleRadius = 6.0 // the radius of the node circle
+                set1.fillAlpha = 65 / 255.0
+                set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
+                set1.highlightColor = UIColor.white
+                set1.drawCircleHoleEnabled = true
+                
+                var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+                dataSets.append(set1)
+                
+                 self.defaultChart.xAxis.labelPosition = .bottom
+                
+                
+                let data = LineChartData(dataSets: dataSets)
+                data.setValueTextColor(UIColor.white)
+                
+                self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+
+                self.defaultChart.data = data
+                
+            }
+            
         }
-        
-        let chartDataSet = LineChartDataSet(values: yValues, label: "If you want a label; you can also pass nil")
-        
-        let chartData = LineChartData(dataSet: chartDataSet)
-        
-        defaultChart.data = chartData
-        
-        
-        
-        
-        defaultChart.xAxis.labelPosition = .bottom
-        chartDataSet.colors = [UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)]
-        
-        defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        defaultChart.data = chartData
+
+
 
     
     }
