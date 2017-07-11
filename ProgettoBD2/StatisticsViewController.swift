@@ -52,8 +52,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
             queryView?.toTemperatureTextField.keyboardType = UIKeyboardType.numberPad
             queryView?.setsTextField.keyboardType = UIKeyboardType.numberPad
             queryView?.toSetsTextField.keyboardType = UIKeyboardType.numberPad
-            queryView?.repsTextField.keyboardType = UIKeyboardType.numberPad
-            queryView?.toRepsTextField.keyboardType = UIKeyboardType.numberPad
+            //queryView?.repsTextField.keyboardType = UIKeyboardType.numberPad
+            //queryView?.toRepsTextField.keyboardType = UIKeyboardType.numberPad
             queryView?.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: UIControlState.normal)
             queryView?.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: UIControlState.selected)
 
@@ -79,8 +79,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let toTemperature : String? = queryView?.toTemperatureTextField.text
         let sets : String? = queryView?.setsTextField.text
         let toSets : String? = queryView?.toSetsTextField.text
-        let reps : String? = queryView?.repsTextField.text
-        let toReps : String? = queryView?.toRepsTextField.text
+        //let reps : String? = queryView?.repsTextField.text
+        //let toReps : String? = queryView?.toRepsTextField.text
         var selection: Int? = queryView?.selection
         
         
@@ -89,60 +89,180 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
             selection = 0
         }
         
-        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], repInterval: [reps, toReps], returnType: selection){
+        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], returnType: selection){
             ok in DispatchQueue.main.async() {
+                
+                switch selection!{
+                    case 0:
+                        self.setAvgForceChart()
+                    case 1:
+                        self.setAvgForceOnTempChart()
+                    case 2:
+                        self.setCaloriesChart()
+                    default:
+                        break
+
+                }
 
                 }
             
             }
     }
 
-    
-    
-    /*
-    func setChart(dataPoints: [String], values: [Double]) {
-        defaultChart.noDataText = "You need to provide data for the chart."
+    func setAvgForceOnTempChart(){
+        
+        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        self.defaultChart.noDataText = "You need to provide data for the chart."
+        let avgForce : [Double] = qResult.map{tuple in
+            tuple.1}
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
-        defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-        defaultChart.xAxis.labelTextColor = UIColor.white
-
+        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.defaultChart.xAxis.labelTextColor = UIColor.white
         
-        let yValues = unitsSold.enumerated().map { index, element -> BarChartDataEntry in
-            return BarChartDataEntry(x: Double(index), y: element)
+        
+        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+        for i in 0...qResult.count-1 {
+            yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
         }
         
-        let chartDataSet = BarChartDataSet(values: yValues, label: "If you want a label; you can also pass nil")
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
+        set1.axisDependency = .left // Line will correlate with left axis values
+        set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
+        set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
+        set1.lineWidth = 2.0
+        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.fillAlpha = 65 / 255.0
+        set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
+        set1.highlightColor = UIColor.white
+        set1.drawCircleHoleEnabled = true
         
-        let chartData = BarChartData(dataSet: chartDataSet)
+        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+        dataSets.append(set1)
         
-        defaultChart.data = chartData
-        
-
+        self.defaultChart.xAxis.labelPosition = .bottom
         
         
-        defaultChart.xAxis.labelPosition = .bottom
-        chartDataSet.colors = [UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)]
-
-        defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        defaultChart.data = chartData
+        let data = LineChartData(dataSets: dataSets)
+        data.setValueTextColor(UIColor.white)
+        
+        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+        self.defaultChart.data = data
         
     }
-    */
     
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd"
-        var dates : [String] = [String]()
-        let todayDate = Date();
-        let day = 86400
-        for i in 0...29{
-            dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(day*i))))
+    func setAvgForceChart() {
+        
+        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        self.defaultChart.noDataText = "You need to provide data for the chart."
+        let avgForce : [Double] = qResult.map{tuple in
+            tuple.1}
+        
+        let xAxis = XAxis()
+        xAxis.valueFormatter = self
+        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.defaultChart.xAxis.labelTextColor = UIColor.white
+        
+        
+        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+        for i in 0...qResult.count-1 {
+            yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
         }
         
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
+        set1.axisDependency = .left // Line will correlate with left axis values
+        set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
+        set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
+        set1.lineWidth = 2.0
+        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.fillAlpha = 65 / 255.0
+        set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
+        set1.highlightColor = UIColor.white
+        set1.drawCircleHoleEnabled = true
         
-        return dates[Int(value) % 30]
+        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+        dataSets.append(set1)
+        
+        self.defaultChart.xAxis.labelPosition = .bottom
+        
+        
+        let data = LineChartData(dataSets: dataSets)
+        data.setValueTextColor(UIColor.white)
+        
+        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+        self.defaultChart.data = data
+    }
+    
+    
+    
+    
+    
+    func setCaloriesChart() {
+        
+        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        self.defaultChart.noDataText = "You need to provide data for the chart."
+        let calories : [Double] = qResult.map{tuple in
+            tuple.1}
+        
+        let xAxis = XAxis()
+        xAxis.valueFormatter = self
+        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.defaultChart.xAxis.labelTextColor = UIColor.white
+        
+        
+        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+        for i in 0...qResult.count-1 {
+            yVals1.append(ChartDataEntry(x: Double(i), y: calories[i]))
+        }
+        
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
+        set1.axisDependency = .left // Line will correlate with left axis values
+        set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
+        set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
+        set1.lineWidth = 2.0
+        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.fillAlpha = 65 / 255.0
+        set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
+        set1.highlightColor = UIColor.white
+        set1.drawCircleHoleEnabled = true
+        
+        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+        dataSets.append(set1)
+        
+        self.defaultChart.xAxis.labelPosition = .bottom
+        
+        
+        let data = LineChartData(dataSets: dataSets)
+        data.setValueTextColor(UIColor.white)
+        
+        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+        self.defaultChart.data = data
+    }
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        
+        
+        switch (queryView?.selection) {
+        case .some(1):
+            return String(value)
+            
+        default:
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd"
+            var dates : [String] = [String]()
+            let todayDate = Date();
+            let day = 86400
+            for i in 0...29{
+                dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(day*i))))
+            }
+            
+            return dates[Int(value) % 30]
+        }
+        
     }
 
     
@@ -154,55 +274,12 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let today : String = dateFormatter.string(from: todayDate)
         let monthAgo : String = dateFormatter.string(from: todayDate.addingTimeInterval(-2592000))
         
-        DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], repInterval: ["", ""], returnType: 2){
+        DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], returnType: 2){
             ok in DispatchQueue.main.async() {
-                let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
-                self.defaultChart.noDataText = "You need to provide data for the chart."
-                let calories : [Double] = qResult.map{tuple in
-                    tuple.1}
-                
-                let xAxis = XAxis()
-                xAxis.valueFormatter = self
-                self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-                self.defaultChart.xAxis.labelTextColor = UIColor.white
-                
-                
-                var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-                for i in 0...qResult.count-1 {
-                    yVals1.append(ChartDataEntry(x: Double(i), y: calories[i]))
-                }
-                
-                let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
-                set1.axisDependency = .left // Line will correlate with left axis values
-                set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
-                set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
-                set1.lineWidth = 2.0
-                set1.circleRadius = 6.0 // the radius of the node circle
-                set1.fillAlpha = 65 / 255.0
-                set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
-                set1.highlightColor = UIColor.white
-                set1.drawCircleHoleEnabled = true
-                
-                var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-                dataSets.append(set1)
-                
-                 self.defaultChart.xAxis.labelPosition = .bottom
-                
-                
-                let data = LineChartData(dataSets: dataSets)
-                data.setValueTextColor(UIColor.white)
-                
-                self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-
-                self.defaultChart.data = data
-                
+                self.setCaloriesChart()
             }
             
         }
-
-
-
-    
     }
     
     

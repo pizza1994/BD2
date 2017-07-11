@@ -66,7 +66,7 @@ class DB: NSObject
         }
     }
     
-    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], repInterval: [String?], returnType : Int!, handleComplete:@escaping ((_ isOK:Bool)->()))
+    static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], returnType : Int!, handleComplete:@escaping ((_ isOK:Bool)->()))
     {
         connect()
         qResult = Array<Any>()
@@ -100,13 +100,13 @@ class DB: NSObject
         
         if (tempInterval[0]! != "") && (tempInterval[1]! != "")
         {
-            params.append("\"temperature\":{$gt:" + String(tempInterval[0]!) + "},\"temperature\":{$lt:" + tempInterval[1]! + "}")
+            params.append("\"temperature\":{$gt:" + String(tempInterval[0]!) + ",$lt:" + tempInterval[1]! + "}")
             
         }
         
         if (setInterval[0]! != "") && (setInterval[1]! != "")
         {
-            params.append("\"n_sets\":{$gt:" + setInterval[0]! + "}, \"n_sets\":{$lt:" + setInterval[1]! + "}")
+            params.append("\"n_sets\":{$gt:" + setInterval[0]! + ",$lt:" + setInterval[1]! + "}")
             
         }
         
@@ -116,9 +116,9 @@ class DB: NSObject
         switch returnType
         {
             case 0:
-                projection = "{\"exercise_name\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
+                projection = "{\"date\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
             case 1:
-                projection = "{\"exercise_name\":1,\"sets\":1,\"temperature\":1}"
+                projection = "{\"sets\":1,\"temperature\":1}"
             case 2:
                 projection = "{\"date\":1,\"calories\":1}"
             default:
@@ -152,7 +152,7 @@ class DB: NSObject
     {
         /*let list = try? JSONSerialization.jsonObject(with: response, options: []) as! NSDictionary*/
         
-        if (self.returnType == 0 || self.returnType == 1)
+        if (self.returnType == 0)
         {
             /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
             var ex_average : Double = 0
@@ -160,7 +160,7 @@ class DB: NSObject
                 
             for element in response
             {
-                let ex_name : String = element.value(forKey: "exercise_name") as! String
+                let date : Int = element.value(forKey: "date") as! Int
                 let sets : Array<Array<Double>> = element.value(forKey: "sets") as! Array<Array<Double>>
                     
                 for set in sets
@@ -172,15 +172,34 @@ class DB: NSObject
                     }
                 }
                 ex_average = ex_average / n
-                qResult.append([ex_name, ex_average])
-                print("name: " + ex_name + " , force: " + String(ex_average))
-                if (self.returnType == 1)
-                {
-                    let temperature : Double = element.value(forKey: "temperature") as! Double
-                    print(", temperature: \(temperature)")
-                    qResult.insert([ex_name, ex_average, temperature], at: qResult.count-1)
-                }
+                qResult.append((date, ex_average))
+     
             }
+        }
+        else if(self.returnType == 1){
+            
+            var ex_average : Double = 0
+            var n : Double = 0
+            
+            for element in response
+            {
+                let temperature : Int = element.value(forKey: "temperature") as! Int
+                let sets : Array<Array<Double>> = element.value(forKey: "sets") as! Array<Array<Double>>
+                
+                for set in sets
+                {
+                    for rep in set
+                    {
+                        ex_average = ex_average + (rep)
+                        n = n + 1
+                    }
+                }
+                ex_average = ex_average / n
+                qResult.append((temperature, ex_average))
+                
+            }
+
+            
         }
         else
         {
