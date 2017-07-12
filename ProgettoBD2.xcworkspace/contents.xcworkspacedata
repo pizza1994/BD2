@@ -4,10 +4,4 @@
    <FileRef
       location = "container:ProgettoBD2.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:ProgettoBD2.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>

@@ -124,7 +124,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
 
     func setAvgForceOnTempChart(){
         
-        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        let qResult: Array<(Double, Double)> = DB.qResult as! Array<(Double, Double)>
         self.defaultChart.noDataText = "You need to provide data for the chart."
         let avgForce : [Double] = qResult.map{tuple in
             tuple.1}
