@@ -157,62 +157,172 @@ class DB: NSObject
     {
         /*let list = try? JSONSerialization.jsonObject(with: response, options: []) as! NSDictionary*/
         
-        if (self.returnType == 0)
+        if (self.returnType == 0) // Avg. Force / Date
         {
             /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
-            var ex_average : Double = 0
-            var n : Double = 0
-                
-            for element in response
+            
+            for exercise in response
             {
-                let date : Int = element.value(forKey: "date") as! Int
-                let sets : Array<Array<Double>> = element.value(forKey: "sets") as! Array<Array<Double>>
+                let dateExercise : Int = exercise.value(forKey: "date") as! Int
+                let sets : Array<Array<Double>> = exercise.value(forKey: "sets") as! Array<Array<Double>>
+                var newAvg : Double = 0
+                var n : Int = 0
+                var weights : Array<Int> = []
+                var flagFound = false
+                
+                if (qResult.count == 0)
+                {
+                    for set in sets
+                    {
+                        for rep in set
+                        {
+                            newAvg = newAvg + rep
+                            n+=1
+                        }
+                    }
+                
+                    weights.append(n)
+                    newAvg = newAvg / Double(n)
+                    qResult.append((dateExercise, newAvg))
+                }
+                else
+                {
+                
+                    for i in 0...qResult.count-1
+                    {
+                        
+                        let (dateItem, avgForce) : (Int, Double) = qResult[i] as! (Int, Double)
+                        
+                        if (dateItem == dateExercise) //
+                        {
+                            
+                            for set in sets
+                            {
+                                for rep in set // all reps for all sets
+                                {
+                                    newAvg = newAvg + rep
+                                    n+=1
+                                }
+                            }
+                            
+                            
+                            newAvg = newAvg / Double(n)
+                            let weightedNew = newAvg * Double(n)
+                            let weightedOld = avgForce * Double(weights[i])
+                            let weightedAvg = weightedNew + weightedOld / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
+                            weights[i]+=n //the weight of the value in qResult[i] is now the sum of former and new reps.
+                            qResult[i] = (dateExercise, weightedAvg)
+                            break
+                        }
+                    }
                     
-                for set in sets
-                {
-                    for rep in set
+                    if (!flagFound) // if the exercise was in a day not yet in the query response
                     {
-                        ex_average = ex_average + (rep)
-                        n = n + 1
+                        for set in sets
+                        {
+                            for rep in set // all reps for all sets
+                            {
+                                newAvg = newAvg + rep
+                                n+=1
+                            }
+                        }
+                        
+                        weights.append(n)
+                        qResult.append((dateExercise, newAvg))
                     }
+                    
+                    
                 }
-                ex_average = ex_average / n
-                qResult.append((date, ex_average))
-     
+                
+                    
             }
         }
-        else if(self.returnType == 1){
+        else if(self.returnType == 1)
+        { // Avg.Force / Temperature                
             
-            var ex_average : Double = 0
-            var n : Double = 0
-            
-            for element in response
-            {
-                let temperature : Int = element.value(forKey: "temperature") as! Int
-                let sets : Array<Array<Double>> = element.value(forKey: "sets") as! Array<Array<Double>>
-                
-                for set in sets
-                {
-                    for rep in set
-                    {
-                        ex_average = ex_average + (rep)
-                        n = n + 1
-                    }
-                }
-                ex_average = ex_average / n
-                qResult.append((temperature, ex_average))
-                
-            }
+            var weights : Array<Int> = []
 
-            
+            for exercise in response
+            {
+                let tempExercise : Double = exercise.value(forKey: "temperature") as! Double
+                let sets : Array<Array<Double>> = exercise.value(forKey: "sets") as! Array<Array<Double>>
+                var newAvg : Double = 0
+                var n : Int = 0
+                var flagFound = false
+                
+                if (qResult.count == 0)
+                {
+                    for set in sets
+                    {
+                        for rep in set
+                        {
+                            newAvg = newAvg + rep
+                            n+=1
+                        }
+                    }
+                    
+                    weights.append(n)
+                    newAvg = newAvg / Double(n)
+                    qResult.append((tempExercise, newAvg))
+                }
+                else
+                {
+                    
+                    for i in 0...qResult.count-1
+                    {
+                        
+                        let (tempItem, avgForce) : (Double, Double) = qResult[i] as! (Double, Double)
+                        
+                        if (tempItem == tempExercise) //
+                        {
+                            
+                            for set in sets
+                            {
+                                for rep in set // all reps for all sets
+                                {
+                                    newAvg = newAvg + rep
+                                    n+=1
+                                }
+                            }
+                            
+                            flagFound = true
+                            newAvg = newAvg / Double(n)
+                            let weightedNew = newAvg * Double(n)
+                            let weightedOld = avgForce * Double(weights[i])
+                            let weightedAvg = weightedNew + weightedOld / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
+                            weights[i]+=n //the weight of the value in qResult[i] is now the sum of former and new reps.
+                            qResult.append((tempExercise, weightedAvg))
+                            break
+                        }
+                    }
+                    
+                    
+                    if (!flagFound) // if the exercise was at a temperature not yet in the query response
+                    {
+                        for set in sets
+                        {
+                            for rep in set // all reps for all sets
+                            {
+                                newAvg = newAvg + rep
+                                n+=1
+                            }
+                        }
+                        
+                        weights.append(n)
+                        qResult.append((tempExercise, newAvg))
+                    }
+
+                    
+                }
+            }
         }
-        else
+        else // Calories / Date
         {
             
-            for element in response
+            for exercise in response
             {
-                let dateResponse : Int = element.value(forKey: "date") as! Int
-                let caloriesResponse : Double = element.value(forKey: "calories") as! Double
+                let dateResponse : Int = exercise.value(forKey: "date") as! Int
+                let caloriesResponse : Double = exercise.value(forKey: "calories") as! Double
                 var flagFound : Bool = false
                 
                 if (qResult.count == 0)
