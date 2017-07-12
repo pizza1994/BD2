@@ -92,21 +92,34 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], returnType: selection){
             ok in DispatchQueue.main.async() {
                 
-                switch selection!{
-                    case 0:
-                        self.setAvgForceChart()
-                    case 1:
-                        self.setAvgForceOnTempChart()
-                    case 2:
-                        self.setCaloriesChart()
-                    default:
-                        break
+                if(DB.qResult.count == 0){
+                    self.queryError()
+                }
+                else{
+                    switch selection!{
+                        case 0:
+                            self.setAvgForceChart()
+                        case 1:
+                            self.setAvgForceOnTempChart()
+                        case 2:
+                            self.setCaloriesChart()
+                        default:
+                            break
 
+                    }
                 }
 
-                }
-            
             }
+            
+        }
+    }
+    
+    func queryError(){
+        
+        let alert = UIAlertController(title: "Error", message: "No results for your request", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        openQView()
     }
 
     func setAvgForceOnTempChart(){
