@@ -167,7 +167,7 @@ class DB: NSObject
                 let sets : Array<Array<Double>> = exercise.value(forKey: "sets") as! Array<Array<Double>>
                 var newAvg : Double = 0
                 var n : Int = 0
-                var weights : Array<Int> = []
+                var weights : Array<Int> = Array<Int>()
                 var flagFound = false
                 
                 if (qResult.count == 0)
@@ -211,6 +211,7 @@ class DB: NSObject
                             let weightedOld = avgForce * Double(weights[i])
                             let weightedAvg = weightedNew + weightedOld / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
                             weights[i]+=n //the weight of the value in qResult[i] is now the sum of former and new reps.
+                            flagFound = true
                             qResult[i] = (dateExercise, weightedAvg)
                             break
                         }
