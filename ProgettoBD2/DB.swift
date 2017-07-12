@@ -155,14 +155,14 @@ class DB: NSObject
         if (self.returnType == 0) // Avg. Force / Date
         {
             /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
-            
+            var weights : Array<Int> = []
+
             for exercise in response
             {
                 let dateExercise : Int = exercise.value(forKey: "date") as! Int
                 let sets : Array<Array<Double>> = exercise.value(forKey: "sets") as! Array<Array<Double>>
                 var newAvg : Double = 0
                 var n : Int = 0
-                var weights : Array<Int> = []
                 var flagFound = false
                 
                 if (qResult.count == 0)
@@ -178,6 +178,7 @@ class DB: NSObject
                 
                     weights.append(n)
                     newAvg = newAvg / Double(n)
+                    print(qResult.count)
                     qResult.append((dateExercise, newAvg))
                 }
                 else
@@ -204,8 +205,9 @@ class DB: NSObject
                             newAvg = newAvg / Double(n)
                             let weightedNew = newAvg * Double(n)
                             let weightedOld = avgForce * Double(weights[i])
-                            let weightedAvg = weightedNew + weightedOld / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
+                            let weightedAvg = (weightedNew + weightedOld) / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
                             weights[i]+=n //the weight of the value in qResult[i] is now the sum of former and new reps.
+                            flagFound = true
                             qResult[i] = (dateExercise, weightedAvg)
                             break
                         }
@@ -221,7 +223,7 @@ class DB: NSObject
                                 n+=1
                             }
                         }
-                        
+                        newAvg = newAvg / Double(n)
                         weights.append(n)
                         qResult.append((dateExercise, newAvg))
                     }
@@ -284,7 +286,7 @@ class DB: NSObject
                             newAvg = newAvg / Double(n)
                             let weightedNew = newAvg * Double(n)
                             let weightedOld = avgForce * Double(weights[i])
-                            let weightedAvg = weightedNew + weightedOld / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
+                            let weightedAvg = (weightedNew + weightedOld) / Double(n+weights[i]) // weighted old avg vs weighted new avg over number of total reps
                             weights[i]+=n //the weight of the value in qResult[i] is now the sum of former and new reps.
                             qResult.append((tempExercise, weightedAvg))
                             break
@@ -303,6 +305,7 @@ class DB: NSObject
                             }
                         }
                         
+                        newAvg = newAvg / Double(n)
                         weights.append(n)
                         qResult.append((tempExercise, newAvg))
                     }
