@@ -271,7 +271,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let todayDate = Date();
-        let today : String = dateFormatter.string(from: todayDate)
+        let today : String = dateFormatter.string(from: todayDate.addingTimeInterval(+86400))
         let monthAgo : String = dateFormatter.string(from: todayDate.addingTimeInterval(-2592000))
         
         DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], returnType: 2){
