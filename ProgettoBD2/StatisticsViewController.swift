@@ -135,7 +135,9 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.xAxis.labelTextColor = UIColor.white
         statsChart.leftAxis.labelTextColor = UIColor.white
         statsChart.rightAxis.labelTextColor = UIColor.clear
-        
+        let yFormatter = NumberFormatter()
+        yFormatter.positiveSuffix = " g"
+        statsChart.leftAxis.valueFormatter = DefaultAxisValueFormatter.init(formatter: yFormatter)
         statsChart.chartDescription?.text = ""
         
 
@@ -167,6 +169,10 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
         self.statsChart.data = data
+        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin - 0.1
+        statsChart.leftAxis.axisMaximum = statsChart.data!.yMax + 0.1
+        statsChart.leftAxis.labelCount = 2
+        statsChart.leftAxis.drawZeroLineEnabled = false
         
     }
     
@@ -182,7 +188,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
         self.statsChart.xAxis.labelTextColor = UIColor.white
         let yFormatter = NumberFormatter()
-        yFormatter.positiveSuffix = " Kcal"
+        yFormatter.positiveSuffix = " g"
         statsChart.leftAxis.valueFormatter = DefaultAxisValueFormatter.init(formatter: yFormatter)
         
         statsChart.chartDescription?.text = ""
@@ -220,6 +226,11 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
         self.statsChart.data = data
+        
+        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin - 0.1
+        statsChart.leftAxis.axisMaximum = statsChart.data!.yMax + 0.1
+        statsChart.leftAxis.labelCount = 2
+        statsChart.leftAxis.drawZeroLineEnabled = false
     }
     
     
@@ -242,6 +253,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let yFormatter = NumberFormatter()
         yFormatter.positiveSuffix = " Kcal"
         statsChart.leftAxis.valueFormatter = DefaultAxisValueFormatter.init(formatter: yFormatter)
+        
         statsChart.chartDescription?.text = ""
         
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
@@ -272,6 +284,10 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
         self.statsChart.data = data
+        statsChart.leftAxis.axisMinimum = min(0.0, statsChart.data!.yMin - 1.0)
+        statsChart.leftAxis.axisMaximum = max(statsChart.data!.yMax, statsChart.data!.yMax + 5)
+        statsChart.leftAxis.labelCount = Int(statsChart.leftAxis.axisMaximum/10)
+        statsChart.leftAxis.drawZeroLineEnabled = false
     }
     
     
