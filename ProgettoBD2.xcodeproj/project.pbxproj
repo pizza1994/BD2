@@ -34,29 +34,6 @@
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
 		2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */; };
 		2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFF21EFD344C00CF7F9A /* Exercise.swift */; };
-		259956931F06C8D000BC7767 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599567C1F06C8D000BC7767 /* Collection.swift */; };
-		259956941F06C8D000BC7767 /* CollectionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599567D1F06C8D000BC7767 /* CollectionParser.swift */; };
-		259956951F06C8D000BC7767 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599567E1F06C8D000BC7767 /* Collections.swift */; };
-		259956961F06C8D000BC7767 /* CollectionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599567F1F06C8D000BC7767 /* CollectionsService.swift */; };
-		259956971F06C8D000BC7767 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956801F06C8D000BC7767 /* Configuration.swift */; };
-		259956981F06C8D000BC7767 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956811F06C8D000BC7767 /* Document.swift */; };
-		259956991F06C8D000BC7767 /* DocumentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956821F06C8D000BC7767 /* DocumentParser.swift */; };
-		2599569A1F06C8D000BC7767 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956831F06C8D000BC7767 /* Documents.swift */; };
-		2599569B1F06C8D000BC7767 /* DocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956841F06C8D000BC7767 /* DocumentService.swift */; };
-		2599569C1F06C8D000BC7767 /* DocumentsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956851F06C8D000BC7767 /* DocumentsParser.swift */; };
-		2599569D1F06C8D000BC7767 /* DocumentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956861F06C8D000BC7767 /* DocumentsService.swift */; };
-		2599569E1F06C8D000BC7767 /* ErrorDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956871F06C8D000BC7767 /* ErrorDescribable.swift */; };
-		2599569F1F06C8D000BC7767 /* MongoLabApiV1Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956881F06C8D000BC7767 /* MongoLabApiV1Configuration.swift */; };
-		259956A01F06C8D000BC7767 /* MongoLabClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956891F06C8D000BC7767 /* MongoLabClient.swift */; };
-		259956A11F06C8D000BC7767 /* MongoLabError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568A1F06C8D000BC7767 /* MongoLabError.swift */; };
-		259956A21F06C8D000BC7767 /* MongoLabErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568B1F06C8D000BC7767 /* MongoLabErrorParser.swift */; };
-		259956A31F06C8D000BC7767 /* MongoLabResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568C1F06C8D000BC7767 /* MongoLabResponseParser.swift */; };
-		259956A41F06C8D000BC7767 /* MongoLabService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568D1F06C8D000BC7767 /* MongoLabService.swift */; };
-		259956A51F06C8D000BC7767 /* MongoLabURLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568E1F06C8D000BC7767 /* MongoLabURLRequest.swift */; };
-		259956A61F06C8D000BC7767 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599568F1F06C8D000BC7767 /* RequestError.swift */; };
-		259956A71F06C8D000BC7767 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956901F06C8D000BC7767 /* Service.swift */; };
-		259956A81F06C8D000BC7767 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956911F06C8D000BC7767 /* URLBuilder.swift */; };
-		259956A91F06C8D000BC7767 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956921F06C8D000BC7767 /* URLRequestExtensions.swift */; };
 		25AEFBEF1F096E33002E09D2 /* CircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEFBEE1F096E33002E09D2 /* CircleTimer.swift */; };
 		25BA27991EFD13AA0055718D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27981EFD13AA0055718D /* AppDelegate.swift */; };
 		25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA279A1EFD13AA0055718D /* FirstViewController.swift */; };
@@ -132,29 +109,6 @@
 		2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartStopViewController.swift; sourceTree = "<group>"; };
 		2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapSetViewController.swift; sourceTree = "<group>"; };
 		2593EFF21EFD344C00CF7F9A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		2599567C1F06C8D000BC7767 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
-		2599567D1F06C8D000BC7767 /* CollectionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionParser.swift; sourceTree = "<group>"; };
-		2599567E1F06C8D000BC7767 /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
-		2599567F1F06C8D000BC7767 /* CollectionsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsService.swift; sourceTree = "<group>"; };
-		259956801F06C8D000BC7767 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		259956811F06C8D000BC7767 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		259956821F06C8D000BC7767 /* DocumentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentParser.swift; sourceTree = "<group>"; };
-		259956831F06C8D000BC7767 /* Documents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
-		259956841F06C8D000BC7767 /* DocumentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentService.swift; sourceTree = "<group>"; };
-		259956851F06C8D000BC7767 /* DocumentsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsParser.swift; sourceTree = "<group>"; };
-		259956861F06C8D000BC7767 /* DocumentsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsService.swift; sourceTree = "<group>"; };
-		259956871F06C8D000BC7767 /* ErrorDescribable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDescribable.swift; sourceTree = "<group>"; };
-		259956881F06C8D000BC7767 /* MongoLabApiV1Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabApiV1Configuration.swift; sourceTree = "<group>"; };
-		259956891F06C8D000BC7767 /* MongoLabClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabClient.swift; sourceTree = "<group>"; };
-		2599568A1F06C8D000BC7767 /* MongoLabError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabError.swift; sourceTree = "<group>"; };
-		2599568B1F06C8D000BC7767 /* MongoLabErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabErrorParser.swift; sourceTree = "<group>"; };
-		2599568C1F06C8D000BC7767 /* MongoLabResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabResponseParser.swift; sourceTree = "<group>"; };
-		2599568D1F06C8D000BC7767 /* MongoLabService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabService.swift; sourceTree = "<group>"; };
-		2599568E1F06C8D000BC7767 /* MongoLabURLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoLabURLRequest.swift; sourceTree = "<group>"; };
-		2599568F1F06C8D000BC7767 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		259956901F06C8D000BC7767 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		259956911F06C8D000BC7767 /* URLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
-		259956921F06C8D000BC7767 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
 		25AEFBEE1F096E33002E09D2 /* CircleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleTimer.swift; sourceTree = "<group>"; };
 		25BA27951EFD13AA0055718D /* ProgettoBD2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgettoBD2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BA27981EFD13AA0055718D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,36 +169,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		259956AA1F06C8EA00BC7767 /* MongoLab */ = {
-			isa = PBXGroup;
-			children = (
-				259956831F06C8D000BC7767 /* Documents.swift */,
-				259956841F06C8D000BC7767 /* DocumentService.swift */,
-				2599567C1F06C8D000BC7767 /* Collection.swift */,
-				2599567D1F06C8D000BC7767 /* CollectionParser.swift */,
-				2599567E1F06C8D000BC7767 /* Collections.swift */,
-				2599567F1F06C8D000BC7767 /* CollectionsService.swift */,
-				259956801F06C8D000BC7767 /* Configuration.swift */,
-				259956811F06C8D000BC7767 /* Document.swift */,
-				259956821F06C8D000BC7767 /* DocumentParser.swift */,
-				259956851F06C8D000BC7767 /* DocumentsParser.swift */,
-				259956861F06C8D000BC7767 /* DocumentsService.swift */,
-				259956871F06C8D000BC7767 /* ErrorDescribable.swift */,
-				259956881F06C8D000BC7767 /* MongoLabApiV1Configuration.swift */,
-				259956891F06C8D000BC7767 /* MongoLabClient.swift */,
-				2599568A1F06C8D000BC7767 /* MongoLabError.swift */,
-				2599568B1F06C8D000BC7767 /* MongoLabErrorParser.swift */,
-				2599568C1F06C8D000BC7767 /* MongoLabResponseParser.swift */,
-				2599568D1F06C8D000BC7767 /* MongoLabService.swift */,
-				2599568E1F06C8D000BC7767 /* MongoLabURLRequest.swift */,
-				2599568F1F06C8D000BC7767 /* RequestError.swift */,
-				259956901F06C8D000BC7767 /* Service.swift */,
-				259956911F06C8D000BC7767 /* URLBuilder.swift */,
-				259956921F06C8D000BC7767 /* URLRequestExtensions.swift */,
-			);
-			name = MongoLab;
-			sourceTree = "<group>";
-		};
 		25BA278C1EFD13AA0055718D = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +206,6 @@
 				25E153571F04093300B28E63 /* ProgettoBD2-Bridging-Header.h */,
 				25BA27981EFD13AA0055718D /* AppDelegate.swift */,
 				25AEFBEE1F096E33002E09D2 /* CircleTimer.swift */,
-				259956AA1F06C8EA00BC7767 /* MongoLab */,
 				25F598991F03A75600CBE127 /* Model */,
 				25F5989A1F03A76800CBE127 /* Controller */,
 				25BA279C1EFD13AA0055718D /* Main.storyboard */,
@@ -481,40 +404,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2599569C1F06C8D000BC7767 /* DocumentsParser.swift in Sources */,
 				25C64A651F0521CF00BEC84F /* WelcomeViewController.swift in Sources */,
-				259956A41F06C8D000BC7767 /* MongoLabService.swift in Sources */,
-				259956A31F06C8D000BC7767 /* MongoLabResponseParser.swift in Sources */,
 				25C64A671F05583900BEC84F /* DB.swift in Sources */,
 				25F598981F03A72B00CBE127 /* SetInfoViewController.swift in Sources */,
 				4CF604A61F07EFCE000CEC66 /* StatisticsViewController.swift in Sources */,
-				259956931F06C8D000BC7767 /* Collection.swift in Sources */,
 				25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */,
-				2599569F1F06C8D000BC7767 /* MongoLabApiV1Configuration.swift in Sources */,
-				2599569E1F06C8D000BC7767 /* ErrorDescribable.swift in Sources */,
-				259956A61F06C8D000BC7767 /* RequestError.swift in Sources */,
-				259956A51F06C8D000BC7767 /* MongoLabURLRequest.swift in Sources */,
-				259956951F06C8D000BC7767 /* Collections.swift in Sources */,
-				259956971F06C8D000BC7767 /* Configuration.swift in Sources */,
-				259956A81F06C8D000BC7767 /* URLBuilder.swift in Sources */,
 				25BA27C71EFD18BA0055718D /* ExsViewController.swift in Sources */,
 				254FB0391F0B6FEB003AB7C9 /* StatsSettingsView.swift in Sources */,
-				259956A01F06C8D000BC7767 /* MongoLabClient.swift in Sources */,
-				2599569B1F06C8D000BC7767 /* DocumentService.swift in Sources */,
 				25BA27991EFD13AA0055718D /* AppDelegate.swift in Sources */,
-				2599569A1F06C8D000BC7767 /* Documents.swift in Sources */,
 				2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */,
 				25F5989C1F03AAA700CBE127 /* RecapExViewController.swift in Sources */,
 				25AEFBEF1F096E33002E09D2 /* CircleTimer.swift in Sources */,
-				259956991F06C8D000BC7767 /* DocumentParser.swift in Sources */,
-				259956A21F06C8D000BC7767 /* MongoLabErrorParser.swift in Sources */,
-				259956941F06C8D000BC7767 /* CollectionParser.swift in Sources */,
-				259956A11F06C8D000BC7767 /* MongoLabError.swift in Sources */,
-				259956A71F06C8D000BC7767 /* Service.swift in Sources */,
-				2599569D1F06C8D000BC7767 /* DocumentsService.swift in Sources */,
-				259956961F06C8D000BC7767 /* CollectionsService.swift in Sources */,
-				259956A91F06C8D000BC7767 /* URLRequestExtensions.swift in Sources */,
-				259956981F06C8D000BC7767 /* Document.swift in Sources */,
 				1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */,
 				2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */,
 				2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */,

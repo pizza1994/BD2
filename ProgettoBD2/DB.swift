@@ -12,86 +12,84 @@ import MongoKitten
 
 class DB: NSObject
 {
-    static private var configuration: MongoLabApiV1Configuration?
-    static private var client = MongoLabClient()
-    static private var collectionsService: CollectionsService?
-    static private var documentsService: DocumentsService?
-    static private var documentService: DocumentService?
     static private var returnType: Int?
     static public var qResult : Array<Any> = Array<Any>()
     
     
-    static private func connect()
+    static private func connect() -> MongoCollection
     {
-        configuration = MongoLabApiV1Configuration(databaseName: "testbd2", apiKey:"jGHlKVFu8-6dTTG_m6CTbmFdkqP4XaNG")
+        var collection : MongoCollection? = nil
         
-    }
-    
-    private static func perform(_ request: URLRequest, complete:@escaping ((_ isOK:Bool)->()))
-    {
-        let _ = client.perform(request) {
-            result in
+        do
+        {
+            let database = try Database("mongodb://pizza94:password@ds143362.mlab.com:43362/testbd2")
             
-            switch result {
-            case let .success(response):
-                print("Success in request \(response)")
-                if (DB.returnType != nil)
-                {
-                    DB.fetchResult(response: response as! Array<NSDictionary>)
-                    complete(true)
-                }
-                
-            case let .failure(error):
-                print("Error in request \(error)")
+            if database.server.isConnected {
+                print("Successfully connected!")
+            } else {
+                print("Connection failed")
             }
+            
+            collection = database["exercises"]
+            
+        }
+        catch
+        {
+            print ("Something went wrong")
         }
         
+        return collection!
+
     }
+    
     
     static func saveToDb(ex: Exercise)
     {
-        connect()
+        let collection = connect()
         
-        let username: AnyObject = UserDefaults.standard.object(forKey: "username") as AnyObject
-        var exerciseInfo: [String : AnyObject]
+        let username: String = UserDefaults.standard.object(forKey: "username") as! String
         
-        exerciseInfo = ["username": username, "exercise_name": ex.exerciseName as AnyObject, "n_sets": ex.nSets as AnyObject, "sets": ex.sets as AnyObject, "weights": ex.weights as AnyObject, "temperature": ex.temperature as AnyObject, "date": Int(ex.date.timeIntervalSince1970) as AnyObject, "calories": ex.getTotalCalories() as AnyObject]
-        do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .POST, parameters: [], bodyData: exerciseInfo as AnyObject)
-            
-            perform(request){_ in 
-
-            }
-            
-        } catch let error {
-            print("Error \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        let exerciseInfo : Document = ["username": username,
+                                       "exercise_name": ex.exerciseName,
+                                       "n_sets": Int(ex.nSets) as Primitive,
+                                       "sets": ex.sets,
+                                       "weights": ex.weights,
+                                       "temperature": ex.temperature,
+                                       "date": Int(ex.date.timeIntervalSince1970),
+                                       "calories": ex.getTotalCalories()
+                                      ]
+    
+        do
+        {
+            let _ = try collection.insert(exerciseInfo)
+        }
+        catch
+        {
+            print ("Error")
         }
     }
     
+    
     static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], returnType : Int!, handleComplete:@escaping ((_ isOK:Bool)->()))
     {
-        connect()
-        qResult = Array<Any>()
-        
+        let collection = connect()
+
         let username: String = UserDefaults.standard.object(forKey: "username") as! String
-                        
-        var params : Array<String> = Array<String>()
-        
-        params.append("\"username\":" + "\"" + username + "\"")
+
+        var query : Document = ["username" : ["$eq": username],
+                                "exercise_name" : [],
+                                "date" : [],
+                                "temperature" : []
+                            ]
         
         if (name != "")
         {
             let names = name!.components(separatedBy: ", ")
-            var or = "$or:["
-            for n in names
+            
+            for name in names
             {
-                or = or + ("{\"exercise_name\":" + "\"" + n + "\"},")
+                query.append(["$eq" : name], forKey: "exercise_name")
             }
-            
-            or = or.substring(to: or.index(before: or.endIndex))
-            
-            or = or + "]"
-            params.append(or);
         }
         
         if (dateInterval[0]! != "") && (dateInterval[1]! != "")
@@ -100,58 +98,53 @@ class DB: NSObject
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let from : Int = Int(dateFormatter.date(from: dateInterval[0]!)!.timeIntervalSince1970)
             let to : Int = Int(dateFormatter.date(from: dateInterval[1]!)!.timeIntervalSince1970)
-            params.append("\"date\":{$gt:" + String(from) + ",$lt:" + String(to) + "}")
-            
+
+            query.append(["$gt" : from], forKey: "date")
+            query.append(["$lt" : to], forKey: "date")
         }
         
         if (tempInterval[0]! != "") && (tempInterval[1]! != "")
         {
-            params.append("\"temperature\":{$gt:" + String(tempInterval[0]!) + ",$lt:" + tempInterval[1]! + "}")
-            
+            query.append(["$gt" : tempInterval[0]], forKey: "temperature")
+            query.append(["$lt" : tempInterval[1]], forKey: "temperature")
         }
         
         if (setInterval[0]! != "") && (setInterval[1]! != "")
         {
-            params.append("\"n_sets\":{$gt:" + setInterval[0]! + ",$lt:" + setInterval[1]! + "}")
+            query.append(["$gt" : setInterval[0]], forKey: "n_sets")
+            query.append(["$lt" : setInterval[1]], forKey: "n_sets")
             
         }
         
-        let selection = params.joined(separator: ",")
-        var projection = ""
-        var parameters = [URLRequest.QueryStringParameter(key: "q", value: "{" + selection + "}")]
+        
+        let matchStage = AggregationPipeline.Stage.match(query)
+        var queryGroup : Document? = nil
+        
         switch returnType
         {
-            case 0:
-                projection = "{\"date\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
-            case 1:
-                projection = "{\"sets\":1,\"temperature\":1}"
-                parameters.append(URLRequest.QueryStringParameter(key: "s", value: "{\"temperature\": 1}"))
-            case 2:
-                projection = "{\"date\":1,\"calories\":1}"
-            default:
-                break
-        }
+        case 0:
+            queryGroup = [
+                "date": ["$avg": ["$unwind" : "$sets"]]
+            ]
+        case 1: break
+        case 2:
+            queryGroup = [
+            "date": ["$avg": ["$unwind" : "$sets"]]
+            ]
 
-        parameters.append(URLRequest.QueryStringParameter(key: "f", value:projection))
-
-        do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: parameters, bodyData: nil)
-            
-            self.returnType = returnType
-            print(request)
-            perform(request){
-                ok in
-                DispatchQueue.main.async() {
-                    handleComplete(true)
-
-                }
-            }
-
-            
-        } catch let error {
-            print("Error in load \((error as? ErrorDescribable ?? MongoLabError.requestError).description())")
+        default:
+            break
         }
         
+        let groupStage = AggregationPipeline.Stage.group(groupDocument: queryGroup!)
+        let pipeline : AggregationPipeline = [matchStage, groupStage]
+        var cursor : Cursor<Document>? = nil
+        do {cursor = try collection.aggregate(pipeline)}catch{}
+        
+        for document in cursor!{
+            print(String(describing: document[0]) + " " + String(describing: document[1]))
+        }
+
     }
     
     static private func fetchResult(response: Array<NSDictionary>)
