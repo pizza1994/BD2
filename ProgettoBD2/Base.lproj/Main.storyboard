@@ -111,7 +111,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aMg-zx-6xj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4K0-8Z-zz2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ubn-kW-sJj">
@@ -432,6 +432,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="discardExercise:" destination="XTQ-Df-Rf4" eventType="touchUpInside" id="Drm-Bs-On0"/>
                                     <segue destination="Zwq-u9-dyA" kind="show" id="f5q-3C-qzG"/>
                                 </connections>
                             </button>
@@ -549,7 +550,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ogz-dN-Nvo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uF2-85-PjA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQ0-af-U5I">
@@ -651,6 +652,6 @@
         <image name="Welcome" width="122" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lHK-a7-6PP"/>
+        <segue reference="pQ9-pf-4iZ"/>
     </inferredMetricsTieBreakers>
 </document>

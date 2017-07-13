@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:ProgettoBD2.xcodeproj">
+      location = "group:SPM/SPM.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SPM/MongoKitten.xcodeproj">
+      location = "container:ProgettoBD2.xcodeproj">
    </FileRef>
 </Workspace>

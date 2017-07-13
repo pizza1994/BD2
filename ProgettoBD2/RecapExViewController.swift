@@ -45,6 +45,11 @@ class RecapExViewController: UIViewController {
     
     @IBAction func saveExercise(_ sender: Any) {
         DB.saveToDb(ex: SensorHandler.shared.exercise!)
+        SensorHandler.shared.initialise()
+    }
+    
+    @IBAction func discardExercise(_ sender: Any) {
+        SensorHandler.shared.initialise()
     }
 
     /*

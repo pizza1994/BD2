@@ -89,29 +89,27 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
             selection = 0
         }
         
-        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], returnType: selection){
-            ok in DispatchQueue.main.async() {
-                
-                if(DB.qResult.count == 0){
-                    self.queryError()
-                }
-                else{
-                    switch selection!{
-                        case 0:
-                            self.setAvgForceChart()
-                        case 1:
-                            self.setAvgForceOnTempChart()
-                        case 2:
-                            self.setCaloriesChart()
-                        default:
-                            break
-
-                    }
-                }
+        DB.loadFromDb(name: exNames, dateInterval: [date, toDate], tempInterval: [temperature, toTemperature], setInterval: [sets, toSets], returnType: selection)
+        
+        if(DB.qResult.count == 0){
+            self.queryError()
+        }
+        else{
+            switch selection!{
+                case 0:
+                    self.setAvgForceChart()
+                case 1:
+                    self.setAvgForceOnTempChart()
+                case 2:
+                    self.setCaloriesChart()
+                default:
+                    break
 
             }
-            
         }
+
+            
+        
     }
     
     func queryError(){
@@ -178,7 +176,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     
     func setAvgForceChart() {
         
-        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        let qResult: Array<(Any, Double)> = DB.qResult as! Array<(Any, Double)>
         self.statsChart.noDataText = "You need to provide data for the chart."
         let avgForce : [Double] = qResult.map{tuple in
             tuple.1}
@@ -239,7 +237,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     
     func setCaloriesChart() {
         
-        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
+        let qResult: Array<(Any, Double)> = DB.qResult as! Array<(Any, Double)>
+        
         self.statsChart.noDataText = "You need to provide data for the chart."
         let calories : [Double] = qResult.map{tuple in
             tuple.1}
@@ -310,7 +309,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
             let todayDate = Date();
             let day = 86400
             for i in 0...29{
-                dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(day*i))))
+                dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(-day*i))))
             }
             
             return dates[Int(value) % 30]
@@ -327,12 +326,11 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let today : String = dateFormatter.string(from: todayDate.addingTimeInterval(+86400))
         let monthAgo : String = dateFormatter.string(from: todayDate.addingTimeInterval(-2592000))
         
-        DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], returnType: 2){
-            ok in DispatchQueue.main.async() {
-                self.setCaloriesChart()
-            }
+        DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], returnType: 2)
+        
+        self.setCaloriesChart()
             
-        }
+
     }
     
     
