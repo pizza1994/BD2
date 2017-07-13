@@ -4,4 +4,7 @@
    <FileRef
       location = "container:ProgettoBD2.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:SPM/MongoKitten.xcodeproj">
+   </FileRef>
 </Workspace>

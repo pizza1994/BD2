@@ -39,6 +39,24 @@
 		259956A71F06C8D000BC7767 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956901F06C8D000BC7767 /* Service.swift */; };
 		259956A81F06C8D000BC7767 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956911F06C8D000BC7767 /* URLBuilder.swift */; };
 		259956A91F06C8D000BC7767 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259956921F06C8D000BC7767 /* URLRequestExtensions.swift */; };
+		2599E62D1F17F7D600F0DB02 /* KittenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E62C1F17F7D600F0DB02 /* KittenCore.framework */; };
+		2599E62E1F17F7D600F0DB02 /* KittenCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E62C1F17F7D600F0DB02 /* KittenCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6301F17F7D600F0DB02 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E62F1F17F7D600F0DB02 /* BSON.framework */; };
+		2599E6311F17F7D600F0DB02 /* BSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E62F1F17F7D600F0DB02 /* BSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6331F17F7D600F0DB02 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6321F17F7D600F0DB02 /* Cheetah.framework */; };
+		2599E6341F17F7D600F0DB02 /* Cheetah.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6321F17F7D600F0DB02 /* Cheetah.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6361F17F7D600F0DB02 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6351F17F7D600F0DB02 /* CryptoSwift.framework */; };
+		2599E6371F17F7D600F0DB02 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6351F17F7D600F0DB02 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6391F17F7D600F0DB02 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6381F17F7D600F0DB02 /* Schrodinger.framework */; };
+		2599E63A1F17F7D600F0DB02 /* Schrodinger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6381F17F7D600F0DB02 /* Schrodinger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E63C1F17F7D600F0DB02 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E63B1F17F7D600F0DB02 /* ExtendedJSON.framework */; };
+		2599E63D1F17F7D600F0DB02 /* ExtendedJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E63B1F17F7D600F0DB02 /* ExtendedJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E63F1F17F7D600F0DB02 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E63E1F17F7D600F0DB02 /* GeoJSON.framework */; };
+		2599E6401F17F7D600F0DB02 /* GeoJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E63E1F17F7D600F0DB02 /* GeoJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6421F17F7D600F0DB02 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6411F17F7D600F0DB02 /* MongoKitten.framework */; };
+		2599E6431F17F7D600F0DB02 /* MongoKitten.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6411F17F7D600F0DB02 /* MongoKitten.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2599E6451F17F7D600F0DB02 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6441F17F7D600F0DB02 /* MongoSocket.framework */; };
+		2599E6461F17F7D600F0DB02 /* MongoSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2599E6441F17F7D600F0DB02 /* MongoSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		25AEFBEF1F096E33002E09D2 /* CircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEFBEE1F096E33002E09D2 /* CircleTimer.swift */; };
 		25BA27991EFD13AA0055718D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA27981EFD13AA0055718D /* AppDelegate.swift */; };
 		25BA279B1EFD13AA0055718D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BA279A1EFD13AA0055718D /* FirstViewController.swift */; };
@@ -80,7 +98,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2599E62E1F17F7D600F0DB02 /* KittenCore.framework in Embed Frameworks */,
 				255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */,
+				2599E6461F17F7D600F0DB02 /* MongoSocket.framework in Embed Frameworks */,
+				2599E6401F17F7D600F0DB02 /* GeoJSON.framework in Embed Frameworks */,
+				2599E6431F17F7D600F0DB02 /* MongoKitten.framework in Embed Frameworks */,
+				2599E6311F17F7D600F0DB02 /* BSON.framework in Embed Frameworks */,
+				2599E63D1F17F7D600F0DB02 /* ExtendedJSON.framework in Embed Frameworks */,
+				2599E63A1F17F7D600F0DB02 /* Schrodinger.framework in Embed Frameworks */,
+				2599E6371F17F7D600F0DB02 /* CryptoSwift.framework in Embed Frameworks */,
+				2599E6341F17F7D600F0DB02 /* Cheetah.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +146,15 @@
 		259956901F06C8D000BC7767 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		259956911F06C8D000BC7767 /* URLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		259956921F06C8D000BC7767 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
+		2599E62C1F17F7D600F0DB02 /* KittenCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KittenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E62F1F17F7D600F0DB02 /* BSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E6321F17F7D600F0DB02 /* Cheetah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cheetah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E6351F17F7D600F0DB02 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E6381F17F7D600F0DB02 /* Schrodinger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Schrodinger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E63B1F17F7D600F0DB02 /* ExtendedJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExtendedJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E63E1F17F7D600F0DB02 /* GeoJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GeoJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E6411F17F7D600F0DB02 /* MongoKitten.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MongoKitten.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2599E6441F17F7D600F0DB02 /* MongoSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MongoSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AEFBEE1F096E33002E09D2 /* CircleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleTimer.swift; sourceTree = "<group>"; };
 		25BA27951EFD13AA0055718D /* ProgettoBD2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgettoBD2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BA27981EFD13AA0055718D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,8 +184,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2599E6301F17F7D600F0DB02 /* BSON.framework in Frameworks */,
+				2599E62D1F17F7D600F0DB02 /* KittenCore.framework in Frameworks */,
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
+				2599E6451F17F7D600F0DB02 /* MongoSocket.framework in Frameworks */,
+				2599E6391F17F7D600F0DB02 /* Schrodinger.framework in Frameworks */,
+				2599E6361F17F7D600F0DB02 /* CryptoSwift.framework in Frameworks */,
+				2599E63F1F17F7D600F0DB02 /* GeoJSON.framework in Frameworks */,
+				2599E63C1F17F7D600F0DB02 /* ExtendedJSON.framework in Frameworks */,
 				255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */,
+				2599E6421F17F7D600F0DB02 /* MongoKitten.framework in Frameworks */,
+				2599E6331F17F7D600F0DB02 /* Cheetah.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +248,15 @@
 		25BA278C1EFD13AA0055718D = {
 			isa = PBXGroup;
 			children = (
+				2599E6441F17F7D600F0DB02 /* MongoSocket.framework */,
+				2599E6411F17F7D600F0DB02 /* MongoKitten.framework */,
+				2599E63E1F17F7D600F0DB02 /* GeoJSON.framework */,
+				2599E63B1F17F7D600F0DB02 /* ExtendedJSON.framework */,
+				2599E6381F17F7D600F0DB02 /* Schrodinger.framework */,
+				2599E6351F17F7D600F0DB02 /* CryptoSwift.framework */,
+				2599E6321F17F7D600F0DB02 /* Cheetah.framework */,
+				2599E62F1F17F7D600F0DB02 /* BSON.framework */,
+				2599E62C1F17F7D600F0DB02 /* KittenCore.framework */,
 				25BA27971EFD13AA0055718D /* ProgettoBD2 */,
 				25BA27AC1EFD13AA0055718D /* ProgettoBD2Tests */,
 				25BA27B71EFD13AA0055718D /* ProgettoBD2UITests */,
