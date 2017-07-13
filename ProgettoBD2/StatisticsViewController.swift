@@ -13,7 +13,7 @@ import Charts
 class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueFormatter {
     
     var queryView: StatsSettingsView? = nil
-    @IBOutlet weak var defaultChart: LineChartView!
+    @IBOutlet weak var statsChart: LineChartView!
     
     override func viewDidLoad() {
         
@@ -30,8 +30,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
 
         
         //DB.loadFromDb(nDays: 30)
-        defaultChart.noDataText = "You need to provide data for the chart."
-        defaultChart.delegate = self
+        statsChart.noDataText = "You need to provide data for the chart."
+        statsChart.delegate = self
         setDefaultChart()
 
 
@@ -125,16 +125,20 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     func setAvgForceOnTempChart(){
         
         let qResult: Array<(Double, Double)> = DB.qResult as! Array<(Double, Double)>
-        self.defaultChart.noDataText = "You need to provide data for the chart."
+        self.statsChart.noDataText = "You need to provide data for the chart."
         let avgForce : [Double] = qResult.map{tuple in
             tuple.1}
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
-        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-        self.defaultChart.xAxis.labelTextColor = UIColor.white
+        self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.statsChart.xAxis.labelTextColor = UIColor.white
+        statsChart.leftAxis.labelTextColor = UIColor.white
+        statsChart.rightAxis.labelTextColor = UIColor.clear
         
+        statsChart.chartDescription?.text = ""
         
+
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for i in 0...qResult.count-1 {
             yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
@@ -143,9 +147,9 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
         set1.axisDependency = .left // Line will correlate with left axis values
         set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
-        set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
-        set1.lineWidth = 2.0
-        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.setCircleColor(UIColor.orange)
+        set1.lineWidth = 4.0
+        set1.circleRadius = 10.0 // the radius of the node circle
         set1.fillAlpha = 65 / 255.0
         set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
         set1.highlightColor = UIColor.white
@@ -154,31 +158,40 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
         dataSets.append(set1)
         
-        self.defaultChart.xAxis.labelPosition = .bottom
+        self.statsChart.xAxis.labelPosition = .bottom
         
         
         let data = LineChartData(dataSets: dataSets)
         data.setValueTextColor(UIColor.white)
         
-        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
-        self.defaultChart.data = data
+        self.statsChart.data = data
         
     }
     
     func setAvgForceChart() {
         
         let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
-        self.defaultChart.noDataText = "You need to provide data for the chart."
+        self.statsChart.noDataText = "You need to provide data for the chart."
         let avgForce : [Double] = qResult.map{tuple in
             tuple.1}
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
-        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-        self.defaultChart.xAxis.labelTextColor = UIColor.white
+        self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.statsChart.xAxis.labelTextColor = UIColor.white
+        let yFormatter = NumberFormatter()
+        yFormatter.positiveSuffix = " Kcal"
+        statsChart.leftAxis.valueFormatter = DefaultAxisValueFormatter.init(formatter: yFormatter)
+        
+        statsChart.chartDescription?.text = ""
+        statsChart.leftAxis.labelTextColor = UIColor.white
+        statsChart.rightAxis.labelTextColor = UIColor.clear
+
         
         
+
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for i in 0...qResult.count-1 {
             yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
@@ -188,8 +201,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         set1.axisDependency = .left // Line will correlate with left axis values
         set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
         set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
-        set1.lineWidth = 2.0
-        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.lineWidth = 4.0
+        set1.circleRadius = 10.0 // the radius of the node circle
         set1.fillAlpha = 65 / 255.0
         set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
         set1.highlightColor = UIColor.white
@@ -198,15 +211,15 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
         dataSets.append(set1)
         
-        self.defaultChart.xAxis.labelPosition = .bottom
+        self.statsChart.xAxis.labelPosition = .bottom
         
         
         let data = LineChartData(dataSets: dataSets)
         data.setValueTextColor(UIColor.white)
         
-        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
-        self.defaultChart.data = data
+        self.statsChart.data = data
     }
     
     
@@ -216,15 +229,20 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     func setCaloriesChart() {
         
         let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
-        self.defaultChart.noDataText = "You need to provide data for the chart."
+        self.statsChart.noDataText = "You need to provide data for the chart."
         let calories : [Double] = qResult.map{tuple in
             tuple.1}
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
-        self.defaultChart.xAxis.valueFormatter = xAxis.valueFormatter
-        self.defaultChart.xAxis.labelTextColor = UIColor.white
-        
+        self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
+        self.statsChart.xAxis.labelTextColor = UIColor.white
+        statsChart.leftAxis.labelTextColor = UIColor.white
+        statsChart.rightAxis.labelTextColor = UIColor.clear
+        let yFormatter = NumberFormatter()
+        yFormatter.positiveSuffix = " Kcal"
+        statsChart.leftAxis.valueFormatter = DefaultAxisValueFormatter.init(formatter: yFormatter)
+        statsChart.chartDescription?.text = ""
         
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for i in 0...qResult.count-1 {
@@ -234,9 +252,9 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
         set1.axisDependency = .left // Line will correlate with left axis values
         set1.setColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 0.5))
-        set1.setCircleColor(UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1))
-        set1.lineWidth = 2.0
-        set1.circleRadius = 6.0 // the radius of the node circle
+        set1.setCircleColor(UIColor.red)
+        set1.lineWidth = 4.0
+        set1.circleRadius = 10.0 // the radius of the node circle
         set1.fillAlpha = 65 / 255.0
         set1.fillColor = UIColor(red: 242/255, green: 229/255, blue: 50/255, alpha: 1)
         set1.highlightColor = UIColor.white
@@ -245,27 +263,33 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
         dataSets.append(set1)
         
-        self.defaultChart.xAxis.labelPosition = .bottom
+        self.statsChart.xAxis.labelPosition = .bottom
         
         
         let data = LineChartData(dataSets: dataSets)
         data.setValueTextColor(UIColor.white)
         
-        self.defaultChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
-        self.defaultChart.data = data
+        self.statsChart.data = data
     }
+    
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         
         
         switch (queryView?.selection) {
         case .some(1):
-            return String(value)
+            let qResult: Array<(Double, Double)> = DB.qResult as! Array<(Double, Double)>
+            let temperatures : [Double] = qResult.map{
+                tuple in tuple.0
+            }
+            
+            return String(temperatures[Int(value) % temperatures.count])+"°"
             
         default:
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM-dd"
+            dateFormatter.dateFormat = "dd-MM"
             var dates : [String] = [String]()
             let todayDate = Date();
             let day = 86400

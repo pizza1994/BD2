@@ -95,7 +95,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="defaultChart" destination="pfT-ni-V09" id="8Cq-Ei-11O"/>
+                        <outlet property="statsChart" destination="pfT-ni-V09" id="Ac9-q0-lxv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXY-IU-lwT" userLabel="First Responder" sceneMemberID="firstResponder"/>

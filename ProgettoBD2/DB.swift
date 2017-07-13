@@ -117,24 +117,24 @@ class DB: NSObject
         
         let selection = params.joined(separator: ",")
         var projection = ""
-        
+        var parameters = [URLRequest.QueryStringParameter(key: "q", value: "{" + selection + "}")]
         switch returnType
         {
             case 0:
                 projection = "{\"date\":1,\"sets\":1}" //prendere solo i set con abbastanza ripetizioni dell'insieme di set restituito
             case 1:
                 projection = "{\"sets\":1,\"temperature\":1}"
+                parameters.append(URLRequest.QueryStringParameter(key: "s", value: "{\"temperature\": 1}"))
             case 2:
                 projection = "{\"date\":1,\"calories\":1}"
             default:
                 break
         }
 
-        let param1 = URLRequest.QueryStringParameter(key: "q", value: "{" + selection + "}")
-        let param2 = URLRequest.QueryStringParameter(key: "f", value:projection)
+        parameters.append(URLRequest.QueryStringParameter(key: "f", value:projection))
 
         do {
-            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: [param1, param2], bodyData: nil)
+            let request = try MongoLabURLRequest.urlRequestWith(configuration!, relativeURL: "collections/exercises", method: .GET, parameters: parameters, bodyData: nil)
             
             self.returnType = returnType
             print(request)
@@ -160,7 +160,7 @@ class DB: NSObject
         if (self.returnType == 0) // Avg. Force / Date
         {
             /* [id: {"exercise_name": "nome1", "sets": rfjkdfb}, id:{"exercise_name": "nome1", "sets": rfjkdfb}]*/
-            var weights : Array<Int> = []
+            var weights : Array<Int> = Array<Int>()
 
             for exercise in response
             {
@@ -168,7 +168,6 @@ class DB: NSObject
                 let sets : Array<Array<Double>> = exercise.value(forKey: "sets") as! Array<Array<Double>>
                 var newAvg : Double = 0
                 var n : Int = 0
-                var weights : Array<Int> = Array<Int>()
                 var flagFound = false
                 
                 if (qResult.count == 0)
@@ -184,7 +183,6 @@ class DB: NSObject
                 
                     weights.append(n)
                     newAvg = newAvg / Double(n)
-                    print(qResult.count)
                     qResult.append((dateExercise, newAvg))
                 }
                 else
