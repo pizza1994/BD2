@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16058B561F176C520022E89F /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B4D1F176C520022E89F /* BSON.framework */; };
+		16058B571F176C520022E89F /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B4E1F176C520022E89F /* Cheetah.framework */; };
+		16058B581F176C520022E89F /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B4F1F176C520022E89F /* CryptoSwift.framework */; };
+		16058B591F176C520022E89F /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B501F176C520022E89F /* ExtendedJSON.framework */; };
+		16058B5A1F176C520022E89F /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B511F176C520022E89F /* GeoJSON.framework */; };
+		16058B5B1F176C520022E89F /* KittenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B521F176C520022E89F /* KittenCore.framework */; };
+		16058B5C1F176C520022E89F /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B531F176C520022E89F /* MongoKitten.framework */; };
+		16058B5D1F176C520022E89F /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B541F176C520022E89F /* MongoSocket.framework */; };
+		16058B5E1F176C520022E89F /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B551F176C520022E89F /* Schrodinger.framework */; };
+		16058B7B1F176DEB0022E89F /* KittenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7A1F176DEB0022E89F /* KittenCore.framework */; };
+		16058B7C1F176DEB0022E89F /* KittenCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7A1F176DEB0022E89F /* KittenCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B7E1F176DEB0022E89F /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7D1F176DEB0022E89F /* BSON.framework */; };
+		16058B7F1F176DEB0022E89F /* BSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7D1F176DEB0022E89F /* BSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B811F176DEB0022E89F /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B801F176DEB0022E89F /* Cheetah.framework */; };
+		16058B821F176DEB0022E89F /* Cheetah.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B801F176DEB0022E89F /* Cheetah.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B841F176DEB0022E89F /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B831F176DEB0022E89F /* CryptoSwift.framework */; };
+		16058B851F176DEB0022E89F /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B831F176DEB0022E89F /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B871F176DEB0022E89F /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B861F176DEB0022E89F /* Schrodinger.framework */; };
+		16058B881F176DEB0022E89F /* Schrodinger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B861F176DEB0022E89F /* Schrodinger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B8A1F176DEB0022E89F /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B891F176DEB0022E89F /* ExtendedJSON.framework */; };
+		16058B8B1F176DEB0022E89F /* ExtendedJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B891F176DEB0022E89F /* ExtendedJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B8D1F176DEB0022E89F /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8C1F176DEB0022E89F /* GeoJSON.framework */; };
+		16058B8E1F176DEB0022E89F /* GeoJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8C1F176DEB0022E89F /* GeoJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B901F176DEB0022E89F /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8F1F176DEB0022E89F /* MongoKitten.framework */; };
+		16058B911F176DEB0022E89F /* MongoKitten.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8F1F176DEB0022E89F /* MongoKitten.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16058B931F176DEB0022E89F /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B921F176DEB0022E89F /* MongoSocket.framework */; };
+		16058B941F176DEB0022E89F /* MongoSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B921F176DEB0022E89F /* MongoSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
 		254FB0371F0B6F82003AB7C9 /* StatSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254FB0361F0B6F82003AB7C9 /* StatSettings.xib */; };
@@ -80,7 +107,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				16058B7C1F176DEB0022E89F /* KittenCore.framework in Embed Frameworks */,
 				255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */,
+				16058B941F176DEB0022E89F /* MongoSocket.framework in Embed Frameworks */,
+				16058B8E1F176DEB0022E89F /* GeoJSON.framework in Embed Frameworks */,
+				16058B911F176DEB0022E89F /* MongoKitten.framework in Embed Frameworks */,
+				16058B7F1F176DEB0022E89F /* BSON.framework in Embed Frameworks */,
+				16058B8B1F176DEB0022E89F /* ExtendedJSON.framework in Embed Frameworks */,
+				16058B881F176DEB0022E89F /* Schrodinger.framework in Embed Frameworks */,
+				16058B851F176DEB0022E89F /* CryptoSwift.framework in Embed Frameworks */,
+				16058B821F176DEB0022E89F /* Cheetah.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +124,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16058B4D1F176C520022E89F /* BSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSON.framework; path = SPM/build/Debug/BSON.framework; sourceTree = "<group>"; };
+		16058B4E1F176C520022E89F /* Cheetah.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cheetah.framework; path = SPM/build/Debug/Cheetah.framework; sourceTree = "<group>"; };
+		16058B4F1F176C520022E89F /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = SPM/build/Debug/CryptoSwift.framework; sourceTree = "<group>"; };
+		16058B501F176C520022E89F /* ExtendedJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtendedJSON.framework; path = SPM/build/Debug/ExtendedJSON.framework; sourceTree = "<group>"; };
+		16058B511F176C520022E89F /* GeoJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GeoJSON.framework; path = SPM/build/Debug/GeoJSON.framework; sourceTree = "<group>"; };
+		16058B521F176C520022E89F /* KittenCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KittenCore.framework; path = SPM/build/Debug/KittenCore.framework; sourceTree = "<group>"; };
+		16058B531F176C520022E89F /* MongoKitten.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MongoKitten.framework; path = SPM/build/Debug/MongoKitten.framework; sourceTree = "<group>"; };
+		16058B541F176C520022E89F /* MongoSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MongoSocket.framework; path = SPM/build/Debug/MongoSocket.framework; sourceTree = "<group>"; };
+		16058B551F176C520022E89F /* Schrodinger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Schrodinger.framework; path = SPM/build/Debug/Schrodinger.framework; sourceTree = "<group>"; };
+		16058B7A1F176DEB0022E89F /* KittenCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KittenCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B7D1F176DEB0022E89F /* BSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B801F176DEB0022E89F /* Cheetah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cheetah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B831F176DEB0022E89F /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B861F176DEB0022E89F /* Schrodinger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Schrodinger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B891F176DEB0022E89F /* ExtendedJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExtendedJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B8C1F176DEB0022E89F /* GeoJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GeoJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B8F1F176DEB0022E89F /* MongoKitten.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MongoKitten.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16058B921F176DEB0022E89F /* MongoSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MongoSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
 		254FB0361F0B6F82003AB7C9 /* StatSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatSettings.xib; sourceTree = "<group>"; };
@@ -148,8 +202,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16058B7B1F176DEB0022E89F /* KittenCore.framework in Frameworks */,
+				16058B811F176DEB0022E89F /* Cheetah.framework in Frameworks */,
+				16058B931F176DEB0022E89F /* MongoSocket.framework in Frameworks */,
+				16058B561F176C520022E89F /* BSON.framework in Frameworks */,
+				16058B841F176DEB0022E89F /* CryptoSwift.framework in Frameworks */,
+				16058B571F176C520022E89F /* Cheetah.framework in Frameworks */,
+				16058B581F176C520022E89F /* CryptoSwift.framework in Frameworks */,
+				16058B591F176C520022E89F /* ExtendedJSON.framework in Frameworks */,
+				16058B5A1F176C520022E89F /* GeoJSON.framework in Frameworks */,
+				16058B7E1F176DEB0022E89F /* BSON.framework in Frameworks */,
+				16058B871F176DEB0022E89F /* Schrodinger.framework in Frameworks */,
+				16058B5B1F176C520022E89F /* KittenCore.framework in Frameworks */,
+				16058B5C1F176C520022E89F /* MongoKitten.framework in Frameworks */,
+				16058B5D1F176C520022E89F /* MongoSocket.framework in Frameworks */,
+				16058B8A1F176DEB0022E89F /* ExtendedJSON.framework in Frameworks */,
+				16058B8D1F176DEB0022E89F /* GeoJSON.framework in Frameworks */,
+				16058B5E1F176C520022E89F /* Schrodinger.framework in Frameworks */,
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
 				255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */,
+				16058B901F176DEB0022E89F /* MongoKitten.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +242,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16058B4C1F176C520022E89F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16058B4D1F176C520022E89F /* BSON.framework */,
+				16058B4E1F176C520022E89F /* Cheetah.framework */,
+				16058B4F1F176C520022E89F /* CryptoSwift.framework */,
+				16058B501F176C520022E89F /* ExtendedJSON.framework */,
+				16058B511F176C520022E89F /* GeoJSON.framework */,
+				16058B521F176C520022E89F /* KittenCore.framework */,
+				16058B531F176C520022E89F /* MongoKitten.framework */,
+				16058B541F176C520022E89F /* MongoSocket.framework */,
+				16058B551F176C520022E89F /* Schrodinger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		259956AA1F06C8EA00BC7767 /* MongoLab */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,10 +291,20 @@
 		25BA278C1EFD13AA0055718D = {
 			isa = PBXGroup;
 			children = (
+				16058B921F176DEB0022E89F /* MongoSocket.framework */,
+				16058B8F1F176DEB0022E89F /* MongoKitten.framework */,
+				16058B8C1F176DEB0022E89F /* GeoJSON.framework */,
+				16058B891F176DEB0022E89F /* ExtendedJSON.framework */,
+				16058B861F176DEB0022E89F /* Schrodinger.framework */,
+				16058B831F176DEB0022E89F /* CryptoSwift.framework */,
+				16058B801F176DEB0022E89F /* Cheetah.framework */,
+				16058B7D1F176DEB0022E89F /* BSON.framework */,
+				16058B7A1F176DEB0022E89F /* KittenCore.framework */,
 				25BA27971EFD13AA0055718D /* ProgettoBD2 */,
 				25BA27AC1EFD13AA0055718D /* ProgettoBD2Tests */,
 				25BA27B71EFD13AA0055718D /* ProgettoBD2UITests */,
 				25BA27961EFD13AA0055718D /* Products */,
+				16058B4C1F176C520022E89F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -632,14 +730,17 @@
 					"$(PROJECT_DIR)/ProgettoBD2",
 					"$(PROJECT_DIR)",
 					"$(TARGET_BUILD_DIR)",
+					"$(PROJECT_DIR)/SPM/build/Debug",
 				);
 				INFOPLIST_FILE = ProgettoBD2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = ProgettoBD2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos10.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ProgettoBD2/ProgettoBD2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -660,9 +761,11 @@
 					"$(PROJECT_DIR)/ProgettoBD2",
 					"$(PROJECT_DIR)",
 					"$(TARGET_BUILD_DIR)",
+					"$(PROJECT_DIR)/SPM/build/Debug",
 				);
 				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = ProgettoBD2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				"MTL_ENABLE_DEBUG_INFO[arch=*]" = NO;
@@ -670,6 +773,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ProgettoBD2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos10.3;
 				SWIFT_OBJC_BRIDGING_HEADER = "ProgettoBD2/ProgettoBD2-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
