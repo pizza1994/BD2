@@ -16,30 +16,28 @@
 		16058B5C1F176C520022E89F /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B531F176C520022E89F /* MongoKitten.framework */; };
 		16058B5D1F176C520022E89F /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B541F176C520022E89F /* MongoSocket.framework */; };
 		16058B5E1F176C520022E89F /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B551F176C520022E89F /* Schrodinger.framework */; };
-		16058B7B1F176DEB0022E89F /* KittenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7A1F176DEB0022E89F /* KittenCore.framework */; };
-		16058B7C1F176DEB0022E89F /* KittenCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7A1F176DEB0022E89F /* KittenCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B7E1F176DEB0022E89F /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7D1F176DEB0022E89F /* BSON.framework */; };
-		16058B7F1F176DEB0022E89F /* BSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B7D1F176DEB0022E89F /* BSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B811F176DEB0022E89F /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B801F176DEB0022E89F /* Cheetah.framework */; };
-		16058B821F176DEB0022E89F /* Cheetah.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B801F176DEB0022E89F /* Cheetah.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B841F176DEB0022E89F /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B831F176DEB0022E89F /* CryptoSwift.framework */; };
-		16058B851F176DEB0022E89F /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B831F176DEB0022E89F /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B871F176DEB0022E89F /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B861F176DEB0022E89F /* Schrodinger.framework */; };
-		16058B881F176DEB0022E89F /* Schrodinger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B861F176DEB0022E89F /* Schrodinger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B8A1F176DEB0022E89F /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B891F176DEB0022E89F /* ExtendedJSON.framework */; };
-		16058B8B1F176DEB0022E89F /* ExtendedJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B891F176DEB0022E89F /* ExtendedJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B8D1F176DEB0022E89F /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8C1F176DEB0022E89F /* GeoJSON.framework */; };
-		16058B8E1F176DEB0022E89F /* GeoJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8C1F176DEB0022E89F /* GeoJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B901F176DEB0022E89F /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8F1F176DEB0022E89F /* MongoKitten.framework */; };
-		16058B911F176DEB0022E89F /* MongoKitten.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B8F1F176DEB0022E89F /* MongoKitten.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16058B931F176DEB0022E89F /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B921F176DEB0022E89F /* MongoSocket.framework */; };
-		16058B941F176DEB0022E89F /* MongoSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16058B921F176DEB0022E89F /* MongoSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1635DB8D1F04F81600B81ED7 /* SensorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */; };
 		1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */; };
+		16502E221F1771D000827593 /* KittenCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DE91F1771A500827593 /* KittenCore.framework */; };
+		16502E231F1771D000827593 /* KittenCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DE91F1771A500827593 /* KittenCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E261F1771D000827593 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DEB1F1771A500827593 /* BSON.framework */; };
+		16502E271F1771D000827593 /* BSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DEB1F1771A500827593 /* BSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E2A1F1771D000827593 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DED1F1771A500827593 /* Cheetah.framework */; };
+		16502E2B1F1771D000827593 /* Cheetah.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DED1F1771A500827593 /* Cheetah.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E2E1F1771D000827593 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DEF1F1771A500827593 /* CryptoSwift.framework */; };
+		16502E2F1F1771D000827593 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DEF1F1771A500827593 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E321F1771D000827593 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF11F1771A500827593 /* Schrodinger.framework */; };
+		16502E331F1771D000827593 /* Schrodinger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF11F1771A500827593 /* Schrodinger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E361F1771D000827593 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF31F1771A500827593 /* ExtendedJSON.framework */; };
+		16502E371F1771D000827593 /* ExtendedJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF31F1771A500827593 /* ExtendedJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E3A1F1771D000827593 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF51F1771A500827593 /* GeoJSON.framework */; };
+		16502E3B1F1771D000827593 /* GeoJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF51F1771A500827593 /* GeoJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E3E1F1771D000827593 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF71F1771A500827593 /* MongoKitten.framework */; };
+		16502E3F1F1771D000827593 /* MongoKitten.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF71F1771A500827593 /* MongoKitten.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16502E421F1771D000827593 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF91F1771A500827593 /* MongoSocket.framework */; };
+		16502E431F1771D000827593 /* MongoSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16502DF91F1771A500827593 /* MongoSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		254FB0371F0B6F82003AB7C9 /* StatSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254FB0361F0B6F82003AB7C9 /* StatSettings.xib */; };
 		254FB0391F0B6FEB003AB7C9 /* StatsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254FB0381F0B6FEB003AB7C9 /* StatsSettingsView.swift */; };
-		255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 255DBADC1F0A6BB100B1DCEF /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2593EFED1EFD265200CF7F9A /* StartStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEC1EFD265200CF7F9A /* StartStopViewController.swift */; };
 		2593EFEF1EFD33F000CF7F9A /* RecapSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFEE1EFD33F000CF7F9A /* RecapSetViewController.swift */; };
 		2593EFF31EFD344C00CF7F9A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593EFF21EFD344C00CF7F9A /* Exercise.swift */; };
@@ -84,6 +82,146 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		16502DE81F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_189;
+			remoteInfo = KittenCore;
+		};
+		16502DEA1F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_190;
+			remoteInfo = BSON;
+		};
+		16502DEC1F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_191;
+			remoteInfo = Cheetah;
+		};
+		16502DEE1F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_192;
+			remoteInfo = CryptoSwift;
+		};
+		16502DF01F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_193;
+			remoteInfo = Schrodinger;
+		};
+		16502DF21F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_194;
+			remoteInfo = ExtendedJSON;
+		};
+		16502DF41F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_195;
+			remoteInfo = GeoJSON;
+		};
+		16502DF61F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_196;
+			remoteInfo = MongoKitten;
+		};
+		16502DF81F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_197;
+			remoteInfo = MongoSocket;
+		};
+		16502DFA1F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_198;
+			remoteInfo = SPM;
+		};
+		16502DFC1F1771A500827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_199;
+			remoteInfo = SPMTests;
+		};
+		16502E241F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_200;
+			remoteInfo = KittenCore;
+		};
+		16502E281F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_209;
+			remoteInfo = BSON;
+		};
+		16502E2C1F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_234;
+			remoteInfo = Cheetah;
+		};
+		16502E301F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_248;
+			remoteInfo = CryptoSwift;
+		};
+		16502E341F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_316;
+			remoteInfo = Schrodinger;
+		};
+		16502E381F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_323;
+			remoteInfo = ExtendedJSON;
+		};
+		16502E3C1F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_342;
+			remoteInfo = GeoJSON;
+		};
+		16502E401F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_369;
+			remoteInfo = MongoKitten;
+		};
+		16502E441F1771D000827593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_434;
+			remoteInfo = MongoSocket;
+		};
 		254FB0341F0A6F54003AB7C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25BA278D1EFD13AA0055718D /* Project object */;
@@ -101,22 +239,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		25B6EE851F0A5F41006C2210 /* Embed Frameworks */ = {
+		16502E461F1771D100827593 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16058B7C1F176DEB0022E89F /* KittenCore.framework in Embed Frameworks */,
-				255DBADF1F0A6BBB00B1DCEF /* Charts.framework in Embed Frameworks */,
-				16058B941F176DEB0022E89F /* MongoSocket.framework in Embed Frameworks */,
-				16058B8E1F176DEB0022E89F /* GeoJSON.framework in Embed Frameworks */,
-				16058B911F176DEB0022E89F /* MongoKitten.framework in Embed Frameworks */,
-				16058B7F1F176DEB0022E89F /* BSON.framework in Embed Frameworks */,
-				16058B8B1F176DEB0022E89F /* ExtendedJSON.framework in Embed Frameworks */,
-				16058B881F176DEB0022E89F /* Schrodinger.framework in Embed Frameworks */,
-				16058B851F176DEB0022E89F /* CryptoSwift.framework in Embed Frameworks */,
-				16058B821F176DEB0022E89F /* Cheetah.framework in Embed Frameworks */,
+				16502E3F1F1771D000827593 /* MongoKitten.framework in Embed Frameworks */,
+				16502E331F1771D000827593 /* Schrodinger.framework in Embed Frameworks */,
+				16502E371F1771D000827593 /* ExtendedJSON.framework in Embed Frameworks */,
+				16502E2B1F1771D000827593 /* Cheetah.framework in Embed Frameworks */,
+				16502E271F1771D000827593 /* BSON.framework in Embed Frameworks */,
+				16502E231F1771D000827593 /* KittenCore.framework in Embed Frameworks */,
+				16502E2F1F1771D000827593 /* CryptoSwift.framework in Embed Frameworks */,
+				16502E3B1F1771D000827593 /* GeoJSON.framework in Embed Frameworks */,
+				16502E431F1771D000827593 /* MongoSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +281,7 @@
 		16058B921F176DEB0022E89F /* MongoSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MongoSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1635DB8C1F04F81600B81ED7 /* SensorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorHandler.swift; sourceTree = "<group>"; };
 		1635DB8E1F04FB5900B81ED7 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EstimoteSDK.framework; path = ../EstimoteSDK.framework; sourceTree = "<group>"; };
+		16502DDA1F1771A500827593 /* SPM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SPM.xcodeproj; path = SPM/SPM.xcodeproj; sourceTree = "<group>"; };
 		254FB0361F0B6F82003AB7C9 /* StatSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatSettings.xib; sourceTree = "<group>"; };
 		254FB0381F0B6FEB003AB7C9 /* StatsSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsSettingsView.swift; sourceTree = "<group>"; };
 		255DBADC1F0A6BB100B1DCEF /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
@@ -202,26 +340,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16058B7B1F176DEB0022E89F /* KittenCore.framework in Frameworks */,
-				16058B811F176DEB0022E89F /* Cheetah.framework in Frameworks */,
-				16058B931F176DEB0022E89F /* MongoSocket.framework in Frameworks */,
+				16502E321F1771D000827593 /* Schrodinger.framework in Frameworks */,
 				16058B561F176C520022E89F /* BSON.framework in Frameworks */,
-				16058B841F176DEB0022E89F /* CryptoSwift.framework in Frameworks */,
 				16058B571F176C520022E89F /* Cheetah.framework in Frameworks */,
 				16058B581F176C520022E89F /* CryptoSwift.framework in Frameworks */,
+				16502E2A1F1771D000827593 /* Cheetah.framework in Frameworks */,
+				16502E421F1771D000827593 /* MongoSocket.framework in Frameworks */,
 				16058B591F176C520022E89F /* ExtendedJSON.framework in Frameworks */,
 				16058B5A1F176C520022E89F /* GeoJSON.framework in Frameworks */,
-				16058B7E1F176DEB0022E89F /* BSON.framework in Frameworks */,
-				16058B871F176DEB0022E89F /* Schrodinger.framework in Frameworks */,
+				16502E3A1F1771D000827593 /* GeoJSON.framework in Frameworks */,
 				16058B5B1F176C520022E89F /* KittenCore.framework in Frameworks */,
+				16502E2E1F1771D000827593 /* CryptoSwift.framework in Frameworks */,
 				16058B5C1F176C520022E89F /* MongoKitten.framework in Frameworks */,
 				16058B5D1F176C520022E89F /* MongoSocket.framework in Frameworks */,
-				16058B8A1F176DEB0022E89F /* ExtendedJSON.framework in Frameworks */,
-				16058B8D1F176DEB0022E89F /* GeoJSON.framework in Frameworks */,
+				16502E3E1F1771D000827593 /* MongoKitten.framework in Frameworks */,
+				16502E261F1771D000827593 /* BSON.framework in Frameworks */,
 				16058B5E1F176C520022E89F /* Schrodinger.framework in Frameworks */,
+				16502E361F1771D000827593 /* ExtendedJSON.framework in Frameworks */,
+				16502E221F1771D000827593 /* KittenCore.framework in Frameworks */,
 				1635DB8F1F04FB5900B81ED7 /* EstimoteSDK.framework in Frameworks */,
-				255DBADE1F0A6BBB00B1DCEF /* Charts.framework in Frameworks */,
-				16058B901F176DEB0022E89F /* MongoKitten.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +395,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		16502DDB1F1771A500827593 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16502DE91F1771A500827593 /* KittenCore.framework */,
+				16502DEB1F1771A500827593 /* BSON.framework */,
+				16502DED1F1771A500827593 /* Cheetah.framework */,
+				16502DEF1F1771A500827593 /* CryptoSwift.framework */,
+				16502DF11F1771A500827593 /* Schrodinger.framework */,
+				16502DF31F1771A500827593 /* ExtendedJSON.framework */,
+				16502DF51F1771A500827593 /* GeoJSON.framework */,
+				16502DF71F1771A500827593 /* MongoKitten.framework */,
+				16502DF91F1771A500827593 /* MongoSocket.framework */,
+				16502DFB1F1771A500827593 /* SPM.framework */,
+				16502DFD1F1771A500827593 /* SPMTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		259956AA1F06C8EA00BC7767 /* MongoLab */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +446,7 @@
 		25BA278C1EFD13AA0055718D = {
 			isa = PBXGroup;
 			children = (
+				16502DDA1F1771A500827593 /* SPM.xcodeproj */,
 				16058B921F176DEB0022E89F /* MongoSocket.framework */,
 				16058B8F1F176DEB0022E89F /* MongoKitten.framework */,
 				16058B8C1F176DEB0022E89F /* GeoJSON.framework */,
@@ -393,11 +549,20 @@
 				25BA27911EFD13AA0055718D /* Sources */,
 				25BA27921EFD13AA0055718D /* Frameworks */,
 				25BA27931EFD13AA0055718D /* Resources */,
-				25B6EE851F0A5F41006C2210 /* Embed Frameworks */,
+				16502E461F1771D100827593 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				16502E251F1771D000827593 /* PBXTargetDependency */,
+				16502E291F1771D000827593 /* PBXTargetDependency */,
+				16502E2D1F1771D000827593 /* PBXTargetDependency */,
+				16502E311F1771D000827593 /* PBXTargetDependency */,
+				16502E351F1771D000827593 /* PBXTargetDependency */,
+				16502E391F1771D000827593 /* PBXTargetDependency */,
+				16502E3D1F1771D000827593 /* PBXTargetDependency */,
+				16502E411F1771D000827593 /* PBXTargetDependency */,
+				16502E451F1771D000827593 /* PBXTargetDependency */,
 			);
 			name = ProgettoBD2;
 			productName = ProgettoBD2;
@@ -482,6 +647,12 @@
 			mainGroup = 25BA278C1EFD13AA0055718D;
 			productRefGroup = 25BA27961EFD13AA0055718D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 16502DDB1F1771A500827593 /* Products */;
+					ProjectRef = 16502DDA1F1771A500827593 /* SPM.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				25BA27941EFD13AA0055718D /* ProgettoBD2 */,
@@ -490,6 +661,86 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		16502DE91F1771A500827593 /* KittenCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KittenCore.framework;
+			remoteRef = 16502DE81F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DEB1F1771A500827593 /* BSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BSON.framework;
+			remoteRef = 16502DEA1F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DED1F1771A500827593 /* Cheetah.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cheetah.framework;
+			remoteRef = 16502DEC1F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DEF1F1771A500827593 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 16502DEE1F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DF11F1771A500827593 /* Schrodinger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Schrodinger.framework;
+			remoteRef = 16502DF01F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DF31F1771A500827593 /* ExtendedJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ExtendedJSON.framework;
+			remoteRef = 16502DF21F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DF51F1771A500827593 /* GeoJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GeoJSON.framework;
+			remoteRef = 16502DF41F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DF71F1771A500827593 /* MongoKitten.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MongoKitten.framework;
+			remoteRef = 16502DF61F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DF91F1771A500827593 /* MongoSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MongoSocket.framework;
+			remoteRef = 16502DF81F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DFB1F1771A500827593 /* SPM.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SPM.framework;
+			remoteRef = 16502DFA1F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		16502DFD1F1771A500827593 /* SPMTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = SPMTests.xctest;
+			remoteRef = 16502DFC1F1771A500827593 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		25BA27931EFD13AA0055718D /* Resources */ = {
@@ -584,6 +835,51 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		16502E251F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KittenCore;
+			targetProxy = 16502E241F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E291F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BSON;
+			targetProxy = 16502E281F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E2D1F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cheetah;
+			targetProxy = 16502E2C1F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E311F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = 16502E301F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E351F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Schrodinger;
+			targetProxy = 16502E341F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E391F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ExtendedJSON;
+			targetProxy = 16502E381F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E3D1F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GeoJSON;
+			targetProxy = 16502E3C1F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E411F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MongoKitten;
+			targetProxy = 16502E401F1771D000827593 /* PBXContainerItemProxy */;
+		};
+		16502E451F1771D000827593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MongoSocket;
+			targetProxy = 16502E441F1771D000827593 /* PBXContainerItemProxy */;
+		};
 		25BA27AB1EFD13AA0055718D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25BA27941EFD13AA0055718D /* ProgettoBD2 */;
@@ -719,7 +1015,7 @@
 		25BA27BE1EFD13AA0055718D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -750,7 +1046,7 @@
 		25BA27BF1EFD13AA0055718D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
