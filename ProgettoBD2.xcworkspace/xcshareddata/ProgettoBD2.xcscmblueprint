@@ -1,0 +1,58 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E5F015B7E3EEBBCFB9E69CD186C7D3032F5D0AB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E5F015B7E3EEBBCFB9E69CD186C7D3032F5D0AB4" : 9223372036854775807,
+    "C70D4C238BB89033BE056031BB8C3F39CD4A5467" : 9223372036854775807,
+    "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7" : 9223372036854775807,
+    "C3D8ED1CB28D809ADCE2C0DE74935E8A502ACD53" : 9223372036854775807,
+    "95AB4EFFE6F039B52B69D2C509315B8D3274BF78" : 9223372036854775807,
+    "8C29C8B10D306DB83C6D839C40BDDF6D24A35DB6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "928606A0-22A5-4433-B6A4-8BA9693FEE32",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E5F015B7E3EEBBCFB9E69CD186C7D3032F5D0AB4" : "ProgettoBD2\/",
+    "C70D4C238BB89033BE056031BB8C3F39CD4A5467" : "ProgettoBD2\/SPM\/.build\/checkouts\/Cheetah.git-9055844829175592006\/",
+    "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7" : "ProgettoBD2\/SPM\/.build\/checkouts\/BSON.git--1864673809949788219\/",
+    "C3D8ED1CB28D809ADCE2C0DE74935E8A502ACD53" : "ProgettoBD2\/SPM\/.build\/checkouts\/CryptoSwift.git--6440749087414195235\/",
+    "95AB4EFFE6F039B52B69D2C509315B8D3274BF78" : "ProgettoBD2\/SPM\/.build\/checkouts\/KittenCore.git--4606738124728250479\/",
+    "8C29C8B10D306DB83C6D839C40BDDF6D24A35DB6" : "ProgettoBD2\/SPM\/.build\/checkouts\/Schrodinger.git-3746374058425452560\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ProgettoBD2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ProgettoBD2.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/lucapitzalis\/Documents\/ProgettoBD2\/SPM\/.build\/repositories\/BSON.git--1864673809949788219",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "686ABC7D4D16AC8C2BF9FA66CA941F6EB6F984F7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/lucapitzalis\/Documents\/ProgettoBD2\/SPM\/.build\/repositories\/Schrodinger.git-3746374058425452560",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8C29C8B10D306DB83C6D839C40BDDF6D24A35DB6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/lucapitzalis\/Documents\/ProgettoBD2\/SPM\/.build\/repositories\/KittenCore.git--4606738124728250479",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95AB4EFFE6F039B52B69D2C509315B8D3274BF78"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/lucapitzalis\/Documents\/ProgettoBD2\/SPM\/.build\/repositories\/CryptoSwift.git--6440749087414195235",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C3D8ED1CB28D809ADCE2C0DE74935E8A502ACD53"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/lucapitzalis\/Documents\/ProgettoBD2\/SPM\/.build\/repositories\/Cheetah.git-9055844829175592006",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C70D4C238BB89033BE056031BB8C3F39CD4A5467"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/pizza1994\/BD2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E5F015B7E3EEBBCFB9E69CD186C7D3032F5D0AB4"
+    }
+  ]
+}
