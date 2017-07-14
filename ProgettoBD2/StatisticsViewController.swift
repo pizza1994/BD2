@@ -14,6 +14,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     
     var queryView: StatsSettingsView? = nil
     @IBOutlet weak var statsChart: LineChartView!
+    var minDate : Double = 0
     
     override func viewDidLoad() {
         
@@ -237,7 +238,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
     
     func setCaloriesChart() {
         
-        let qResult: Array<(Any, Double)> = DB.qResult as! Array<(Any, Double)>
+        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
         
         self.statsChart.noDataText = "You need to provide data for the chart."
         let calories : [Double] = qResult.map{tuple in
@@ -255,10 +256,24 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         
         statsChart.chartDescription?.text = ""
         
-        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for i in 0...qResult.count-1 {
-            yVals1.append(ChartDataEntry(x: Double(i), y: calories[i]))
+        var dates : [Int] = []
+        
+        for res in qResult{
+            dates.append(res.0 as! Int)
         }
+        
+        
+        minDate = Double(qResult[0].0)
+        
+        let yVals1 = qResult.map
+        {x, y in
+                return ChartDataEntry(x:(  (Double(x) - minDate) / (3600 * 24) ), y:y)
+        }
+        
+        for el in yVals1{
+        print (el)
+        }
+    
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
         set1.axisDependency = .left // Line will correlate with left axis values
@@ -303,16 +318,11 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
             return String(temperatures[Int(value) % temperatures.count])+"°"
             
         default:
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM"
-            var dates : [String] = [String]()
-            let todayDate = Date();
-            let day = 86400
-            for i in 0...29{
-                dates.append(dateFormatter.string(from: todayDate.addingTimeInterval(TimeInterval(-day*i))))
-            }
             
-            return dates[Int(value) % 30]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            let date = Date(timeIntervalSince1970: value*3600*24+minDate)
+            return dateFormatter.string(from: date)
         }
         
     }
@@ -329,8 +339,6 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         DB.loadFromDb(name: "", dateInterval: [monthAgo, today], tempInterval: ["", ""], setInterval: ["", ""], returnType: 2)
         
         self.setCaloriesChart()
-            
-
     }
     
     

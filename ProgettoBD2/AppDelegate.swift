@@ -36,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = welcomeController
         }
+        
+        DB.connect()
+        
         return true
     }
 

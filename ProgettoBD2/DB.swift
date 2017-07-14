@@ -13,11 +13,11 @@ class DB: NSObject
 {
     static private var returnType: Int?
     static public var qResult : Array<Any> = Array<Any>()
+    static var collection : MongoCollection? = nil
+
     
-    
-    static private func connect() -> MongoCollection
+    static func connect()
     {
-        var collection : MongoCollection? = nil
         
         do
         {
@@ -30,21 +30,17 @@ class DB: NSObject
             }
             
             collection = database["exercises"]
-            
         }
         catch
         {
             print ("Something went wrong")
         }
         
-        return collection!
-        
     }
     
     
     static func saveToDb(ex: Exercise)
     {
-        let collection = connect()
         
         let username: String = UserDefaults.standard.object(forKey: "username") as! String
         
@@ -54,13 +50,13 @@ class DB: NSObject
                                        "sets": ex.sets,
                                        "weights": ex.weights,
                                        "temperature": ex.temperature as Primitive,
-                                       "date": Int(ex.date.timeIntervalSince1970) as Primitive,
+                                       "date": Int(Calendar.current.startOfDay(for: ex.date).timeIntervalSince1970) as Primitive,
                                        "calories": ex.getTotalCalories() as Primitive
         ]
         
         do
         {
-            let _ = try collection.insert(exerciseInfo)
+            let _ = try collection?.insert(exerciseInfo)
         }
         catch
         {
@@ -72,7 +68,6 @@ class DB: NSObject
     static func loadFromDb(name: String?, dateInterval : [String?], tempInterval: [String?], setInterval: [String?], returnType : Int!)
     {
         qResult = Array<Any>()
-        let collection = connect()
         
         let username: String = UserDefaults.standard.object(forKey: "username") as! String
         
@@ -81,16 +76,17 @@ class DB: NSObject
         
         if (name != "")
         {
-            let names = name!.components(separatedBy: ", ")
+            let names = name!.components(separatedBy: ",")
             var namesString : String = ""
             for name in names
             {
                 namesString=namesString+name+","
             }
             namesString = namesString.substring(to: namesString.index(before: namesString.endIndex))
+            let namesArray : [String] = namesString.components(separatedBy: ",")
 
             
-            query.append(["$in" : [namesString]], forKey: "exercise_name")
+            query.append(["$in" : namesArray], forKey: "exercise_name")
 
         }
         
@@ -128,7 +124,7 @@ class DB: NSObject
             queryGroupStage =  AggregationPipeline.Stage.group("$date", computed: ["sets": .averageOf("$sets")])
             let sort : Sort =  ["date": .descending]
             querySortStage = AggregationPipeline.Stage.sort(sort)
-            pipeline = [queryMatchStage, queryUnwindStage!, queryUnwindStage!, queryGroupStage!, querySortStage!]
+            pipeline = [queryMatchStage, querySortStage!, queryUnwindStage!, queryUnwindStage!, queryGroupStage!]
 
             
         case 1:
@@ -136,14 +132,14 @@ class DB: NSObject
             queryGroupStage =  AggregationPipeline.Stage.group("$temperature", computed: ["sets": .averageOf("$sets")])
             let sort : Sort =  ["temperature": .descending]
             querySortStage = AggregationPipeline.Stage.sort(sort)
-            pipeline = [queryMatchStage, queryUnwindStage!, queryUnwindStage!, queryGroupStage!, querySortStage!]
+            pipeline = [queryMatchStage, querySortStage!, queryUnwindStage!, queryUnwindStage!, queryGroupStage!]
 
 
         case 2:
             queryGroupStage = AggregationPipeline.Stage.group("$date", computed: ["calories": .sumOf("$calories")])
             let sort : Sort =  ["date": .descending]
             querySortStage = AggregationPipeline.Stage.sort(sort)
-            pipeline = [queryMatchStage, queryGroupStage!, querySortStage!]
+            pipeline = [queryMatchStage, querySortStage!, queryGroupStage!]
 
             
         default:
@@ -151,11 +147,18 @@ class DB: NSObject
         }
         
         //let groupStage = AggregationPipeline.Stage(queryGroup!)
-
+        
+        
         var cursor : Cursor<Document>? = nil
-        do {cursor = try collection.aggregate(pipeline!)}catch{print("Query error")}
+        do {cursor = try collection?.aggregate(pipeline!)}catch{print("Query error")}
         for document in cursor!{
-            qResult.append((document[0]!, document[1]!))
+            switch returnType{
+            case 1:
+                qResult.append((Double(document[0]!), document[1]!))
+            default:
+                qResult.append((Int(document[0]!), document[1]!))
+
+            }
             
         }
         print(qResult)
