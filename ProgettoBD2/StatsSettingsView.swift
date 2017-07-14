@@ -80,7 +80,6 @@ class StatsSettingsView: UIView {
             selection = 0
             break;
         }  //Switch
-        print("selezione: \(String(describing: selection))")
     } // indexChanged for the Segmented Control
     
 

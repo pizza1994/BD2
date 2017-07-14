@@ -125,8 +125,6 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         
         let qResult: Array<(Double, Double)> = DB.qResult as! Array<(Double, Double)>
         self.statsChart.noDataText = "You need to provide data for the chart."
-        let avgForce : [Double] = qResult.map{tuple in
-            tuple.1}
         
         let xAxis = XAxis()
         xAxis.valueFormatter = self
@@ -140,9 +138,10 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         statsChart.chartDescription?.text = ""
         
 
-        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for i in 0...qResult.count-1 {
-            yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
+        
+        let yVals1 = qResult.map
+        {x, y in
+            return ChartDataEntry(x:x, y:y)
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
@@ -168,20 +167,21 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         self.statsChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
         self.statsChart.data = data
-        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin - 0.1
-        statsChart.leftAxis.axisMaximum = statsChart.data!.yMax + 0.1
+        statsChart.leftAxis.resetCustomAxisMin()
+        statsChart.leftAxis.resetCustomAxisMax()
+        statsChart.leftAxis.axisMaximum = 2
+        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin-0.5
         statsChart.leftAxis.labelCount = 2
         statsChart.leftAxis.drawZeroLineEnabled = false
+
         
     }
     
     func setAvgForceChart() {
         
-        let qResult: Array<(Any, Double)> = DB.qResult as! Array<(Any, Double)>
+        let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
         self.statsChart.noDataText = "You need to provide data for the chart."
-        let avgForce : [Double] = qResult.map{tuple in
-            tuple.1}
-        
+       
         let xAxis = XAxis()
         xAxis.valueFormatter = self
         self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
@@ -195,11 +195,11 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         statsChart.rightAxis.labelTextColor = UIColor.clear
 
         
+        minDate = Double(qResult[0].0)
         
-
-        var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for i in 0...qResult.count-1 {
-            yVals1.append(ChartDataEntry(x: Double(i), y: avgForce[i]))
+        let yVals1 = qResult.map
+        {x, y in
+            return ChartDataEntry(x:(  (Double(x) - minDate) / (3600 * 24) ), y:y)
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "First Set")
@@ -226,8 +226,10 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         
         self.statsChart.data = data
         
-        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin - 0.1
-        statsChart.leftAxis.axisMaximum = statsChart.data!.yMax + 0.1
+        statsChart.leftAxis.resetCustomAxisMin()
+        statsChart.leftAxis.resetCustomAxisMax()
+        statsChart.leftAxis.axisMaximum = 2
+        statsChart.leftAxis.axisMinimum = statsChart.data!.yMin-0.5
         statsChart.leftAxis.labelCount = 2
         statsChart.leftAxis.drawZeroLineEnabled = false
     }
@@ -241,9 +243,7 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let qResult: Array<(Int, Double)> = DB.qResult as! Array<(Int, Double)>
         
         self.statsChart.noDataText = "You need to provide data for the chart."
-        let calories : [Double] = qResult.map{tuple in
-            tuple.1}
-        
+
         let xAxis = XAxis()
         xAxis.valueFormatter = self
         self.statsChart.xAxis.valueFormatter = xAxis.valueFormatter
@@ -256,11 +256,6 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         
         statsChart.chartDescription?.text = ""
         
-        var dates : [Int] = []
-        
-        for res in qResult{
-            dates.append(res.0 as! Int)
-        }
         
         
         minDate = Double(qResult[0].0)
@@ -268,10 +263,6 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         let yVals1 = qResult.map
         {x, y in
                 return ChartDataEntry(x:(  (Double(x) - minDate) / (3600 * 24) ), y:y)
-        }
-        
-        for el in yVals1{
-        print (el)
         }
     
         
@@ -310,12 +301,8 @@ class StatisticsViewController: UIViewController, ChartViewDelegate, IAxisValueF
         
         switch (queryView?.selection) {
         case .some(1):
-            let qResult: Array<(Double, Double)> = DB.qResult as! Array<(Double, Double)>
-            let temperatures : [Double] = qResult.map{
-                tuple in tuple.0
-            }
             
-            return String(temperatures[Int(value) % temperatures.count])+"°"
+            return String(value)+"°"
             
         default:
             

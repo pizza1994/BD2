@@ -110,7 +110,7 @@ class DB: NSObject
             query.append(["$gt" : setInterval[0], "$lt" : setInterval[1]], forKey: "n_sets")
             
         }
-        print(query)
+        //print(query)
         
         let queryMatchStage = AggregationPipeline.Stage.match(query)
         var queryGroupStage : AggregationPipeline.Stage? = nil
@@ -161,7 +161,7 @@ class DB: NSObject
             }
             
         }
-        print(qResult)
+        //print(qResult)
 
         
         
