@@ -48,6 +48,7 @@ class SensorHandler : NSObject, ESTTriggerManagerDelegate {
         accNotification = ESTTelemetryNotificationMotion { (moveInfo) in
             if (moveInfo.shortIdentifier == "eca7f68368e84571"){
                 self.accData.append(Double(moveInfo.accelerationX))
+                print(Double(moveInfo.accelerationX), Date().timeIntervalSince1970)
             }
         }
         

@@ -10,7 +10,7 @@ import UIKit
 
 class ExsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-     let exercises: [String] = ["Bench Press", "Inclined Bench Press", "Shoulder Press", "Squat", "Dumbell Curl", "French Press"]
+     let exercises: [String] = ["Bench Press", "Inclined Bench Press","Declined Bench Press", "Shoulder Press", "Squat", "One Leg Squat", "Deadlift", "Barbell Curl", "Dumbell Curl", "French Press", "Rows", "Bent Over Row"]
     
     let cellReuseIdentifier = "cell"
     @IBOutlet var tableView: UITableView!
